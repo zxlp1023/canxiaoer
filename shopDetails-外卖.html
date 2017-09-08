@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>店铺详情-外卖</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="lib/weui.min.css">
+  <link rel="stylesheet" href="css/jquery-weui.css">
+  <link rel="stylesheet" href="css/fonts/iconfont.css">
+  <link rel="stylesheet" href="css/canxiaoer.css">
+  <style>.scrollArea___3keOj {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 17px
+  }
+
+  .root___2yDa_ {
+    width: 100vw;
+    position: relative
+  }
+
+  .panel___3zpP_ {
+    width: 300vw;
+    transition-duration: .2s
+  }
+  .menu___1TByn {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px
+  }
+  .category___1sp8s,
+  .menu___1TByn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative
+  }
+
+  .category___1sp8s {
+    min-height: 100%;
+    width: 24vw;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    z-index: 1;
+    overflow: scroll;
+    background-color: #f7f7f7;
+    -webkit-overflow-scrolling: touch
+  }
+
+  .category___1sp8s .item___1Bw39.active___2-44L,
+  .spuCate___1lk61 {
+    background-color: #fff
+  }
+
+  .category___1sp8s::-webkit-scrollbar {
+    display: none
+  }
+
+  .category___1sp8s .item___1Bw39 {
+    position: relative
+  }
+
+  .category___1sp8s .item___1Bw39.active___2-44L:after {
+    content: "";
+    display: inline-block;
+    border-left: 4px solid #ffd300;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0;
+    height: 23px
+  }
+
+  @media (device-width:320px) and (device-height:480px) {
+    .category___1sp8s {
+      min-height: inherit;
+      display: list-item;
+      margin-bottom: 50px
+    }
+    .category___1sp8s .item___1Bw39 {
+      display: block
+    }
+  }
+  .spuListWrapper___2FAwk {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1;
+    flex: 1 1;
+    overflow: hidden;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+  }
+  .spuList___3BAJp {
+    width: 76vw;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1;
+    flex: 1 1;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch
+  }
+
+  .spuList___3BAJp::-webkit-scrollbar {
+    display: none
+  }
+
+  .spuList___3BAJp ul {
+    margin: 0;
+    padding: 0
+  }
+  .titleBar___HAmtN,
+  .topTitle___t3zSV {
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    width: 100%;
+    background-color: #f7f7f7;
+    padding-left: 10px;
+    color: #333
+  }
+
+  .topTitle___t3zSV {
+    position: absolute;
+    top: 0;
+    z-index: 2
+  }
+
+  .category___1sp8s .item___1Bw39.active___2-44L,
+  .spuCate___1lk61 {
+    background-color: #fff
+  }
+
+
+  .titleBar___HAmtN {
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+
+  .titleBar___HAmtN,
+  .topTitle___t3zSV {
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    width: 100%;
+    background-color: #f7f7f7;
+    padding-left: 10px;
+    color: #333
+  }
+
+
+  .spu___32cHZ {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 15px 15px 15px 0;
+    margin-left: 10px;
+    font-family: PingFangSC-Regular, Hiragino Sans GB, Arial, Helvetica, \\5B8B\4F53, sans-serif
+  }
+
+  .spu___32cHZ:not(:last-child) {
+    position: relative
+  }
+
+  .spu___32cHZ:not(:last-child):after {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: #e4e4e4;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom
+  }
+
+  .spu___32cHZ.highlight___2Rcg- {
+    background: #fffbef;
+    margin-left: 0;
+    padding-left: 10px
+  }
+
+  .spu___32cHZ.hasPromo___3Csb6 {
+    padding-bottom: 12px
+  }
+
+  .image___3MkHg {
+    display: inline-block;
+    border: none;
+    width: 62px;
+    height: 62px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    background-size: 100% 100%;
+    background-repeat: no-repeat
+  }
+
+
+  .info___86_4W {
+    margin-left: 10px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start
+  }
+
+  .info___86_4W>* {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+  }
+
+  .name___3qkVk {
+    white-space: nowrap;
+    max-width: 8em;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+    font-family: PingFangSC-Medium, Hiragino Sans GB, Arial, Helvetica, \\5B8B\4F53, sans-serif;
+    line-height: 16px;
+    margin-bottom: 5px
+  }
+
+  .desc___gQz6-,
+  .name___3qkVk {
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+
+  .desc___gQz6- {
+    margin-top: 2.5px;
+    margin-bottom: 5.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-height: 16px;
+    max-height: 32px;
+    font-size: 12px;
+    color: #666;
+    word-break: break-all
+  }
+
+  .sold___FRZ1z {
+    margin-top: 1.5px;
+    margin-bottom: 3.5px;
+    height: 16.5px;
+    line-height: 16.5px;
+    font-size: 12px;
+    color: #999;
+    position: relative;
+    width: 100%
+  }
+
+  .sold___FRZ1z>:first-child {
+    margin-right: 10px
+  }
+
+  .btnGroup___1UHQi {
+    font-size: 16px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+  }
+
+  .btn___2ZfFZ,
+  .root___5NYSW.on___10o7K .text___19UdR:after,
+  .text___19UdR {
+    display: inline-block
+  }
+
+  .btn___2ZfFZ {
+    width: 25px;
+    border: none
+  }
+
+  .count___jfH0I {
+    width: 2em;
+    text-align: center;
+    color: #333
+  }
+
+  .minus___1EWRq {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAMAAADypuvZAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABpUExURf////z8/OLk5v39/drc3/r6+/7+/tja3bCwsNnb3ufo6tvd4Orr7d7f4rm5uevs7vf4+OXn6ejp6/j4+d3e4fn5+uHi5fj5+fP09fT19t3f4eTm6O7v8fDx8unq7OPk5unp6fX19v39/iLnGKEAAAFgSURBVEjHnVbZksIgEIQE6AWCMYe5D/X/P3JT6m4ZoxGmH6dojmaOZmwLOU6zs1pbN0+jZB6okw4rdEn9hXKMlmWiH1oZMxbLdujFEoiOOxSZAdY06jmmGmOB7OMtEw2Rqm38mgro5C0ljqBz/n47nmtE8TZ+ciiLzzcvSrjTa/AiUPE9iXgFcXk5R8CofWGVgVidFTuY719o4J7fFaFS30mqQvSkNUruky28xL/yUuuCeaHQ+u+XM+TMEzmyR75BcF8SFzg+VEiZN9K7FjWs8iddLeqbdIYFwNwE7NCEkBp0i94QKoSkBCQb0bMg9BjZhCGMNGBiM9owUouZOcgwkoRjFqsyPh9+NjicV2UEyzRW+7zhLKzVEmgaiXQ9khAkyUmfS0ojUsKSSoNWhGHlru7lTmostBZGapa0tkwaALRRQxtqpPFJG9Q0S0AzHzs2R322OURDRbNuRJPoZ0d/AVnbGWGwtWeOAAAAAElFTkSuQmCC);
+    box-sizing: border-box
+  }
+
+  .plus___1Blxp {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABXUExURf/////ejMSjU//imf/99v/67kpEOP/RYTMzM//Vbf/nq//xz//TZf/++//qtf/SYv/TZ//Yd//jnv/vyP/SY//SZf/svv/lpP/chf/ejf/lpf/svUlEOE5t2bIAAAEdSURBVEjHnZbrkoMgDIVDRSNq6wUvVff9n3Ot7e5UjArn/FPmGwgJySHaSdtprE1RmHqcrKZLxb3q+Eud6uNzoGl5p7Y5hnRWsagqOzhfbvhQJpeIR8knKh874B7xhaK7Qzz5Us8tE7GHok0c7KWvePLSDyn/700b9pT5y0/G3so+VVL5I9W7dhpp7ZYkN+l/s27SSks/aZpI/9vXNrN4gnSRuNAviApD1HLDXRjSabIchrClIRQZDkI5QRTVoUhNxslgupOTU0PF5lsg3JwWCAIcDAg/+JLH8FROSMEAZQkUP/XhT0x+yMnZQwbaBdKUgNaHNFigjSPDAhlJyOADxisyxCGrgBgSxPas0Oyaqzm+tmTaDupt4dQgWbhfPp88E5+X+ZgAAAAASUVORK5CYII=)
+  }
+
+  .cpriceWrapper___3zGV- {
+    height: 25px
+  }
+
+  .cprice___952BQ {
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    color: #fb4e44;
+    font-size: 18px;
+    font-family: PingFang SC Medium, Hiragino Sans GB, Arial, Helvetica, \\5B8B\4F53, sans-serif
+  }
+
+  .cprice___952BQ.selloffPrice___nak-c,
+  .cprice___952BQ.selloffPrice___nak-c .skuprice___8IGlg {
+    color: #ccc
+  }
+
+
+  .cartContainer___3ih4b {
+    background: #fff
+  }
+  .noCart___2-TmM {
+    z-index: 2;
+    position: fixed;
+    overflow: visible;
+    zoom: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #000;
+    opacity: .9;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 16px
+  }
+
+  .noCart___2-TmM .through___3kJxF {
+    display: inline-block;
+    line-height: 34px;
+    font-size: 14px;
+    text-indent: 10px;
+    width: 55%;
+    color: #ddd
+  }
+
+  .noCart___2-TmM .btn___1QGAT {
+    display: inline-block;
+    width: 45%;
+    height: 34px;
+    line-height: 34px
+  }
+
+  .noCart___2-TmM .btn___1QGAT a {
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #ff7547;
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 0 10px
+  }
+
+  .noCart___2-TmM .main___1mLEx {
+    color: #fff;
+    font-size: 14px;
+    line-height: 22px
+  }
+
+  .noCart___2-TmM .sub___1EjVA {
+    color: #999;
+    font-size: 12px;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+  .cart___6AaZT {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #3b3b3c;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #999;
+    height: 50px
+  }
+
+  .cart___6AaZT .main___1mLEx {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+  }
+
+  .cart___6AaZT .text___XRjTh {
+    font-size: 14px
+  }
+
+  .cart___6AaZT .minFee___3RLWx {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 18px;
+    line-height: 50px
+  }
+
+  .cart___6AaZT .payableAmount___V4Yfu {
+    font-size: 24px;
+    color: #fff;
+    margin-right: 5px
+  }
+
+  .cart___6AaZT .totalAmount___1--AP {
+    text-decoration: line-through;
+    font-size: 12px
+  }
+
+  .cart___6AaZT .deliveryFee___2GHjM {
+    font-size: 11px
+  }
+
+  .cart___6AaZT .goToPreview___lgSoS {
+    color: #333;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    background: #f8c74e;
+    padding: 0 30px
+  }
+
+  .cart___6AaZT .icon___31f42 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    top: -10px;
+    margin: 0 10px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAFNUExURUdwTG9vb2dnZ2lpaWdnZ2tra3Z2dmZmZmdnZ2dnZ2dnZ2ZmZmdnZ2tra2ZmZmZmZmZmZmhoaGZmZmpqamZmZmhoaGZmZmdnZ2dnZ2dnZ21tbWhoaGdnZ2dnZ2ZmZmxsbHFxcWdnZ2dnZ2dnZ2hoaGdnZ2ZmZmlpaWdnZ2ZmZmdnZ2ZmZmlpaWZmZmZmZmZmZmZmZmZmZsTExGZmZnBwcKOjo7u7u3Fxcampqb6+vmxsbHp6eoyMjMLCwqurq2dnZ4iIiMHBwbCwsJycnJWVlYeHh6SkpMPDw7S0tLa2to+Pj62trZOTk3d3d7+/v5GRkcDAwIqKint7e6CgoJmZmYuLi4SEhG9vb21tbYGBgaamprq6umhoaKGhoXNzc6ysrKWlpYODg3V1dX9/f3h4eLGxsZiYmGpqaq6uroCAgLm5uW5uboKCgnl5eXJycgdN/ykAAAAydFJOUwAXTyK8Hw3534+Sm+4TBfwjWMgw0mzc7PH2HIWu2IcaEjlcnmDn5ifJjsbFPeDK6OUow2j4twAAA8lJREFUaN7Nmudb2zAQh0UTsgkQMoBAyASSAG19mWzKLAVK9957/v8fa4dABr6zZAnT3yfnsZ97Y0s63Z2OMU6lM/nUVDnqS3i9CV+0PJXKZ9JMpWayOR+YyJfLzqghzCWngdB0ck6WMBSbB0vNx4YkEJOBCeDSRGDSJmIk6AVueYMjNhAe/zAIadjvEWWMzoKwbo0KIQbdYEvuQX7GjRDYVOgGJyJcBAkVwzyMgQhIKTJgzXDFQVJxlxVjrADSKozRjIVxUKDxBfI9lDB0CvEurgIoUgEdl4E4KFMcmWPhCChUxHy9+EGpiqa+BBTLxMMMhlRDQpe9pRuUy31p/4ArUN/+4unZo/6ur2ltna5KQGY9xMxa1zrar0tQ/D0xQ+9+ftIF0R5IQIa7o4sgoG+iHcmMSrArvuqLfeqdMdG0bRmItxOPBZBHNg3IntQEC1zEolic+MOAvJOCTJxHsDHsiWMDciC3VmJtyBL2wDMDslXTOFR7s4xE4+3cAP0XrzUBHWyYGznLLJL4uzZFKB/MbSRbECLHuSsCQRzQdCtXI0btnghkFzFiZHxZAvJeBLKCGMnqkBwB2RaBINMLcjpkkYDsCDCamBGfnp9TK2m1Y6NRqTfwK113UCtplqEgTzsQfVup41e6qqiVDMtTkIcdiPETv9K1g1rJsxQFeSsA2UWtpNgUBfkmAFlBrUyxEulDt/ghy6iREouSkJ/ckCZuJMp8JOQLNwSfwfpCSZCQBjcEn8GQYHT95BE3ZIeIJiwgX7kX4y4FoT/XYZdbqTTwK2oG65+LHvhNaR/cGnh6Cn+S9sGtKVwmIce8EGIGQ5l2K/CLF0LMYN2tkA4SNiSjiLaDzAOn8yJ18pywkac3Ld6gaP8FZSNDb798QVHt5UfSRpoOJAD2DCubUiG3zyIkagdF96UgOYvgDuDIgDyWgmQtwlSAJzzjvvb9D2FixiLgBvjN6VUq+LGEVeoA8JlzMeLDlrRIgowlf8oHOUQttI9XyCOSlVc8g9JAPf28VWKqQjGrFFuBLlJstFigQAG07NGrSrVWq1bs3e0qe/QXcHqtNKmFQN/tLuD0l6J6VCW3PvpuTymKKte2CxI1O3f9RHlQFaSvPEgUOiU+1yh3ydb+wLsFis92p7BJ8dmRMjpjRbWM4vUdbThySMOY66YqRsF1vQdnzhwBOnOYyRw5lnXmgFlfL1LHdP7w/3Po71D7gs1GjFmxRgyHWkqcaY5xqM3nrGFpyRqxJNWw1NLtK2+9umgiM82RF5U1kXW3w5XO2+FKQu1w/wA2QxfdCVnBxwAAAABJRU5ErkJggg==) no-repeat;
+    background-size: contain;
+    -ms-flex-negative: 0;
+    flex-shrink: 0
+  }
+
+  .cart___6AaZT .icon___31f42.fill___3Yc2K {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAGnUExURUdwTP/SYv/TZP/TZv/SYv/TYf/Xa//SYf/RYf/SYv/RZP/RYf/WY///Zv/UY//SZP/SYf/SYf/SYf/VZf/RYf/SYf/SY//YYv/RYv/SYv/SYv/TYv/SYv/SYv/SYv/VY//YYv/TYf/SYv/SYv/SYv/SYf/SYv/RYv/SY//RYv/RZP/SYv/SYf/RYv/SYf/RYv/SYv/SZjMzM//RYenAXEdCN3tqQ+i/W0I+Nm5gQG1gQPHGXmpdPzg2NLeZUdSvV3xrQ+e+XLWXUKWLTV9VPW9hQP3PYJqCSnpqQ4t3RqyQTqKJTF9VPEdCOFNLOlJLOjo4Nf7QYTk4NK6ST0tFOPPHXmNYPTQzM1dOO1ZOO7KVUGdbPj88NTk3NGZaPsKhU8GhU8elVF5UPcWkVJuDStGtVr+fU2hcP+vBXcmnVT06NXdnQnZnQtmzWDw6Na2RTvXJX9iyWNeyWIFvRJ6GS0hDN0lEOPvNYDs5Ndu1Wa+TTue+W39tRJ2FS7eZUNSvWN+4Wol1RjU0NDc2M/DFXUA9NqOJTOrAXJN9SOO7W5J8SDQ0M+3DXbz/KR0AAAAydFJOUwDuFyOSmxP5348c/B8FWE/s8dIw9txsDcgivIWu2IcSGlw5nmDn5ieOyT3GxeDK5egoh3+J7QAAA95JREFUaN7NmnVb40AQxhdoaQoUp9SQGhQK3F2mLQ4HHHbu7u7u7v6hLymlRmeyyS7h3r/Ckz7zI9nZzRhjnOqJxLpDQ61Ks8vVrLQOhbpjkR4mU73hqAIVpETDvXII/cEuINQV7Bcl1HoHwFAD3loBRJ2jHbjU7qiziKhxuoBbLmeNBUSnux5Mqd7daZbR2Aemta3RFKIhAJYUaOBnNFWBRVU1cSI8CRBQwsPDqPaBkHzVxgx/Bwiqw2/EaIuDsOJtNGOwBSSoZZB8DikMjUI8iz8OkhRH16W6A6SpA/Exjw8kyld5v7hBqhIVzxKQrAonTEOVbEjVxtMyANIV2PD9gE1Q2fels+Qb9WZqWs3p5REBSF8n4VlTakF/5gQo7pKYofR7frsIop4WgNQXRxdOQJ9EfSqyKs6i+Kos9pkrrImqropAXIV4zIH8ZF6HrAg5mCMfi2Jx4iUdckMI0r4ewXqxX9zTIafE9oo3BxnBfnBThxxOqxx69nYSicZzuQH6X7w4ofLr5FJlI2uZRRB/1jETEPVCZRvBLITIcfabgexGsqRsrkas2nkzkBnEiJ7xhQnIHTOQWcRIWINECcgnMxDEvSCqQYYJyFUTjDHMiKLl59ROelCwMZ4ancCvNO1FrfSwCAW5XoCMAoziV5p2olYiLEZBrhUg+p/4laZl1EqMdVOQXyYgM6iVbhaiIA9NQGZRKyGWJM/Qg/yQSdRIkrWSkKPckDHcSCtTSMhlbsgu3IjCmknIIjcE92BoZnT95Ak3ZJmIJgwgP7k34wwFoV/XQh4ykUqN41eUB2uvi17498JncHbhaRe+JXwGZ114iIS84oUQHgxD9LECf3khhAdrxwp5QMKSYBSROyBjdAB4jo9x9ithI0Z/tAAOcDG+XKFsROjPL8AZDsS+ux9JGz10IAGwoluZFwq5FYOQCGBVh3wXgkQNgjuAdzrktxAkbBCmArzmWffp448JE70GATfART4X/vYDb0sYpQ4Ajzg34x7UQtAgCdJ06D4fZAG1kGuvkC2SD88/cyzK4jG0uWKUmMqQ1yjFlqB8io0WCyTIgZY9SpXKpNOZlLW7RWWP8gJOqZVsCjyWsnK3uIBTXooqUWbNgTJW7paUoqhyba4gkbZy102UB2VBysqDRKFT4HU1cpdsrS98wETx2aoLVyg+21JGZywhl5HYutaGLU0axvzbZTHi/q1tnNnTArSnmWlPW9aeBrO2X4TadG7P/9P0t2l8weIgRp+5QQybRkrsGY6xacxnbWBpxBgxIjSwlNWOTR+9yg+RVcyRh6UNkRWPwyXXx+GSpsbh/gH1Ph9ddLXfRwAAAABJRU5ErkJggg==);
+    background-size: contain
+  }
+
+  .cart___6AaZT .cartCornerMark___3KFJ4 {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 30px
+  }
+
+  .cart___6AaZT .cartCornerMark___3KFJ4.twoDigitals___2Uq0n {
+    width: 40px;
+    border-radius: 16px
+  }
+
+  .cart___6AaZT .cartCornerMark___3KFJ4.threeDigitals___antUr {
+    width: 50px;
+    border-radius: 16px
+  }
+  .cornerMark___3eh_R {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    background-color: #fb4e44;
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+    line-height: 24px;
+    -webkit-transform: scale(.5) translate(50%, -50%);
+    transform: scale(.5) translate(50%, -50%);
+    border-radius: 50%;
+    text-align: center
+  }
+
+  </style>
+</head>
+
+<body ontouchstart>
+
+
+<article id="app">
+  <article data-reactroot="" class="index___1MSoY" id="app-index">
+    <div class="scrollArea___3keOj" id="scrollArea">
+      <div class="backBar">
+        <a href="javascript:history.back()" class="back">
+          <i class="text-icon icon-shop-back"></i>
+        </a>
+        <p class="title">森林雨火锅</p>
+      </div>
+      <div class="main___30L6Y">
+        <div class="root___2yDa_">
+          <div class="panel___3zpP_" style="transform: translateX(0vw);">
+            <div class="menu___1TByn" style="height: auto;">
+              <nav class="category___1sp8s">
+                <a class="item___1Bw39 active___2-44L active">
+                  <div data-tag="cate" class="item___1GUhB on___-Yrjr"><img src="https://p1.meituan.net/xianfu/10ba72e043ef4eca806cafb1a90a22662048.png" class="icon___2dnky"><span class="content___3j3-g">热销</span>
+                    <!-- react-empty: 95 -->
+                  </div>
+                </a>
+                <a class="item___1Bw39">
+                  <div data-tag="cate" class="item___1GUhB"><span class="content___3j3-g">米饭请单点</span>
+                    <div class="cornerMark___3eh_R">4</div>
+                  </div>
+                </a>
+              </nav>
+              <div class="spuListWrapper___2FAwk">
+                <div class="topTitle___t3zSV" style="top: 0px; display: block;">热销</div>
+                <div class="spuList___3BAJp" id="spu-list-dhxu28d" data-lazyload-listened="88">
+                  <div name="cate-0" data-tag="scroll-anchor">
+                    <dl name="cate-0" data-tag="spu-category" class="spuCate___1lk61 active___2-44L">
+                      <dt data-tag="title" class="titleBar___HAmtN">热销</dt>
+                      <dd data-tag="spu" class="spu___32cHZ">
+                        <div class="image___3MkHg"><img src="img/upload/n-a1.jpg" alt="" class="image___3MkHg"></div>
+                        <div class="info___86_4W">
+                          <div class="name___3qkVk">老妈蹄花</div>
+                          <div class="desc___gQz6-">每份配油辣蘸碟一个</div>
+                          <div class="sold___FRZ1z"><span><!-- react-text: 153 -->月售<!-- /react-text --><!-- react-text: 154 -->1937<!-- /react-text --></span><span><!-- react-text: 156 -->赞<!-- /react-text --><!-- react-text: 157 -->74<!-- /react-text --></span>
+                            <div class="btnGroup___1UHQi btnGroup___3IWUj"><span class="clickLeftArea___1ttC2"><button class="minus___1EWRq btn___2ZfFZ"></button></span><span class="count___jfH0I">1</span><span class="clickRightArea___3oQmU"><button class="plus___1Blxp btn___2ZfFZ"></button></span></div>
+                          </div>
+                          <div data-tag="price" class="cpriceWrapper___3zGV-">
+                            <div class="cprice___952BQ"><span class="cpriceUnit___3TfWn">¥</span>
+                              <!-- react-text: 164 -->28
+                              <!-- /react-text -->
+                            </div>
+                          </div>
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div name="cate-1" data-tag="scroll-anchor">
+                    <dl name="cate-1" data-tag="spu-category" class="spuCate___1lk61">
+                      <dt data-tag="title" class="titleBar___HAmtN">米饭请单点</dt>
+                      <dd data-tag="spu" class="spu___32cHZ">
+                        <div class="image___3MkHg"><img src="img/upload/n-a1.jpg" alt="" class="image___3MkHg"></div>
+                        <div class="info___86_4W">
+                          <div class="name___3qkVk">蛋炒饭</div>
+                          <div class="desc___gQz6-">。</div>
+                          <div class="sold___FRZ1z"><span>月售595</span><span>赞24</span>
+                            <div class="btnGroup___1UHQi btnGroup___3IWUj"><span class="clickLeftArea___1ttC2"><button class="minus___1EWRq btn___2ZfFZ"></button></span><span class="count___jfH0I">1</span><span class="clickRightArea___3oQmU"><button class="plus___1Blxp btn___2ZfFZ"></button></span></div>
+                          </div>
+                          <div data-tag="price" class="cpriceWrapper___3zGV-">
+                            <div class="cprice___952BQ"><span class="cpriceUnit___3TfWn">¥</span>12</div>
+                          </div>
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="root___3j5Xh"></div>
+            <div class="root___PxWCR"></div>
+          </div>
+          <div class="root___25pp-">
+            <div class="content___1zIv4"><i class="icon___3hLdM"></i><span class="text___32IzH">加载中...</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cartContainer___3ih4b">
+      <div></div>
+      <div class="cart___6AaZT">
+        <div class="icon___31f42 fill___3Yc2K">
+          <div class="cartCornerMark___3KFJ4 cornerMark___3eh_R">5</div>
+        </div>
+        <div class="main___1mLEx">
+          <div class="price"><span class="payableAmount___V4Yfu">¥58</span></div><span class="deliveryFee___2GHjM"><!-- react-text: 1806 -->另需配送费<!-- /react-text --><!-- react-text: 1807 -->¥2.5<!-- /react-text --></span></div>
+        <div class="goToPreview___lgSoS">去结算</div>
+      </div>
+    </div>
+    <div style="opacity: 0;"></div>
+    <!-- react-empty: 1827 -->
+    <!-- react-empty: 1818 -->
+  </article>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+</script>
+<script src="js/jquery-weui.js"></script>
+
+</body>
+
+</html>

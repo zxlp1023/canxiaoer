@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>全部订单</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="../lib/weui.min.css">
+  <link rel="stylesheet" href="../css/jquery-weui.css">
+  <link rel="stylesheet" href="../css/fonts/iconfont.css">
+  <link rel="stylesheet" href="../css/member.css">
+</head>
+
+<body ontouchstart>
+  <div class="order">
+    <div class="backBar">
+      <a href="javascript:history.back()" class="back">
+        <i class="text-icon icon-shop-back"></i>
+      </a>
+      <p class="title">全部订单</p>
+    </div>
+    <div class="weui-tab">
+      <div class="weui-navbar">
+        <a class="weui-navbar__item weui-bar__item--on" href="#tab1">
+          全部
+        </a>
+        <a class="weui-navbar__item" href="#tab2">
+          订座
+        </a>
+        <a class="weui-navbar__item" href="#tab3">
+          外卖
+        </a>
+      </div>
+      <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+          <ul class="my-order-list">
+            <li>
+              <div class="title">
+                <i class="icon-mark icon-mark-taocan"></i>
+                <p><a href="">森林雨火锅</a></p>
+                <span>等待付款</span>
+              </div>
+              <dl>
+                <dt><img src="../img/upload/n-a1.jpg" alt=""></dt>
+                <dd>
+                  <div>时间：2017-03-17 13:50</div>
+                  <div>人数：4人 1桌  |  大厅 </div>
+                </dd>
+                <dd class="orange">套餐</dd>
+              </dl>
+              <div class="total-price">合计<span>84.5</span></div>
+              <div class="opration">
+                <a href="javascript:;" class="weui-btn weui-btn_plain-default">取消订单</a>
+                <a href="javascript:;" class="weui-btn weui-btn_plain-orange">去付款</a>
+              </div>
+            </li>
+            <li>
+              <div class="title">
+                <i class="icon-mark icon-mark-yuding"></i>
+                <p><a href="">森林雨火锅</a></p>
+                <span>待使用</span>
+              </div>
+              <dl>
+                <dt><img src="../img/upload/n-a1.jpg" alt=""></dt>
+                <dd>
+                  <div>时间：2017-03-17 13:50</div>
+                  <div>人数：4人 1桌  |  大厅 </div>
+                </dd>
+                <dd class="orange">仅定座</dd>
+              </dl>
+              <div class="opration">
+                <a href="javascript:;" class="weui-btn weui-btn_plain-default">取消订单</a>
+              </div>
+            </li>
+            <li>
+              <div class="title">
+                <i class="icon-mark icon-mark-yuding"></i>
+                <p><a href="">森林雨火锅</a></p>
+                <span>待评价</span>
+              </div>
+              <dl>
+                <dt><img src="../img/upload/n-a1.jpg" alt=""></dt>
+                <dd>
+                  <div>时间：2017-03-17 13:50</div>
+                  <div>人数：4人 1桌  |  大厅 </div>
+                </dd>
+                <dd class="orange">已点菜</dd>
+              </dl>
+              <div class="total-price">合计<span>84.5</span></div>
+              <div class="opration">
+                <a href="javascript:;" class="weui-btn weui-btn_plain-default">删除订单</a>
+                <a href="javascript:;" class="weui-btn weui-btn_plain-orange">去评价</a>
+              </div>
+            </li>
+          </ul>
+        </div>  <!--/tab1-->
+        <div id="tab2" class="weui-tab__bd-item">
+          <ul class="my-order-list">
+            <li>
+              <div class="title">
+                <i class="icon-mark icon-mark-taocan"></i>
+                <p><a href="">森林雨火锅</a></p>
+                <span>等待付款</span>
+              </div>
+              <dl>
+                <dt><img src="../img/upload/n-a1.jpg" alt=""></dt>
+                <dd>
+                  <div>时间：2017-03-17 13:50</div>
+                  <div>人数：4人 1桌  |  大厅 </div>
+                </dd>
+                <dd class="orange">套餐</dd>
+              </dl>
+              <div class="total-price">合计<span>84.5</span></div>
+              <div class="opration">
+                <a href="javascript:;" class="weui-btn weui-btn_plain-default">取消订单</a>
+                <a href="javascript:;" class="weui-btn weui-btn_plain-orange">去付款</a>
+              </div>
+            </li>
+          </ul>
+        </div><!--/tab2-->
+        <div id="tab3" class="weui-tab__bd-item">
+          <ul class="my-order-list">
+            <li>
+              <div class="title">
+                <i class="icon-shop icon-shop-waimai"></i>
+                <p><a href="">森林雨火锅</a></p>
+                <span>等待付款</span>
+              </div>
+              <dl>
+                <dt><img src="../img/upload/n-a1.jpg" alt=""></dt>
+                <dd>
+                  <div>下单时间：2017-03-17 13:50</div>
+                  <div>联系方式：陈先生 13402918193</div>
+                </dd>
+                <dd class="orange">套餐</dd>
+              </dl>
+              <div class="total-price">合计<span>84.5</span></div>
+              <div class="opration">
+                <a href="javascript:;" class="weui-btn weui-btn_plain-default">取消订单</a>
+                <a href="javascript:;" class="weui-btn weui-btn_plain-orange">去付款</a>
+              </div>
+            </li>
+          </ul>
+        </div><!--/tab3-->
+      </div>
+    </div>
+  </div>
+
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+
+</html>

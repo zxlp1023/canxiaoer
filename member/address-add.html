@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>添加地址</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="../lib/weui.min.css">
+  <link rel="stylesheet" href="../css/jquery-weui.css">
+  <link rel="stylesheet" href="../css/fonts/iconfont.css">
+  <link rel="stylesheet" href="../css/member.css">
+</head>
+
+<body ontouchstart>
+  <div class="backBar">
+    <a href="javascript:history.back()" class="back">
+      <i class="text-icon icon-shop-back"></i>
+    </a>
+    <p class="title">添加地址</p>
+  </div>
+  <div class="addr-add">
+    <div class="title bghuif7 p075 lh2">联系方式</div>
+    <div class="weui-cells weui-cells_form mt0">
+      <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">联系人</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text"  placeholder="您的姓名">
+        </div>
+      </div>
+      <div class="weui-cell weui-cells_radio mt0">
+          <div class="weui-cell__hd"><label class="weui-label"></label></div>
+          <label class="weui-check__label" for="x11">
+            <div class="weui-cell__ft">
+              <input type="radio" name="radio1" class="weui-check" id="x11" checked="checked">
+              <span class="weui-icon-checked"></span>
+            </div>
+            先生
+          </label>
+          <label class="weui-check__label" for="x12">
+            <div class="weui-cell__ft">
+              <input type="radio" class="weui-check" name="radio1" id="x12">
+              <span class="weui-icon-checked"></span>
+            </div>
+            女士
+          </label>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">联系电话</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="tel" placeholder="您的手机号码">
+        </div>
+      </div>
+    </div>
+    <div class="title bghuif7 p075 lh2">收货/服务地址</div>
+    <div class="weui-cells weui-cells_form mt0">
+      <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label w120">小区/大厦/学校</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input icon-member-addr-add"   placeholder="详细地址">
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label w120">楼号/门牌号</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input"  placeholder="例如：17栋28号">
+        </div>
+      </div>
+    </div>
+    <div>
+      <a href="" class="weui-btn weui-btn_orange">确认添加</a>
+    </div>
+  </div>
+
+
+
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>支付订单</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="lib/weui.min.css">
+  <link rel="stylesheet" href="css/jquery-weui.css">
+  <link rel="stylesheet" href="css/fonts/iconfont.css">
+  <link rel="stylesheet" href="css/canxiaoer.css">
+
+</head>
+
+<body ontouchstart>
+  <div class="backBar">
+    <a href="javascript:history.back()" class="back">
+      <i class="text-icon icon-shop-back"></i>
+    </a>
+    <p class="title">支付订单</p>
+  </div>
+
+  <div class="my-balance">
+    <div class="border-t10 ">
+      <label for="weuiAgree" class="weui-agree">
+      <span class="weui-agree__text">
+        我的余额: <span class="red">1000</span>
+      </span>
+        <input id="weuiAgree" type="checkbox" checked  class="weui-agree__checkbox">
+      </label>
+    </div>
+
+    <div class="border-t10 ">
+      <div class="weui-cells weui-cells_radio">
+        <label class="weui-cell weui-check__label" for="x11">
+          <div class="weui-cell__bd">
+            <div class="weui-media-box weui-media-box_appmsg">
+              <div class="weui-media-box__hd">
+                <i class="icon-shop icon-shop-wechat"></i>
+              </div>
+              <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">微信支付</h4>
+                <p class="weui-media-box__desc">推荐安装微信5.0及以上版本的使用</p>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cell__ft">
+            <input type="radio" name="radio1" class="weui-check" id="x11" checked="checked">
+            <span class="weui-icon-checked"></span>
+          </div>
+        </label>
+
+        <label class="weui-cell weui-check__label" for="x12">
+          <div class="weui-cell__bd">
+            <div class="weui-media-box weui-media-box_appmsg">
+              <div class="weui-media-box__hd">
+                <i class="icon-shop icon-shop-alipay"></i>
+              </div>
+              <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">支付宝支付</h4>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cell__ft">
+            <input type="radio" class="weui-check" name="radio1" id="x12">
+            <span class="weui-icon-checked"></span>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="p075">
+      <a href="javascript:;" class="weui-btn weui-btn_pay">去付款</a>
+    </div>
+  </div>
+
+
+
+
+
+
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+</script>
+<script src="js/jquery-weui.js"></script>
+
+</body>
+
+</html>

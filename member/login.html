@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>登陆</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="../lib/weui.min.css">
+  <link rel="stylesheet" href="../css/jquery-weui.css">
+  <link rel="stylesheet" href="../css/fonts/iconfont.css">
+  <link rel="stylesheet" href="../css/member.css">
+</head>
+
+<body ontouchstart id="bgfff">
+<!--登录-->
+  <div class="login">
+    <div class="backBar">
+      <a href="javascript:history.back()" class="back">
+      </a>
+      <p class="ml0">登录</p>
+      <a href="" class="regLogin">注册</a>
+    </div>
+    <div class="weui-grids">
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="../img/icon/icon-qq.png" alt="">
+        </div>
+        <p class="weui-grid__label">QQ</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="../img/icon/icon-wechat.png" alt="">
+        </div>
+        <p class="weui-grid__label">微信</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="../img/icon/icon-sina.png" alt="">
+        </div>
+        <p class="weui-grid__label">新浪微博</p>
+      </a>
+    </div>
+    <form action="">
+      <div class="weui-cells weui-cells_form">
+        <div class=" text-center hui94 fz12 mt10">使用手机登录</div>
+        <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__bd">
+            <input name="tel" class="weui-input" type="number" pattern="[0-9]*"  placeholder="手机号">
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input name="psw" class="weui-input" type="password" placeholder="登录密码">
+          </div>
+        </div>
+        <div class="mt10">
+          <a class="fz12 orange " href="">手机短信登录</a> <a class="fz12 hui94 fr" href="">忘记密码</a>
+        </div>
+        <div class="mt15">
+          <a href="javascript:;" class="weui-btn weui-btn_pay" onclick="checkUser()">登录</a>
+        </div>
+      </div>
+      </form>
+  </div>  <!--/login-->
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+</script>
+<script src="../js/jquery-weui.js"></script>
+<script>
+function checkUser() {
+    var tel = $('input[name = "tel"]').val(),
+        psw = $('input[name = "psw"]').val,
+        regTel = /^\d{11}$/,
+        regPsw = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+   /* if(!tel || !regTel.test(tel)){
+        alert(1);
+
+    } */
+    if(!psw ){
+        alert(2);
+    }
+}
+
+</script>
+
+</body>
+
+</html>

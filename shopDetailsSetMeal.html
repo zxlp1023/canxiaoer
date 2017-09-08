@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>店铺详情-套餐</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="lib/weui.min.css">
+  <link rel="stylesheet" href="css/jquery-weui.css">
+  <link rel="stylesheet" href="css/fonts/iconfont.css">
+  <link rel="stylesheet" href="css/canxiaoer.css">
+
+</head>
+
+<body ontouchstart>
+  <div class="shopDetails">
+    <div class="backBar">
+      <a href="javascript:history.back()" class="back">
+        <i class="text-icon icon-shop-back"></i>
+      </a>
+      <p class="title">森林雨火锅</p>
+    </div>
+
+    <div class="head-img">
+      <img src="img/upload/n_banner1.jpg" alt="">
+      <dl>
+        <dt>森林雨火锅(复城国际店)</dt>
+        <dd>欢聚一堂四人套餐</dd>
+      </dl>
+    </div>
+    <div class="info">
+      <div class="col-buy">
+        <div class="price">
+          <span class="yellow">199</span>
+          <span class="hui94 fz12">门市价:<i>¥399</i></span>
+        </div>
+        <a href="javascript:;" class="weui-btn weui-btn_orange">立即购买</a>
+      </div>
+      <div class="addr">
+        <h6>
+          <a href="#">
+            <i class="icon-shop icon-shop-addr"></i>
+            <div class="address">锦江区锦华路三段181号（琉璃立交南）</div>
+          </a>
+        </h6>
+        <p>
+          <a href="tel:18628056907">
+            <i class="icon-shop icon-shop-tel"></i>
+          </a>
+        </p>
+      </div>
+    </div>  <!--/shopInfo-->
+    <div class="border-t10 taocan">
+      <p class="title-taocan">套餐</p>
+      <dl>
+        <dt>荤菜</dt>
+        <dd>
+          <span>美好火腿肠</span><span>1</span><span>10</span>
+        </dd>
+        <dd>
+          <span>美好火腿肠</span><span>1</span><span>10</span>
+        </dd>
+        <dd>
+          <span>美好火腿肠</span><span>1</span><span>10</span>
+        </dd>
+        <dd>
+          <span>美好火腿肠</span><span>1</span><span>10</span>
+        </dd>
+        <dd>
+          <span>美好火腿肠</span><span>1</span><span>10</span>
+        </dd>
+        <dd>
+          <span>美好火腿肠</span><span>1</span><span>10</span>
+        </dd>
+      </dl>
+    </div>
+  </div> <!--/shopDetails-->
+
+
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+</script>
+<script src="js/jquery-weui.js"></script>
+<script src="src/js/canxiaoer.js"></script>
+<script src="src/js/shopDetails.js"></script>
+<script>
+      // 店铺详情
+      var id = location.search.slice(4); //获取套餐ID
+
+
+      var SetMealUrl = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesSetDishesByDishesSetID?Key=CanXiao2App&SetDishesID='+id;  //套餐内菜品列表
+
+      GetData(SetMealUrl, {}, function (json) {
+          if (json.IsResult)
+          {
+              $.each(json.Data, function (i,item)
+              {
+
+                //获取套餐内菜品列表
+
+
+              });
+          }
+      });
+
+
+</script>
+
+</body>
+
+</html>

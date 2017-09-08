@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>选择位置</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content=" ">
+
+<link rel="stylesheet" href="lib/weui.min.css">
+<link rel="stylesheet" href="css/jquery-weui.css">
+<link rel="stylesheet" href="css/fonts/iconfont.css">
+<link rel="stylesheet" href="css/canxiaoer.css">
+
+</head>
+
+<body ontouchstart>
+  <div class="backBar">
+    <a href="javascript:history.back()" class="back">
+      <i class="text-icon icon-shop-back"></i>
+    </a>
+    <p class="title">选择位置</p>
+  </div>
+  <div class="city">
+    <div class="title">当前城市:成都 <a href="">更换</a></div>
+  </div>
+
+
+
+
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/fastclick.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="js/jquery-weui.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+    $(".swiper-container").swiper({
+        loop: true,
+        autoplay: 3000
+    });
+</script>
+<script>
+      $hd_a = $('.nav .navbar a');
+      $bd_s = $('.nav .bd section');
+
+      $tab_hd_a = $('.nav .tab .tab-hd a');
+      $tab_bd_ul = $('.nav .tab .tab-bd ul');
+      //  头部菜单
+      $hd_a.on('click', function() {
+          $('.nav .nav-container').addClass('active');
+          $('.nav .nav-bg').show();
+          $(this).addClass('on').siblings().removeClass('on');
+          $('.nav .bd').show();
+          var index = $hd_a.index(this);
+          $bd_s.eq(index).show().siblings().hide();
+      });
+
+      $tab_hd_a.first().addClass('on');
+      $tab_bd_ul.first().show();
+      $tab_hd_a.on('click',function(){
+          $(this).addClass('on').siblings().removeClass('on');
+          var index  = $tab_hd_a.index(this);
+          $tab_bd_ul.eq(index).show().siblings().hide();
+      });
+      // 内容筛选
+      $('.dropList li:first-of-type').addClass('on');
+      $('.dropList li').on('click', function() {
+          $(this).addClass('on').siblings().removeClass('on');
+      });
+
+      $('.scroller .dropList li').on('click',function () {
+          $(this).parent().addClass('active').siblings().addClass('active');
+          //alert(1)
+      });
+      //获取选中得值
+      //        全部
+      $('.nav .bd section:first a ').on('click',function () {
+          var $a1 =      $(this).children().first().text();
+          $('.nav .navbar  a:first').html($a1);
+          //关闭内容区域
+          $('.nav .nav-container').removeClass('active');
+          $('.nav .nav-bg').hide();
+          $('.nav .bd').hide();
+      });
+      //        附近
+      $('.nav .subRegion a ').on('click',function () {
+          var $a2 =      $(this).children().first().text();
+//            var $a2 =      $(this).children().first().text();
+          $('.nav .navbar  a:nth-child(2)').html($a2);
+          //关闭内容区域
+          $('.nav .nav-container').removeClass('active');
+          $('.nav .nav-bg').hide();
+          $('.nav .bd').hide();
+      });
+      //        智能排序
+      $('.nav .bd section:last-child a ').on('click',function () {
+          var $a3 =      $(this).text();
+          $('.nav .navbar  a:last-child').html($a3);
+          //关闭内容区域
+          $('.nav .nav-container').removeClass('active');
+          $('.nav .nav-bg').hide();
+          $('.nav .bd').hide();
+      });
+
+      //关闭列表
+
+  </script>
+</body>
+
+</html>

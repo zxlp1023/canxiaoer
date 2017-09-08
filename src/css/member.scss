@@ -1,0 +1,328 @@
+@import "css/public";
+
+body{}
+.icon-member{display: inline-block; width: 30px; height: 30px;  vertical-align: middle;
+  background: url("../../img/icon/icon-member.png")0 0 /60px auto no-repeat;}
+.icon-member-myOrder{ background-position: 0 -29px;}
+.icon-member-myAddr{ background-position: 0 -59px;}
+.icon-member-friend{ background-position: 0 -89px;}
+.icon-member-service{ background-position: 0 -118px;}
+.icon-member-idea{ background-position: 0 -149px;}
+.icon-member-about{ background-position: 0 -179px;}
+.icon-member-waimaiAddr{background-position: -5px -212px; width: 25px;}
+.icon-member-addr-add{ background: url("../../img/icon/icon-addr-add.png") 0 2px /14px auto no-repeat; padding-left: 20px; }
+.icon-member-edit{ background-position: 0 -240px;}
+.icon-member-addr-btn{ background-position: 0 -270px;}
+.icon-member-add{ background-position: 0 -302px;}
+.icon-member-consult{ background-position: -30px -270px;}
+.icon-member-tel{ background-position: -30px -300px;}
+
+
+//会员中心
+.my-account{
+  header{
+    overflow: auto; color: $fff; padding: 1.4rem 0 .85rem;
+    background: url("../../img/icon/vip-bg.png") center 0 /cover $orange;
+    .my-logo{
+      width: 3.2rem; height: 3.2rem; overflow: hidden; border-radius: 50%; border:5px solid rgba(255,255,255,.31);
+      margin: 0 auto 0;
+      img{ width: 100%;}
+    }
+    .name{ font-size:$fz85;}
+    p:last-child{ font-size: $fz65; display: inline-block; padding: .1rem .8rem; height: 1rem;line-height: 1rem;  margin: 0 auto; background: $yellow; border-radius: .7rem; }
+  }
+  .talk{ position: absolute; right: $fz75 ;}
+  .talk a{ display: block;}
+
+  //余额 优惠券 收藏
+  .weui-grids{
+    background: $fff;
+    .weui-grid{margin: .5rem 0; padding: 0;}
+    .weui-grid:after{border:0;}
+    p:first-child{
+      font-size: $fz75; color: $hui94;
+      span{ font-size: $fz6; margin-left: 3px;}
+    }
+    p:last-child{ color: $hui3b;}
+  }
+}
+
+//我的订单
+.my-order{ color: $hui94; background: $fff;  padding-bottom: 3rem;
+  .weui-grids{
+    .weui-grid{ width: 25%; padding: 10px;
+      .iconfont{ font-size:.9rem; color: $hui94;}
+      .weui-grid__label{ font-size: $fz6; color: $hui94;}
+    }
+    .weui-grid:before,.weui-grid:after{border:0;}
+
+    &:before{ border: 0;}
+  }
+
+}
+
+
+//登录
+.login{ /*height: 100vh;*/ background: $fff;
+  //input[type = 'text'],input[type = 'password']{ height: .9rem; background: $huif7;}
+  //font-size: $fz7;
+  input{ height: 1.75rem; background: $huif7; border-radius: .9rem; text-indent:1rem ; letter-spacing: 2px; font-size: $fz7;}
+  .weui-cells{margin: 0; padding: 0 $fz75;}
+  .weui-cells:before,.weui-cells:after{border: 0;}
+  .weui-cell{margin: 1rem 0 0; padding: 0;  }
+  .weui-btn_pay{ margin-top: 0; flex: 1;}
+  .weui-cell:before,.weui-cell:after{ border:0;}
+  .weui-cell_vcode{
+    .weui-cell__ft{
+      //width: 25%;
+      .weui-vcode-btn{display: inline-block; border-left: 0; height: 1.7rem; line-height: 1.7rem;font-size: $fz7; border-radius: .9rem; border:1px solid $orange; color: $orange; padding: 0 1.2rem; }
+    }
+  }
+
+  //第三方登录
+  .weui-grids{
+    width: 60%; margin: 0 auto; padding: $fz5 0 0;
+    &:before,&:after{ border:0;}
+    .weui-grid{
+      &:before,&:after{ border:0;}
+    }
+  }
+  .weui-grid__icon{
+    width: 44px; height: 44px;
+  }
+  .weui-grid__label{
+    color: $hui94; font-size: $fz6;
+  }
+
+
+}
+
+//个人信息
+.member-info{ width: 2.5rem; height: 2.5rem; border-radius: 50%; overflow: hidden;}
+.member-info img{width: 100%;}
+
+//全部订单
+.order{
+  .weui-tab{
+    .weui-navbar{ background: $fff;  padding-bottom: .3rem; height: 1.9rem; line-height: normal;
+      .weui-navbar__item{
+       /* padding: 10px 0 5px;*/ margin: 0 7%; font-size: $fz7;
+        &:after{border:0;}
+      }
+      .weui-navbar__item.weui-bar__item--on{ background: $fff; color: $orange; border-bottom: 3px solid $orange}
+    }
+    .weui-navbar + .weui-tab__bd{ padding: 2.2rem 0 0;}
+  }
+}
+.my-order-list{
+  li{  background: $fff; padding: 0 $fz75; margin-top: $fz5; }
+  .title{ display: flex; height: 1.75rem; font-size: $fz6; align-items: center;
+    p{flex: 1;}
+    p a{ color: $hui94; display: block;}
+    span{ float: right; display: inline-block; color: #fe823e;}
+  }
+  dl{display: flex; align-items: center; margin:0 -.75rem; padding: $fz5 $fz75;   border:1px solid $huie4; border-left: 0;border-right: 0;
+    dt{ margin: 0 $fz5 0 0; line-height: normal;
+      img{ width: 2.75rem; height: 2.75rem; border-radius: 5px;}
+    }
+    dd{ font-size: $fz7;
+      &:first-of-type{ flex: 1;}
+      &:last-of-type{ font-size: $fz75;}
+    }
+  }
+  .total-price{ text-align: right; font-size: $fz6; color: $hui94; padding:$fz5 0 0;
+    span{ font-size: $fz75; color: $red; padding: 0  0 0 5px; display: inline-block;
+      &:before{content: '¥'}
+    }
+  }
+
+}
+
+
+.opration{ text-align: right; line-height:normal;
+  .weui-btn{ display: inline-block; height: 1.3rem; line-height: 1.3rem; border-radius: 1.3rem; font-size: $fz65; margin:10px 0 10px $fz5; }
+  .weui-btn_plain-default{border:1px solid #d8d8d8;}
+  .weui-btn_plain-orange:after{border:0;}
+}
+.pos-f{ width: 100%; box-sizing: border-box; bottom: 0; background: $fff; line-height: normal;}
+.pos-f .opration{  }
+
+.my-order-details{ padding-bottom: 3rem;}
+
+.weui-uploader__input-box{
+  border-radius: 5px; border:1px solid $huie4;
+  background: url("../../img/icon/camera.png") center center / 45% no-repeat;
+  &:before{ width: 0; height: 0;}
+  &:after{ width: 0; height: 0; }
+}
+
+// 好评 中评 差评
+.yeorno{ display: flex; text-align: center;
+  li{ flex: 1;}
+}
+
+.rating{ font-size: $fz7;
+  .title{display: flex; align-items: center;
+    p{flex: 1; font-size: $fz75;}
+  }
+  .items{
+      .item{ display: flex;
+      span{}
+      ul{ flex: 1; height:20px; background: url("../../img/icon/starList.png") right -178px / 115px auto no-repeat;}
+    }
+  }
+}
+
+.comm-btn{ width: 33%; height: 1.75rem; line-height: 1.75rem; margin-top: 1rem;}
+
+
+//收货地址
+.addr-add{ font-size: $fz7;
+  .title{ height: 1.5rem; line-height: 1.5rem;}
+  .weui-label{ width: 4rem;}
+  .weui-check__label{ display: inline-flex; align-items: center;}
+  .weui-check__label:last-of-type{ margin-left: 2.5rem;}
+  .weui-cell:before{ left: 0;}
+  .weui-cells{ font-size: $fz7;}
+  .weui-cells .weui-cell .weui-check:checked + .weui-icon-checked:before{ content: '\EA06'; font-size: 1rem; padding-right: 3px; color: $orange;}
+  .weui-cells .weui-cell .weui-check:not(:checked) + .weui-icon-checked:before{content: '\EA06'; font-size: 1rem; padding-right: 3px; color: #bebebe;}
+
+  .weui-btn_orange{ width: 80%; margin-top: 1rem; height: 1.75rem; line-height: 1.75rem; font-size: $fz75;}
+}
+
+//收货地址管理
+.addr-manage{ padding-bottom: 2.3rem;
+  dl{ background: $fff;  padding: $fz3 0; margin-bottom: .5rem ;
+    a{display: flex; align-items: center;
+      dt{flex: 1; padding-right: 10px;
+        span,p{ color: $hui94;}
+      }
+      dd{}
+    }
+  }
+  .btn-add{position: fixed; bottom: 0; width: 100%; background: $fff;
+    button{ height: 2.3rem; color: $orange; font-size: $fz7;
+    i{ margin-right: 5px;}
+    }
+  }
+}
+
+//我的银行卡
+.cards{
+  dl{ display: flex; height: 4.3rem; margin-top: $fz75; background: $orange; border-radius: 5px; color: #fff;
+    dt{ width: 2.25rem; margin: .5rem .6rem 0 1rem;
+      img{ width: 100%;}
+    }
+    dd{flex: 1; margin: .6rem 0 0 0;
+      .num{ font-size: $fz9;}
+    }
+  }
+}
+
+
+//提现
+.withdraw{ font-size:$fz7; margin-top: 15px;
+  .hd{ height: 2.2rem; line-height: 2.2rem; text-indent: .8rem; background: #f1f1f1; border-radius: 5px 5px 0 0 ;
+    span{ color: #2c3566; margin-left: 1rem;}
+  }
+  .bd{
+    background: #fff; padding: .8rem .8rem 0; border-radius: 0 0 5px 5px;
+    input{ font-size: 1.2rem; padding: $fz3 0;}
+    .balance{ padding: $fz3 0;}
+  }
+  .weui-btn_pay{ background: #fad5a0; height: 1.75rem; line-height: 1.75rem; margin-top: 1rem;}
+  .weui-btn_pay:after{ border:0;}
+}
+
+//我的消息
+.message{
+  .weui-media-box{ padding: $fz5 1rem;}
+  .weui-media-box:before{ left: 0;}
+  .weui-media-box_appmsg .weui-media-box__hd{ width: 2.5rem; height: 2.5rem; margin-right: $fz3;}
+  .weui-media-box__title{ font-size: $fz7;}
+  .weui-media-box__desc{ font-size: $fz6; color: $hui94; line-height: normal;}
+
+}
+
+//邀请好友 分享
+.share{
+  width: 80%;margin:1.5rem auto ; text-align: center;
+  .fz14{
+    span{ color: $orange; padding: 0 5px;}
+  }
+  .line-center{ padding: 1rem 5% 0;}
+  strong{ font-size: 1rem; padding: .75rem 0; display: block; }
+  .weui-btn{ width: 50%;font-size: $fz8;}
+}
+.share+.border-t10{border-top: .75rem solid $huif7;
+  .line-center{ margin: 1.5rem 0 .5rem;}
+  .weui-grids:after, .weui-grids:before{border:0;}
+  .weui-grid{ width: 25%;
+    &:before,&:after{border:0;}
+    .weui-grid__icon{ width: 55px; height: auto; }
+    .weui-grid__icon img{ height: auto;}
+    .weui-grid__label{ color: $hui94;}
+  }
+}
+
+//优惠券
+.coupan{
+  color: $orange;
+  //渐变背景 邮票边
+  .item{ margin-top: $fz5;
+    .hd{position: relative; height: 4px; background: url("../../img/icon/coupan-bg.png") repeat-x 0 0;
+    }
+  }
+  dl{ position: relative; display: flex; padding: $fz5 1rem $fz5; border-bottom: 4px solid $orange; border-radius: 0 0 5px 5px;  border-left: 1px solid $huie4; border-right: 1px solid $huie4;  box-sizing: border-box;
+
+    dt{ flex: 1; font-size:.85rem;
+      p { font-size: $fz6;}
+      .hui94{font-size: $fz7; color: $hui94; margin-top: $fz5;}
+    }
+    dd{ font-size: 2rem; line-height: 1.1;
+      &:before{ content: '¥'; font-size: 1.1rem;}
+    }
+  }
+  .overjue{ color: $hui94;
+    dl{border-bottom: 4px solid #c6c6c6;}
+    dl dd{ background: url("../../img/icon/overjue-bg.png") 0 bottom /58px auto no-repeat}
+  }
+}
+
+//余额
+.balance{ font-size: $fz7; padding: 3.2rem $fz75 0 ;
+  img:first-child{ width: 5.2rem;}
+  p{ font-size:  1.2rem;
+    &:before{content: '¥'; font-size: 1rem; }
+  }
+  .weui-btn{ height: 1.75rem; line-height: 1.75rem;}
+  .weui-btn:first-of-type{ margin-top: 3.2rem;}
+  .weui-btn:last-of-type{ background: $fff; color: $orange;}
+}
+
+//在线客服
+.service{
+  .weui-grids{ background: $fff;
+    .weui-grid{ width: 50%; text-align: center; font-size: $fz7; line-height: 2;}
+    .weui-grid:last-of-type .weui-grid__label{ color: $hui94;}
+  }
+
+  .question{
+    dl{font-size: $fz7; border-bottom: 1px solid $huie4;
+      dt{ height: 2.25rem; line-height: 2.25rem; display: flex; align-items: center; justify-content: space-between;   padding:0 $fz75;
+        &:after{content: ''; border: 1px solid $hui94; border-top:0; border-left: 0; width: $fz7; height: $fz7; display: inline-block; transform:rotate(-45deg); }
+      }
+      //.on{}
+      dd{ display: none; background: $huif7;  padding: $fz5 $fz75 ; border-top: 1px solid $huie4;
+        .hd{font-weight: bold; /*padding: .5rem 0;*/ }
+        .bd{ font-size: $fz6; text-indent: 2em; color: $hui72; margin: .3rem 0 0;}
+      }
+    }
+  }
+}
+
+//意见反馈
+.opinion{
+  textarea{border:1px solid $huie4; padding: .5rem; margin-top: .5rem;border-radius: 5px; box-sizing: border-box; font-size: $fz7;}
+  .weui-btn{ margin-top: 1rem;}
+}

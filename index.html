@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>首页</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content=" ">
+
+<link rel="stylesheet" href="lib/weui.min.css">
+<link rel="stylesheet" href="css/jquery-weui.css">
+<link rel="stylesheet" href="css/fonts/iconfont.css">
+<link rel="stylesheet" href="css/canxiaoer.css">
+
+</head>
+
+<body ontouchstart>
+  <header class="index-header">
+    <a href="" class="city">成都</a>
+
+    <div class="weui-search-bar" id="searchBar">
+      <form class="weui-search-bar__form">
+        <div class="weui-search-bar__box">
+          <i class="weui-icon-search"></i>
+          <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="请输入商家关键字" required="">
+          <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+        </div>
+        <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+          <i class="weui-icon-search"></i>
+          <span>请输入商家关键字</span>
+        </label>
+      </form>
+      <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    </div>
+
+    <div class="talk"><i class="icon-shop icon-shop-talk"></i></div>
+  </header>
+
+  <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src="img/upload/banner1.jpg" /></div>
+      <div class="swiper-slide"><img src="img/upload/banner2.jpg" /></div>
+      <div class="swiper-slide"><img src="img/upload/banner3.jpg" /></div>
+      <div class="swiper-slide"><img src="img/upload/banner4.jpg" /></div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="index-col1">
+    <div class="weui-grids">
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="img/icon/i1.png" alt="">
+        </div>
+        <p class="weui-grid__label">火锅</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="img/icon/i2.png" alt="">
+        </div>
+        <p class="weui-grid__label">小吃快餐</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="img/icon/i3.png" alt="">
+        </div>
+        <p class="weui-grid__label">自助餐</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="img/icon/i4.png" alt="">
+        </div>
+        <p class="weui-grid__label">日韩料理</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="img/icon/i5.png" alt="">
+        </div>
+        <p class="weui-grid__label">西餐</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="img/icon/i6.png" alt="">
+        </div>
+        <p class="weui-grid__label">川菜</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="img/icon/i7.png" alt="">
+        </div>
+        <p class="weui-grid__label">家常菜</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="img/icon/i8.png" alt="">
+        </div>
+        <p class="weui-grid__label">面点</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="proFilter">
+    <div class="nav">
+      <div class="nav-container">
+        <div class="navbar">
+          <a href="javascript:;">全部</a>
+          <a href="javascript:;">附近</a>
+          <a href="javascript:;">智能排序</a>
+        </div>
+        <div class="bd">
+          <section>
+            <ul class="dropList">
+              <li><a href="javascript:;"><span>全部</span><span>22222</span></a></li>
+              <li><a href="javascript:;"><span>全部1</span><span>22222</span></a></li>
+              <li><a href="javascript:;"><span>全部2</span><span>22222</span></a></li>
+              <li><a href="javascript:;"><span>全部3</span><span>22222</span></a></li>
+              <li><a href="javascript:;"><span>全部4</span><span>22222</span></a></li>
+            </ul>
+          </section>
+          <section>
+            <div class="tab">
+              <div class="tab-hd">
+                <a href="javascript:;">商圈</a>
+                <a href="javascript:;">地铁</a>
+              </div>
+              <div class="tab-bd">
+                <ul>
+                  <div class="scroller">
+                    <div class="dropList">
+                      <li><a href="javascript:;"><span>全部1</span><span>aaa</span></a></li>
+                      <li><a href="javascript:;"><span>全部2</span><span>bbb</span></a></li>
+
+                    </div>
+                    <div class="subRegion">
+                      <li><a href="javascript:;"><span>全部3</span><span>ccc</span></a></li>
+                      <li><a href="javascript:;"><span>全部4</span><span>ddd</span></a></li>
+
+                    </div>
+                  </div>
+                </ul>
+                <ul>
+                  <div class="scroller ">
+                    <div class="dropList ">
+                      <li><a href="javascript:;"><span>全部5</span><span>eee</span></a></li>
+                      <li><a href="javascript:;"><span>全部6</span><span>ff</span></a></li>
+                    </div>
+                    <div class="subRegion">
+                      <li><a href="javascript:;"><span>全部7</span><span>ggg</span></a></li>
+                      <li><a href="javascript:;"><span>全部8</span><span>xxx</span></a></li>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <ul class="dropList">
+              <li><a href="javascript:;">智能排序</a></li>
+              <li><a href="javascript:;">离我最近</a></li>
+              <li><a href="javascript:;">好评优先</a></li>
+              <li><a href="javascript:;">人气最高</a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="nav-bg"></div>
+      </div>
+    </div>
+    <div class="weui-panel weui-panel_access">
+      <div class="weui-panel__bd">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footNav">
+    <div class="weui-grids">
+      <a href="" class="weui-grid js_grid on">
+        <i class="iconfont icon-all"></i>
+        <p class="weui-grid__label">首页</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <i class="iconfont icon-dianpu"></i>
+        <p class="weui-grid__label">荐店</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <i class="iconfont icon-zhekou"></i>
+        <p class="weui-grid__label">折扣</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <i class="iconfont icon-wode"></i>
+        <p class="weui-grid__label">我的</p>
+      </a>
+    </div>
+  </div>
+
+
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/fastclick.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="js/jquery-weui.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="src/js/canxiaoer.js"></script>
+<script>
+    $(".swiper-container").swiper({
+        loop: true,
+        autoplay: 3000
+    });
+</script>
+<script>
+      $hd_a = $('.nav .navbar a');
+      $bd_s = $('.nav .bd section');
+
+      $tab_hd_a = $('.nav .tab .tab-hd a');
+      $tab_bd_ul = $('.nav .tab .tab-bd ul');
+      //  头部菜单
+      $hd_a.on('click', function() {
+          $('.nav .nav-container').addClass('active');
+          $('.nav .nav-bg').show();
+          $(this).addClass('on').siblings().removeClass('on');
+          $('.nav .bd').show();
+          var index = $hd_a.index(this);
+          $bd_s.eq(index).show().siblings().hide();
+      });
+
+      $tab_hd_a.first().addClass('on');
+      $tab_bd_ul.first().show();
+      $tab_hd_a.on('click',function(){
+          $(this).addClass('on').siblings().removeClass('on');
+          var index  = $tab_hd_a.index(this);
+          $tab_bd_ul.eq(index).show().siblings().hide();
+      });
+      // 内容筛选
+      $('.dropList li:first-of-type').addClass('on');
+      $('.dropList li').on('click', function() {
+          $(this).addClass('on').siblings().removeClass('on');
+      });
+
+      $('.scroller .dropList li').on('click',function () {
+          $(this).parent().addClass('active').siblings().addClass('active');
+          //alert(1)
+      });
+      //获取选中得值
+      //        全部
+      $('.nav .bd section:first a ').on('click',function () {
+          var $a1 =      $(this).children().first().text();
+          $('.nav .navbar  a:first').html($a1);
+          //关闭内容区域
+          $('.nav .nav-container').removeClass('active');
+          $('.nav .nav-bg').hide();
+          $('.nav .bd').hide();
+      });
+      //        附近
+      $('.nav .subRegion a ').on('click',function () {
+          var $a2 =      $(this).children().first().text();
+//            var $a2 =      $(this).children().first().text();
+          $('.nav .navbar  a:nth-child(2)').html($a2);
+          //关闭内容区域
+          $('.nav .nav-container').removeClass('active');
+          $('.nav .nav-bg').hide();
+          $('.nav .bd').hide();
+      });
+      //        智能排序
+      $('.nav .bd section:last-child a ').on('click',function () {
+          var $a3 =      $(this).text();
+          $('.nav .navbar  a:last-child').html($a3);
+          //关闭内容区域
+          $('.nav .nav-container').removeClass('active');
+          $('.nav .nav-bg').hide();
+          $('.nav .bd').hide();
+      });
+
+      //关闭列表
+      /*var shop_pic = $('.weui-media-box__thumb').attr('src'),
+          title = $('.weui-media-box__title').html();*/
+
+//      alert(title);
+
+      // 首页
+      var indexUrl = 'http://119.23.135.79:8001/api/ServiceForApp/GetBusinessInfoList?Key=CanXiao2App';
+      GetData(indexUrl, {}, function (json) {
+
+          if (json.IsResult)
+          {
+              $.each(json.Data, function (i,item)
+              {
+
+                  var shopName = item.Name,
+                      pic = '',
+                      score = item.Score,
+                      renjun = item.PerPersonCost,
+                      id = item.ID;
+                  var url = 'shopDetails.html?id='+id;
+                  $('.weui-panel__bd').append(
+                      '<a href='+url+' class="weui-media-box weui-media-box_appmsg">'+
+                      '<div class="weui-media-box__hd">'+
+                      '<img class="weui-media-box__thumb" src="img/upload/a1.jpg">' +
+                      '</div>'+
+                      '<div class="weui-media-box__bd">'+
+                      '<div class="dis-f">'+
+                      '<h4 class="weui-media-box__title">'+
+                      shopName +
+                      '<span class="icon-mark icon-mark"></span>'+
+                      '<span class="icon-mark icon-mark-diancan"></span>'+
+//                      '<span class="icon-mark icon-mark-waimai"></span>'+
+                      '<span class="icon-mark icon-mark-taocan"></span>'+
+                      '</h4>'+
+                      '</div>'+
+                      '<div class="comment">'+
+                      '<span class="star"></span>'+
+                      '<span>人均:￥'+renjun+'</span>'+
+                      '</div>'+
+                      '<div class="intro">'+
+                      '<span>'+'火锅'+'</span><span class="fr">'+'复城国际广场 1.5km'+'</span>'+
+                      '</div>'+
+                      '</div>'+
+                      '</a>'
+                  );
+
+
+                  //预点外套  这里有问题
+                  if(item.IsPreOrder !== 1){ $('.icon-mark-diancan').hide(); }
+                  if(item.IsOrdered !== 1){ $('.icon-mark-diancan').hide(); }
+//                  if(item.IsTakeOut == 1){ $('.icon-mark-diancan').hide(); }
+                  if(item.IsMealSet !== 1){ $('.icon-mark-diancan').hide(); }
+
+                  //评分
+                  var star = $('.star');
+                  star.addClass('star-' + score);
+              });
+          }
+      });
+
+
+  </script>
+</body>
+
+</html>

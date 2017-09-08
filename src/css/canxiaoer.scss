@@ -1,0 +1,410 @@
+//html{ font-size:;}
+//public_css
+@import "public";
+
+.index-header{
+  position: fixed; width: 100%; padding: 0 $fz5 0; z-index: 2;
+  height: 2.2rem; line-height: 2.2rem;
+  background: #ff9a0a;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+
+  .city:after,.weui-search-bar:before{ width: 8px; content: ""; }
+  .city{ /*font-size:0$fz8;float: left; */ position: relative; padding-right: 17px; max-width: 60px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis; display: block; color: #fff;}
+  .city:after{border: 1px solid #fff; width: 8px; height: 8px; position: absolute; right: 2px; top:50%; margin-top: -5px; display: block; border-top:none; border-right: none; transform:rotate(-45deg) }
+
+  .weui-search-bar{
+    background: none; /*float: left;*/ flex:1; align-items: center;
+    .weui-icon-clear, .weui-icon-search{ color: #ff9a0a;}
+  }
+  .weui-search-bar:after{border:0;}
+
+  .weui-search-bar__form{border-radius:50%; line-height: 1.4;}
+  .weui-search-bar__cancel-btn{ color: #fff; }
+  .weui-search-bar__label{ /*background: none;*/ border-radius: 26px;}
+  .weui-search-bar__form:after{border-radius: 26px; }
+
+/*  .talk{
+    img{ width: 24px; margin-top: 10px;}
+  }*/
+  .search-icon{ width: 30px;
+    .weui-icon-clear, .weui-icon-search{ position: relative; top: -2px; color: #fff; font-size: 20px;}
+
+  }
+  .title{ color: $fff; flex: 1; justify-content: center ;}
+
+
+
+}
+
+// index-banner
+.swiper-container {
+  text-align: center; padding-top: 2.2rem; background: #041100;
+  width: 100%;
+  img {
+    display: block; margin: 0 auto;
+    max-width: 100%;
+  }
+  .swiper-pagination-bullet{ background: #fff; opacity: 0.6;}
+  .swiper-pagination-bullet-active{ background: #ff9a0a;}
+}
+
+//index-col1
+.index-col1{
+  padding: 5px 0; background: $fff;
+  .weui-grids:before{ border-top: 0;}
+  .weui-grid{ width: 25%; padding:  10px;}
+  .weui-grid__icon{ width: 40px; height: 40px;}
+  .weui-grid__label{ color: #4e4e4e;}
+  .weui-grid:before{border-right: 0;}
+  .weui-grid:after{border-bottom: 0;}
+}
+
+.proFilter{
+  padding-bottom:4rem;  //background: $fff;
+  border-top: 10px solid #f7f7f7;
+  .weui-panel{font-size:$fz6; }
+  .weui-panel:before{ border:1px solid #ededed;}
+  .weui-panel:after{ border:0;}
+  .weui-media-box__title{font-size: 15px; color: #333; flex:1;}
+  .dis-flex span{ position: relative; top: 3px; margin: 0 2px;}
+  a.weui-media-box{color: #939393; border-top:5px solid #f7f7f7;}
+  a.weui-media-box:first-child{ border-top: 0;}
+  .weui-media-box__thumb{ border-radius: 5px;}
+
+
+}
+
+//店铺评分
+.star {
+  display: inline-block;
+  width: 86px;
+  height: 12px;
+  vertical-align: middle;
+  background: url('../../img/icon/starList.png') no-repeat;
+  background-size: 86px auto
+}
+.star.star-0 {background-position: 0 -134px}
+.star.star-10 {background-position: 0 -117px}
+.star.star-20 {background-position: 0 -100px}
+.star.star-30 {background-position: 0 -83px}
+.star.star-35 {background-position: 0 -66px}
+.star.star-40 {background-position: 0 -49px}
+.star.star-45 {background-position: 0 -32px}
+.star.star-50 {background-position: 0 -15px}
+
+
+//index end
+
+//店铺详情开始
+
+
+.shopDetails{
+  .head-img{ overflow: hidden; position: relative; /*line-height: initial;*/ height: 10rem; display: flex; align-items: center;
+    .backBar{ position: absolute;top:0.5rem; background: none; justify-content:space-between; }
+    img{ width: 100%; }
+    dl{ position: absolute; left: 1rem; bottom: 1rem; color: #fff;
+      dt{ }
+      dd{ font-size: $fz6;}
+    }
+  }
+  .info{ line-height: 2; background: $fff;
+    padding: 0 $fz75;
+    .title{ font-size: $fz8;}
+    .rating{ color: $hui94; display: flex; align-items: center; font-size: $fz6; /*line-height: 1;*/
+            .yellow{padding: 0 .5rem 0 .2rem;}
+            p{ font-size:$fz6;}
+      }
+    .addr{ border-top:1px solid $huif7; margin:.3rem -.75rem 0; padding: .3rem $fz75;
+      display: flex; align-items: center;
+      h6{ flex: 1; font-size: $fz7;
+        a{
+          display: block;
+          .address{ display: inline-block; color: inherit; color: $hui3b; font-weight: normal;}
+        }
+      }
+      p{ display: inline-block;
+        a{width: 1.5rem; height: 1.5rem; display: inline-block;}
+      }
+    }
+  }
+  .border-t10{
+    a.dis-f{
+      p{ padding-left: 8px;}
+      //套餐
+      dl{ display: flex; flex:1; /*line-height:initial;*/
+        dt{ margin: 0 $fz5;
+          img{ width: 2.75rem; height: 2.75rem; border-radius: 5px;}
+        }
+        dd{ flex: 1;
+          .title{ font-size:$fz7; color: $hui3b; padding-top:.2rem;}
+
+        }
+      }
+      .icon-mark{ margin: 0;}
+    }
+    //价格
+    .price{ display: flex; align-items: center;
+      .yellow:before{ content: '¥';}
+      span:first-child{ font-size:1rem;}
+      span:last-child{ padding-left:$fz5;}
+    }
+    //推荐菜
+    dl.recommend{ padding: 0 $fz75 $fz6; margin-bottom: 3rem;
+      dt{ line-height: 2; border-bottom: 1px solid $huif7; margin:0 -.75rem 0; padding: 0 $fz75 ;}
+      dd{ padding-top: $fz5;  height: 3.3rem; line-height: 1.7;  overflow: hidden;  /*display: flex; align-items: center; flex-flow:row wrap;*/
+        span{ padding:0 .2rem ; display: inline-block;}
+      }
+    }
+
+    //收藏该店
+    @at-root .bookmark{ background: #ff9a0a; height: 2.2rem; position: fixed;
+      bottom: 0;  width: 100%; text-align: center; vertical-align: middle;
+      display: flex; align-items: center; justify-content: center; color: #fff;
+
+    }
+  }
+}
+
+
+
+
+//店铺详情 - 套餐
+.col-buy{ display: flex; line-height: initial; align-items: center;
+  .price{ display: inline-block; flex: 1;
+    .yellow{ font-size: 44px; color: $orange; font-weight:bold;}
+    .yellow:before{ content: '¥'; font-size:$fz7; font-weight: normal}
+    span:last-child i{ font-style: normal; font-size:$fz7;}
+  }
+  .weui-btn_orange{ background: $orange; display: inline-block; height: 1.8rem; line-height: 1.8rem;}
+}
+.title-taocan{ padding: .3rem $fz75; color: $hui94; font-size: $fz7;}
+.taocan{
+  dl{
+    dt{ text-align: center; background: #f4f5fa; padding: .3rem $fz75; /*color: $hui94;*/ font-size: $fz8;}
+    dd{  display: flex;border-bottom:1px dashed $huif7; font-size: $fz7;
+      span{ display: inline-block; border-right:1px dashed $huif7; padding: .2rem $fz5; }
+      span:first-child{ width: 60%;}
+      span:nth-child(2){ width: 25%; }
+      span:nth-child(2):after{content: '份';}
+      span:last-child{ width: 15%; text-align: center; border-right: 0; /*padding-right: 1rem;*/ }
+      span:last-child:before{content: '¥';}
+    }
+  }
+}
+// 在线订座
+
+.modal{ font-size: .7rem; display: none; position: fixed;  z-index:10; top: 0;
+  .container{}
+  .bg{height: 100%;width: 100%;position: fixed;  left: 0; top: 0; z-index: -1;
+    background: rgba(0,0,0,.4)}
+  .select{ position: fixed; bottom: 0; width: 100%; height:15rem; background: #fff;
+    .hd{ display:flex; position: relative; align-items: center; height: 2rem;  line-height: 2rem; border-bottom:1px solid #e4e4e4; justify-content: center;
+      i{position: absolute; right: 1rem; top: 0; font-size: 1.2rem; font-style: normal; }
+    }
+    .bd{ display: flex;
+      ul{height: 13rem; overflow-y: scroll;}
+      .days{ flex: 1; background: #f2f2f2; text-indent: 1rem;
+        li{ line-height: 2rem; line-height: 2rem;}
+        li.on{background: #fff; color: $orange; }
+      }
+      .hours{ flex: 1; text-indent: 1rem;
+        li{ line-height: 2rem; line-height: 2rem;}
+        li.on{ color: $orange;}
+      }
+    }
+  }
+  #people{text-indent: 0; text-align: center;}
+  #desk{text-align: center;}
+}
+#renshu span{ font-size: $fz6; color: $hui94;}
+//#modal2{ display: none}
+
+//确认订单
+#bgf7{background: $huif7;}
+.addr-select{  //确认地址
+  border:4px solid #ccc; border-left: 0;border-right: 0;
+  font-size: $fz7; margin-top: 10px;
+  a.dis-f{
+    align-items: center;  padding: .2rem $fz75; line-height: 1.8;
+    p{flex:1; }
+    //p span{ padding-left: 28%;}
+    &:after{
+      content: ''; border: 1px solid $hui94; border-top:0; border-left: 0; width: $fz7; height: $fz7; transform:rotate(-45deg);}
+  }
+}
+
+
+
+
+
+
+
+
+.total-price{ display: flex; align-items: center; position: fixed; width: 100%; bottom: 0; height: 2.5rem;line-height: 2.5rem; background: #fff; font-size: $fz7;
+  dt{ width: 68%; padding-left:6.666%;
+    span{ color: $red; padding-left: 5px;
+      &:before{content: '¥';}
+    }
+  }
+  dd{ width: 32%;
+    a{  display: block; text-align: center; background: $orange; color: #fff; }
+  }
+}
+
+//在线订座&订餐
+.reserve{
+  .weui-cells{ margin-top:.5rem;
+    .weui-cell{ padding: $fz5 $fz75;
+      &:before{left: 0;}
+      .weui-cell__hd{ padding-left: 8px;
+        .weui-label{ width: 80px;}
+      }
+    }
+  }
+  .dis-f{ background: #fff; width: 100%; bottom: 0;}
+}
+
+.reserve-btn{
+  position: fixed; width: 100%; box-sizing: border-box; bottom: $fz75;
+}
+
+//选择 & 更换 城市
+
+//支付订单
+.my-balance{
+  .border-t10{ border-bottom: 1px solid $huie4;
+    .weui-agree{ display: flex; align-items: center;  height: 3.5rem;padding: 0 $fz75;  justify-content: space-between; font-size: $fz75; line-height:normal;
+      .weui-agree__text{
+        color: inherit;
+        span.red{ font-size: $fz9; }
+      }
+      input.weui-agree__checkbox{ width: 1rem; height: 1rem;
+        &:before{ font-size: 1rem; background: $orange; color: $fff; border:5px solid $orange; border-radius: 5px;}
+      }
+    }
+    .weui-cells{
+      font-size: $fz7; margin-top: 0; line-height: 2;
+      &:before{ border-top:0;}
+      &:after{ border-bottom:0;}
+      .weui-cell{ padding: .2rem $fz75;
+        &:before{ left: 0;}
+        .weui-check:checked+.weui-icon-checked:before{
+          content: '\EA06'; font-size:1.2rem; color: $orange;
+        }
+        .weui-check:not(:checked)+.weui-icon-checked:before{
+          content: '\EA06'; font-size:1.2rem; color: $huie4;
+        }
+
+      }
+    }
+    .weui-media-box{ padding: 0;
+      .weui-media-box__hd{  width: 40px;}
+      .weui-media-box__title{ font-size: $fz7;}
+      .weui-media-box__desc{ font-size: $fz6;}
+    }
+  }
+
+}
+
+//支付成功
+.pay-result{
+  width: 86%; margin: 1.75rem auto 0; background: $fff; box-shadow: 0 5px 20px #ccc; border-radius: 10px;
+  .weui-icon{display: flex; width: 4.5rem; height: 4.5rem;border:5px solid $orange; border-radius: 50%; align-items: center; justify-content: center; margin:0 auto;
+    .weui-icon-success-no-circle{ font-size: 2.3rem; color: $orange;}
+    .weui-icon-err{ font-size: 3.4rem; color: $orange;
+      &:before{ content: '!'; position: relative; top: -.4rem; }
+    }
+  }
+  .weui-msg__title{ font-size: $fz8;}
+  .weui-msg__desc{ font-size: $fz6;}
+  .info{ padding: 0 7% 0; color: $hui94; font-size: $fz7;
+    p{display: flex; justify-content:space-between; line-height: 2;}
+    p:last-child span:last-child:before{
+      content: '¥';
+    }
+    .btn{ text-align: center;
+      border-top:1px solid $huie4; margin: 1rem 0;
+      a{ color: $orange;  display: block; text-align: center; padding:.8rem 0;
+      }
+      .weui-btn{ padding: 0; width: 25%; display: inline-block; font-size: $fz75; margin: .8rem 4%; line-height: 2; border:1px solid $orange;
+      }
+    }
+
+  }
+}
+
+
+//筛选
+.nav{ font-size: $fz7; position: relative;
+  .nav-container{};
+  .nav-container.active{ position: fixed; width: 100%; z-index: 2; top: 2.2rem;}
+  .nav-bg{
+    display: none; height: 100%;width: 100%; position: fixed; left: 0; top: 2.2rem; z-index: -1;
+    background: rgba(0,0,0,.7);
+  }
+
+  .navbar{ display: flex; align-items: center; /*justify-content: center;*/ text-align:center;border-bottom: 1px solid #ddd8cd; background: #fff;
+    a{flex: 1;border-right: 1px solid #ddd8cd; display: inline-block; height: 2rem; line-height: 2rem; }
+    a:last-child{border:0;}
+    a:after{/*content:''; border:.75rem solid #ccc; border-color: #ccc transparent transparent transparent; border-width: .75rem .5rem 0 .5rem; vertical-align: middle; */
+      content: ''; width: 0; height: 0; display: inline-block;
+      border-top: .5rem solid #b7b7b7;
+      border-left: .25rem solid transparent;
+      border-right: .25rem solid transparent;
+    }
+    a.on{color: $orange;
+      &:after{border-top: .5rem solid $orange; transform: rotate(-180deg); }
+    }
+  }
+  .bd{
+    display: none;
+    section{ display: none; background: #fff; min-height: 15rem; max-height: 70vh;  overflow-y: scroll; }
+    //section:first-of-type{ }
+    //section:last-of-type{ }
+  }
+  .dropList{
+    li{ position: relative;text-indent: 1.5rem;   border-bottom: 1px solid #ddd8cd; background: #fff;
+      a{ padding: 0 $fz5; height: 2rem; line-height: 2rem;/* display: block;*/ /*flex: 1;*/ display: flex; /*justify-content: space-around ;*/ /*overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0 1rem 0 0;*/
+        span:first-of-type{ /*float:right;*/  /*position: absolute; right: 0;top:0;*/ flex: 1; overflow: hidden; text-overflow: ellipsis;  }
+        span:last-of-type{color: #949494;}
+      }
+      .on{
+
+      }
+    }
+    li.on{background: #f2f2f2;
+      a,span{color: $orange;}
+
+      &:before{
+        content: ''; height: .5rem; width: .3rem;  transform: rotate(45deg); border:2px solid $orange; border-top: none;border-left: none; position: absolute; left:1rem; top:.7rem;
+      }
+    }
+  }
+  .tab{ background: #fff;
+    .tab-hd{ display: flex; height: 2rem; line-height: 2rem;  text-align: center;
+      a{ flex: 1; border-bottom: 3px solid #fff;}
+      a.on{border-bottom: 3px solid $orange;}
+    }
+    .tab-bd{
+      ul{ display:none;
+        .scroller{display: flex;
+          .dropList{ /*flex: 1;*/
+            width: 100%;}
+          .dropList.active{width: 8rem;}
+          .subRegion{
+            display: none; flex: 1;
+            li{ text-indent:1.5rem; height: 2rem; line-height: 2rem; border-bottom: 1px solid #ddd8cd; background: #f2f2f2; overflow: hidden; }
+            li a{ display: flex; padding: 0 .5rem 0 0;
+              span:first-of-type{ /*float:right;*/  /*position: absolute; right: 0;top:0;*/ flex: 1; overflow: hidden; text-overflow: ellipsis;  }
+              span:last-of-type{color: #949494;}
+            }
+
+          }
+          .subRegion.active{display: block;}
+        }
+      }
+    }
+  }
+}

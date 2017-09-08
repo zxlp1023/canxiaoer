@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>短信登陆</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="../lib/weui.min.css">
+  <link rel="stylesheet" href="../css/jquery-weui.css">
+  <link rel="stylesheet" href="../css/fonts/iconfont.css">
+  <link rel="stylesheet" href="../css/member.css">
+</head>
+
+<body ontouchstart id="bgfff">
+<!--短信登录-->
+  <div class="login login-sms">
+    <div class="backBar">
+      <a href="javascript:history.back()" class="back">
+        <i class="text-icon icon-shop-back"></i>
+      </a>
+      <p class="ml0">短信登录</p>
+      <a href="" class="regLogin">注册</a>
+    </div>
+    <form action="">
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__bd">
+            <input class="weui-input" type="tel"  placeholder="手机号">
+          </div>
+          <div class="weui-cell__ft">
+            <button class="weui-vcode-btn">验证</button>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input class="weui-input" type="number" placeholder="验证码">
+          </div>
+        </div>
+        <div class="mt10">
+          <a class="fz12 orange " href="">账号密码登录</a>
+        </div>
+        <div class="mt15">
+          <a href="javascript:;" class="weui-btn weui-btn_pay">登录</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+</script>
+<script src="../js/jquery-weui.js"></script>
+<script>
+
+</script>
+
+</body>
+
+</html>

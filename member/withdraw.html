@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>提现</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="../lib/weui.min.css">
+  <link rel="stylesheet" href="../css/jquery-weui.css">
+  <link rel="stylesheet" href="../css/fonts/iconfont.css">
+  <link rel="stylesheet" href="../css/member.css">
+</head>
+
+<body ontouchstart>
+  <div class="backBar">
+    <a href="javascript:history.back()" class="back">
+      <i class="text-icon icon-shop-back"></i>
+    </a>
+    <p class="title">提现</p>
+  </div>
+  <div class="withdraw p075">
+    <div class="hd">关联银行卡 <span>中国银行（0098）</span></div>
+    <div class="bd">
+      <p>提现金额</p>
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="">
+      <div class="balance border-t1 fz12 hui72 lh2">我的余额 4829</div>
+    </div>
+    <div class="fz12 mt15 hui72 text-center">次日24点前处理(除周末及国家法定节日外)</div>
+    <a href="javascript:;" class="weui-btn weui-btn_pay">确认提现</a>
+  </div>
+  
+
+
+
+
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>在线客服</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="../lib/weui.min.css">
+  <link rel="stylesheet" href="../css/jquery-weui.css">
+  <link rel="stylesheet" href="../css/fonts/iconfont.css">
+  <link rel="stylesheet" href="../css/member.css">
+</head>
+
+<body ontouchstart >
+  <div class="backBar">
+    <a href="javascript:history.back()" class="back">
+      <i class="text-icon icon-shop-back"></i>
+    </a>
+    <p class="title">在线客服</p>
+  </div>
+  <div class="service">
+    <div class="weui-grids">
+      <a href="" class="weui-grid js_grid">
+        <i class="icon-member icon-member-consult"></i>
+        <p class="weui-grid__label">在线客服</p>
+      </a>
+      <a href="tel:18628056907" class="weui-grid js_grid">
+        <i class="icon-member icon-member-tel"></i>
+        <p class="weui-grid__label">客服热线</p>
+      </a>
+    </div>
+
+    <div class="question border-t10">
+      <dl>
+        <dt>标题1</dt>
+        <dd>
+          <div class="hd">1.关于交易的问题？</div>
+          <div class="bd" >
+            <p>Colors displayed here may not match PANTONE-identified standards.  Consult current PANTONE Color Publications for accurate color. PANTONE® and other Pantone, Inc. trademarks are the property of Pantone, Inc. © Pantone, Inc., 2012</p>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>标题2</dt>
+        <dd>内容2</dd>
+      </dl>
+      <dl>
+        <dt>标题2</dt>
+        <dd>内容2</dd>
+      </dl>
+    </div>
+  </div>
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+
+
+$('.question dl dd').first().show();
+$('.question dt').on('click',function () {
+    $(this).addClass('on').siblings().slideDown().parent().siblings().children('dd').slideUp().siblings('dt').removeClass('on');
+    $('.question dt:after').animate({left:'200px'});
+//    $('.question dt:after').css({'transform':'rotate(-45deg)'});
+
+})
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+
+</html>
