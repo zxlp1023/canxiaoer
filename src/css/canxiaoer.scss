@@ -82,7 +82,7 @@
   width: 86px;
   height: 12px;
   vertical-align: middle;
-  background: url('../../img/icon/starList.png') no-repeat;
+  background: url('../img/icon/starList.png') no-repeat;
   background-size: 86px auto
 }
 .star.star-0 {background-position: 0 -134px}
@@ -219,7 +219,41 @@
   #desk{text-align: center;}
 }
 #renshu span{ font-size: $fz6; color: $hui94;}
-//#modal2{ display: none}
+
+
+//点餐
+.orderFood{ display: flex; background: $fff; width: 100vw; height: 100vh; overflow-y: auto; overflow-x: hidden;
+  nav{ width: 25vw; background: $huif7;
+    li{padding: $fz6 0; border-bottom: 1px dashed $huie4;}
+    li a{   padding:0 10px; font-size: $fz7; display: block; }
+    .on{ background: $fff;}
+  }
+  .con{
+    flex: 1;
+    dl{ display: flex; padding: $fz75  $fz75 $fz75 0;  border-bottom: 1px solid $huie4;
+      dt{ width: 3rem; height: 3rem;margin-right: $fz5; margin-left: $fz5;}
+      dt img{ width: 100%; border-radius: 5px; }
+      dd{ flex: 1; position: relative;
+        .title{ font-size: $fz7;}
+        .sales{ font-size: $fz6; color: $hui94;}
+        .price{
+          span{ color: $red; font-size: $fz7;
+            &:before{content: '¥';}
+          }
+        }
+        .btnGroup{position: absolute; bottom: -1px; right: 0;
+          i{ }
+          span{ position: relative; top: 10px; width: 1rem; overflow: hidden; display: inline-block; text-align: center; }
+          .jia{}
+          .jian{}
+        }
+      }
+    }
+  }
+
+}
+
+
 
 //确认订单
 #bgf7{background: $huif7;}

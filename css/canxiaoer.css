@@ -264,7 +264,7 @@ a {
   display: inline-block;
   width: 18px;
   height: 18px;
-  background: url("../../img/icon/icon-mark.png") 0 0/18px no-repeat;
+  background: url("../img/icon/icon-mark.png") 0 0/18px no-repeat;
   margin: 0 10px 0 0; }
 
 .icon-mark-yuding {
@@ -284,7 +284,7 @@ a {
   width: 30px;
   height: 30px;
   vertical-align: middle;
-  background: url("../../img/icon/iconShop.png") 0 0/60px auto no-repeat;
+  background: url("../img/icon/iconShop.png") 0 0/60px auto no-repeat;
   margin: 0 10px 0 0; }
 
 .icon-shop-talk {
@@ -327,6 +327,20 @@ a {
   width: 40px;
   height: 40px;
   background-size: 80px auto; }
+
+.icon-shop-jian {
+  background-position: -40px -212px;
+  background-size: 70px auto;
+  margin-right: 0;
+  width: 25px;
+  height: 25px; }
+
+.icon-shop-jia {
+  background-position: -40px -178px;
+  background-size: 70px auto;
+  margin-right: 0;
+  width: 25px;
+  height: 25px; }
 
 .border-t10.border-t1 {
   background: #fff;
@@ -427,7 +441,7 @@ a {
   .footNav .iconfont {
     font-size: 1.3rem; }
   .footNav .weui-grid__label {
-    font-size: 0 0.6rem;
+    font-size: 0.6rem;
     line-height: 1;
     color: #949494; }
   .footNav .weui-grids .on, .footNav .weui-grids .on .weui-grid__label {
@@ -580,7 +594,7 @@ a {
   width: 86px;
   height: 12px;
   vertical-align: middle;
-  background: url("../../img/icon/starList.png") no-repeat;
+  background: url("../img/icon/starList.png") no-repeat;
   background-size: 86px auto; }
 
 .star.star-0 {
@@ -900,6 +914,72 @@ a {
 #renshu span {
   font-size: 0.6rem;
   color: #949494; }
+
+.orderFood {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .orderFood nav {
+    width: 25vw;
+    background: #f7f7f7; }
+    .orderFood nav li {
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed #e4e4e4; }
+    .orderFood nav li a {
+      padding: 0 10px;
+      font-size: 0.7rem;
+      display: block; }
+    .orderFood nav .on {
+      background: #fff; }
+  .orderFood .con {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+    .orderFood .con dl {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 0.75rem 0.75rem 0.75rem 0;
+      border-bottom: 1px solid #e4e4e4; }
+      .orderFood .con dl dt {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem; }
+      .orderFood .con dl dt img {
+        width: 100%;
+        border-radius: 5px; }
+      .orderFood .con dl dd {
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        position: relative; }
+        .orderFood .con dl dd .title {
+          font-size: 0.7rem; }
+        .orderFood .con dl dd .sales {
+          font-size: 0.6rem;
+          color: #949494; }
+        .orderFood .con dl dd .price span {
+          color: #ff2626;
+          font-size: 0.7rem; }
+          .orderFood .con dl dd .price span:before {
+            content: '¥'; }
+        .orderFood .con dl dd .btnGroup {
+          position: absolute;
+          bottom: -1px;
+          right: 0; }
+          .orderFood .con dl dd .btnGroup span {
+            position: relative;
+            top: 10px;
+            width: 1rem;
+            overflow: hidden;
+            display: inline-block;
+            text-align: center; }
 
 #bgf7 {
   background: #f7f7f7; }
@@ -1267,5 +1347,4 @@ a {
               color: #949494; }
         .nav .tab .tab-bd ul .scroller .subRegion.active {
           display: block; }
-
 /*# sourceMappingURL=canxiaoer.css.map */

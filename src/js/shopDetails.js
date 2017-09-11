@@ -31,7 +31,7 @@ GetData(shopDetails, {}, function (json) {
                     '</a>'
                 )
             }
-
+            $('#yuding').attr('href','reserve.html'+'?shopid='+shopId);  //预定链接的shopId
         });
     }
 });
@@ -64,7 +64,10 @@ GetData(shopSetMeal, {}, function (json) {
                     '</dd>'+
                     '</dl>'+
                     '</a>'
-                )
+                );
+
+
+
             }
 
         });
