@@ -25,7 +25,7 @@
   <div class="border-t10">
     <a id="renshu" href="#" class="dis-f">
       <p>人数&桌数</p>
-      <span class="fz12 hui94">请选择</span><span></span>
+      <span class="fz12 hui94">请选择</span>
     </a>
     <a id="shijian" href="#" class="dis-f">
       <p>时间</p>
@@ -121,7 +121,6 @@
 
 
 
-
 <script src="lib/jquery-2.1.4.js"></script>
 <script src="lib/fastclick.js"></script>
 <script>
@@ -142,7 +141,37 @@ $(function() {
       var startM = '00';
       var startH = t.setHours( 11);
 
-      
+      /*switch (day){
+          case 0: {
+              day = '周日';
+              break;
+          }
+          case 1: {
+              day = '周一';
+              break;
+          }
+          case 2: {
+              day = '周二';
+              break;
+          }
+          case 3: {
+              day = '周三';
+              break;
+          }
+          case 4: {
+              day = '周四';
+              break;
+          }
+          case 5: {
+              day = '周五';
+              break;
+          }
+          case 6: {
+              day = '周六';
+              break;
+          }
+
+      }*/
       var days = $('#days span:last-of-type'),
           hours = $('#hours'),
           li = $('<li><span>' + day + '</span><span>' + month+'-'+date + '</span></li>');
@@ -193,7 +222,7 @@ $(function() {
       $('#modal2 .hours li').on('click',function () {
           $(this).addClass('on').siblings().removeClass('on');
           $('#renshu span:first-of-type').html(($('#people  li.on').text()));
-          $('#renshu span:last-of-type').html($('#desk li.on').html());
+          $('#renshu').append($('#desk li.on').html());
           $('#modal2').hide();
       });
 
@@ -216,20 +245,48 @@ $(function() {
       var liuyan = $('textarea[name="liuyan"]').val();
 
 
-      //传参数
-      var x = {
-          UID: 'lp',
-          DAID:'222'
-
-      };
-      data:{
-
-      }
-      console.log(liuyan);
 
 
-
+      yudingUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
+//      var x = ;
+      GetData(yudingUrl, {
+          "UID": "string",
+          "DAID": "string",
+          "DaName": "string",
+          "BIID": "string",
+          "PersonNum": 0,
+          "DtNum": 0,
+          "Remarks": "string",
+          "ReserveTime": "2017-09-11T02:06:47.239Z",
+          "PaySource": "string",
+          "LinkMan": 'name',
+          "LinkManSex": 0,
+          "LinkPhone": "string",
+          "MealCoin": 0,
+          "Dishes": [
+              {
+                  "DishesID": "string",
+                  "Name": "string",
+                  "Num": 0,
+                  "SinglePrice": 0,
+                  "Discount": 0,
+                  "Remarks": "string",
+                  "IsDishesSet": 0,
+                  "DishesSet": [
+                      {
+                          "DishesID": "string",
+                          "Name": "string",
+                          "Num": 0,
+                          "Remarks": "string"
+                      }
+                  ]
+              }
+          ]
+      }, function (json) {
+          alert('success');
+      });//GetData
   });
+
 
 </script>
 

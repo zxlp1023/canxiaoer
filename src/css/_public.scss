@@ -134,9 +134,10 @@ a{color: $hui3b}
 
 
 
-
+//HTML图标
+.icon-hot{ width: 12px; padding: 0 $fz3 ; vertical-align: text-bottom;}
 //背景图标
-.icon-mark{ display: inline-block; width: 18px; height: 18px; background: url("../../img/icon/icon-mark.png") 0 0  /18px no-repeat; margin: 0 10px 0 0;}
+.icon-mark{ display: inline-block; width: 18px; height: 18px; background: url("../img/icon/icon-mark.png") 0 0  /18px no-repeat; margin: 0 10px 0 0;}
 .icon-mark-yuding{background-position: 0 0;}
 .icon-mark-diancan{background-position: 0 -36px;}
 .icon-mark-waimai{background-position: 0 -72px;}
@@ -145,7 +146,7 @@ a{color: $hui3b}
 
 .icon-shop{
   display: inline-block; width: 30px; height: 30px;  vertical-align: middle;
-  background: url("../../img/icon/iconShop.png")0 0 /60px auto no-repeat; margin: 0 10px 0 0;
+  background: url("../img/icon/iconShop.png")0 0 /60px auto no-repeat; margin: 0 10px 0 0;
 }
 //.icon-back{ background-position: 0px -30px;}
 .icon-shop-talk{background-position: -38px -249px; background-size: 70px; }
@@ -153,11 +154,14 @@ a{color: $hui3b}
 .icon-shop-tel{background-position:0 -63px;}
 .icon-shop-addr{background-position:0px -150px; width: 18px;  }
 .icon-shop-yuding{background-position:0px -66px; width: 18px; }
+.icon-shop-delete{background-position: -8px -246px; background-size: 60px; width: 20px; height: 20px; margin-right: 3px; opacity: .8; }
 .icon-shop-waimai{background-position:1px -90px; width: 18px;  }
 .icon-shop-bookmark{background-position:1px -120px;  }
 .icon-shop-buyList{background-position:-8px -210px; }
 .icon-shop-wechat{background-position:-42px -122px; width: 40px; height: 40px;background-size: 80px auto;}
 .icon-shop-alipay{background-position:-42px -162px; width: 40px; height: 40px;background-size: 80px auto;}
+.icon-shop-jian{  background-position:-40px -212px;background-size: 70px auto; margin-right:0; width: 25px; height: 25px; }
+.icon-shop-jia{  background-position:-40px -178px;background-size: 70px auto;  margin-right:0; width: 25px; height: 25px;}
 
 
 .border-t10.border-t1{ background: #fff; border-top: 1px solid $huif7;
@@ -219,7 +223,7 @@ a{color: $hui3b}
   .weui-grid{ width: 25%; padding-top: 0; }
   .weui-grid:before{ border-right: 0;}
   .iconfont{ font-size: 1.3rem; }
-  .weui-grid__label{font-size: 0$fz6; line-height: 1; color: $hui94;}
+  .weui-grid__label{font-size: $fz6; line-height: 1; color: $hui94;}
   .weui-grids .on,.weui-grids .on .weui-grid__label{ color: #ff9a0a;}
 
 }
