@@ -935,7 +935,8 @@ a {
   background: #fff;
   width: 100vw;
   height: 100vh;
-  /*padding-bottom:2.5rem;overflow-y: auto; overflow-x: hidden;*/ }
+  overflow-y: auto;
+  overflow-x: hidden; }
   .orderFood nav {
     width: 25vw;
     background: #f7f7f7; }
@@ -949,7 +950,6 @@ a {
     .orderFood nav .on {
       background: #fff; }
   .orderFood .con {
-    overflow-y: auto;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1; }

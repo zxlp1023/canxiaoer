@@ -1,4 +1,4 @@
-//html{ font-size:;}
+
 //public_css
 @import "public";
 
@@ -222,13 +222,17 @@
 
 
 //点餐
-.orderFood{ display: flex; background: $fff; width: 100vw; height: 100vh;  /*padding-bottom:2.5rem;overflow-y: auto; overflow-x: hidden;*/
+
+
+
+.orderFood{ display: flex; background: $fff; width: 100vw; height: 100vh; overflow-y: auto; overflow-x: hidden;
   nav{ width: 25vw; background: $huif7;
     li{padding: $fz6 0; border-bottom: 1px dashed $huie4;}
     li a{   padding:0 10px; font-size: $fz7; display: block; }
-    .on{ background: $fff; }
+    .on{ background: $fff;}
   }
-  .con{ overflow-y: auto;
+  .con{
+
     flex: 1;
     dl{ display: flex; padding: $fz75  $fz75 $fz75 0;  border-bottom: 1px solid $huie4;
       dt{ width: 3rem; height: 3rem;margin-right: $fz5; margin-left: $fz5;}
@@ -250,6 +254,7 @@
       }
     }
   }
+
   .con > div:last-of-type{ height:100vh; } //给最后一个div设置高度为一屏
 }
 .cartGrop{
@@ -298,6 +303,11 @@
   }
 
 }
+
+
+
+
+
 
 
 //确认订单
