@@ -454,6 +454,9 @@ $(function() {
       jian.click(function () {
           var num = $(this).next().text();
           var all = parseInt(num) - 1;
+          if( num <= 0 ){
+              return false
+          }
           $(this).next().text(all);  //菜品份数相加
 
           var price = parseFloat( $(this).parent().siblings('.price').children().text() ); //单价
