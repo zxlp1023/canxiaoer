@@ -225,14 +225,19 @@
 
 
 
-.orderFood{ display: flex; background: $fff; width: 100vw; height: 100vh; overflow-y: auto; overflow-x: hidden;
+.orderFood{ display: flex; background: $fff; width: 100vw; height: 100vh; overflow-x: hidden;
   nav{ width: 25vw; background: $huif7;
     li{padding: $fz6 0; border-bottom: 1px dashed $huie4;}
     li a{   padding:0 10px; font-size: $fz7; display: block; }
+    li:first-of-type{
+      background-image: url("../img/icon/hot.png");
+      background-size: 12px auto;
+      background-position: .5rem 45%;
+      background-repeat: no-repeat;
+      text-indent: $fz9;}
     .on{ background: $fff;}
   }
-  .con{
-
+  .con{overflow-y: auto; padding-bottom: 2.5rem;
     flex: 1;
     dl{ display: flex; padding: $fz75  $fz75 $fz75 0;  border-bottom: 1px solid $huie4;
       dt{ width: 3rem; height: 3rem;margin-right: $fz5; margin-left: $fz5;}
@@ -254,20 +259,17 @@
       }
     }
   }
-
-  .con > div:last-of-type{ height:100vh; } //给最后一个div设置高度为一屏
+  //.con > div:last-of-type{ height:100vh; } //给最后一个div设置高度为一屏
 }
 .cartGrop{
-
-
   //已选菜单
-  .menuList{
+  .menuList{ display: none;
     .bg{ position: fixed; top: 0; width: 100%; height: 100%; background:rgba(0,0,0,.8) ;}
     .menuPanel{ position: fixed; height: 100%; width: 100%; top: 0;
       .menuCont{
         position: absolute; width: 100%;
         bottom: 2.5rem; background: $fff;
-        .menuHd{ padding: 0 $fz75; height: 2rem; line-height: 2rem; background: $huif7; font-size: $fz7; color: $hui94}
+        .menuHd{ padding: 0 $fz75; height: 2rem; line-height: 2rem; background: $huif7; font-size: $fz6;  }
         dl{ display: flex; align-items: center; padding: $fz75  $fz75 $fz75 0;  border-bottom: 1px solid $huie4;
           dt{   margin: 0 $fz75;flex: 1; font-size: $fz7;}
           dd{   position: relative; display: flex; align-items: center; justify-content: space-between;
@@ -293,7 +295,7 @@
   //购物车栏
   .con{ display: flex; align-items: center; position: fixed;  height: 2.5rem; bottom: 0; left: 0; right: 0; background: $fff;
     .cart{ width: 2.5rem; height: 2.5rem; margin-left: $fz5; position: relative; top: -$fz5; background: url("../img/icon/cart.png") 0 0 /100% auto no-repeat;
-      .weui-badge{ position: absolute; right: -3px; top: 2px;}
+      .weui-badge{ position: absolute; right: -3px; top: 2px; }
     }
     .totalPrice{flex: 1; margin-left: $fz8;
       span{font-size: 1rem; color: $red;}
