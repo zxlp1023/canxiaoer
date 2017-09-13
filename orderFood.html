@@ -410,7 +410,7 @@
     <div class="con">
       <div class="cart"> <div class="weui-badge">0</div> </div>
       <div class="totalPrice"><span>0</span></div>
-      <div class="gotoPay">去结算</div>
+      <div class="gotoPay"><a href="reserveAffirm.html">去结算</a></div>
 
     </div>
   </div>
@@ -467,6 +467,46 @@ $(function() {
   });
 
   //减少数量有问题, 暂且记录
+
+
+  var apiUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
+  var prams = {
+      "UID": "string",
+      "DAID": "string",
+      "DaName": "string",
+      "BIID": "string",
+      "PersonNum": 0,
+      "DtNum": 0,
+      "Remarks": "string",
+      "ReserveTime": "2017-09-13T08:51:35.464Z",
+      "PaySource": "string",
+      "LinkMan": "string",
+      "LinkManSex": 0,
+      "LinkPhone": "string",
+      "MealCoin": 0,
+      "Dishes": [
+          {
+              "DishesID": "string",
+              "Name": "string",
+              "Num": 0,
+              "SinglePrice": 0,
+              "Discount": 0,
+              "Remarks": "string",
+              "IsDishesSet": 0,
+              "DishesSet": [
+                  {
+                      "DishesID": "string",
+                      "Name": "string",
+                      "Num": 0,
+                      "Remarks": "string"
+                  }
+              ]
+          }
+      ]
+  };
+  GetData(apiUrl, prams, function () {
+      
+  });
 </script>
 </body>
 
