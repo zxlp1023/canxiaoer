@@ -306,7 +306,7 @@
                       '<div class="dis-f">'+
                       '<h4 class="weui-media-box__title">'+
                       shopName +
-                      '<span class="icon-mark icon-mark"></span>'+
+                      '<span class="icon-mark icon-mark-yuding"></span>'+
                       '<span class="icon-mark icon-mark-diancan"></span>'+
 //                      '<span class="icon-mark icon-mark-waimai"></span>'+
                       '<span class="icon-mark icon-mark-taocan"></span>'+
@@ -325,10 +325,10 @@
 
 
                   //预点外套  这里有问题
-                  if(item.IsPreOrder !== 1){ $('.icon-mark-diancan').hide(); }
+                  if(item.IsPreOrder !== 1){ $('.icon-mark-yuding').hide(); }
                   if(item.IsOrdered !== 1){ $('.icon-mark-diancan').hide(); }
-//                  if(item.IsTakeOut == 1){ $('.icon-mark-diancan').hide(); }
-                  if(item.IsMealSet !== 1){ $('.icon-mark-diancan').hide(); }
+//                  if(item.IsTakeOut == 1){ $('.icon-mark-waimai').hide(); }
+                  if(item.IsMealSet !== 1){ $('.icon-mark-taocan').hide(); }
 
                   //评分
                   var star = $('.star');

@@ -423,6 +423,7 @@ $(function() {
 });
 </script>
 <script src="js/jquery-weui.js"></script>
+<script src="src/js/canxiaoer.js"></script>
 <script>
   $(function () {
       var cateOn = $('.orderFood nav li');
@@ -434,6 +435,7 @@ $(function() {
       var jia = $('.icon-shop-jia'),
           jian = $('.icon-shop-jian'),
           totalPrice = parseFloat( $('.totalPrice span').text() );
+      console.log(totalPrice);
 
 //      jia click
       jia.click(function () {
@@ -448,6 +450,19 @@ $(function() {
           $('.weui-badge').text( count += 1 );
 
           //console.log(price);
+
+          //添加本地存储
+          var title = $(this).parent().siblings('.title').text();//菜品名称
+          var singlePrice = num * price;//单个菜品总价
+
+          var ls = localStorage;
+          ls = {
+              title : title,
+                  singlePrice:singlePrice,
+                  num : num,
+                  cont:count
+          };
+          console.log(ls.title   +ls.singlePrice +'<br>' + ls.num + '<br>'+ ls.count)
       });
 
 //      jian
@@ -469,7 +484,7 @@ $(function() {
       });
   });
 
-  //减少数量有问题, 暂且记录
+
 
 
   var apiUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
@@ -507,9 +522,9 @@ $(function() {
           }
       ]
   };
-  GetData(apiUrl, prams, function () {
+/*  GetData(apiUrl, prams, function () {
       
-  });
+  });*/
 </script>
 </body>
 

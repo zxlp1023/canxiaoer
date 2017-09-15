@@ -301,8 +301,10 @@
       span{font-size: 1rem; color: $red;}
       span:before{content: '¥';}
     }
-    .gotoPay{ width: 5rem; height: 2.5rem; line-height: 2.5rem; text-align: center; background: $orange; color: $fff; }
-  }
+    .gotoPay{
+      a{ display: block; width: 5rem; height: 2.5rem; line-height: 2.5rem; text-align: center; background: $orange; color: $fff; }
+    }
+  }//con
 
 }
 
@@ -313,6 +315,7 @@
 
 
 //确认订单
+.affirm-order{ padding-bottom: 3.3rem;}
 #bgf7{background: $huif7;}
 .addr-select{  //确认地址
   border:4px solid #ccc; border-left: 0;border-right: 0;

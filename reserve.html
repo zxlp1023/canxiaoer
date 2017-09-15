@@ -60,8 +60,8 @@
       </div>
     </div>
     <div class="reserve-btn p075 fz16">
-      <a href="javascript:;" class="weui-btn weui-btn_orange">订座并点餐</a>
-      <a href="javascript:;" class="weui-btn weui-btn_plain-orange">只订座</a>
+      <a href="orderFood.html" class="weui-btn weui-btn_orange">订座并点餐</a>
+      <a href="reserveAffirm.html" class="weui-btn weui-btn_plain-orange">只订座</a>
     </div>
   </div>
 
@@ -75,28 +75,7 @@
             <!--<li class="on"><span>今天</span><span>08-31</span></li>-->
           </ul>
           <ul class="hours" id="hours">
-            <li><span>11:00</span></li>
-            <li><span>11:30</span></li>
-            <li><span>12:00</span></li>
-            <li><span>12:30</span></li>
-            <li><span>13:00</span></li>
-            <li><span>13:30</span></li>
-            <li><span>14:00</span></li>
-            <li><span>14:30</span></li>
-            <li><span>15:00</span></li>
-            <li><span>15:30</span></li>
-            <li><span>16:00</span></li>
-            <li><span>16:30</span></li>
-            <li><span>17:00</span></li>
-            <li><span>17:30</span></li>
-            <li><span>18:00</span></li>
-            <li><span>18:30</span></li>
-            <li><span>19:00</span></li>
-            <li><span>19:30</span></li>
-            <li><span>20:00</span></li>
-            <li><span>20:30</span></li>
-            <li><span>21:00</span></li>
-            <li><span>21:30</span></li>
+
           </ul>
         </div>
       </div>
@@ -132,58 +111,74 @@ $(function() {
 <script src="src/js/canxiaoer.js"></script>
 <script>
   $(function () {
+      // 日期，在原有日期基础上，增加days天数，默认增加1天
+      function addDate(date, days) {
+          if (days == undefined || days == '') {
+              days = 1;
+          }
+          var date = new Date(date);
+          date.setDate(date.getDate() + days);
+          var month = date.getMonth() + 1;
+          var day = date.getDate();
 
-      var t = new Date(),
-          year = t.getFullYear(), //年
-          day = t.getDay(), //星期
-          date = t.getDate(),  // 几号
-          month = t.getMonth()+1; //月份
-      var startM = '00';
-      var startH = t.setHours( 11);
+          return   getFormatDate(month) + '-' + getFormatDate(day);
+          // date.getFullYear() + '-' +
 
-      /*switch (day){
-          case 0: {
-              day = '周日';
-              break;
-          }
-          case 1: {
-              day = '周一';
-              break;
-          }
-          case 2: {
-              day = '周二';
-              break;
-          }
-          case 3: {
-              day = '周三';
-              break;
-          }
-          case 4: {
-              day = '周四';
-              break;
-          }
-          case 5: {
-              day = '周五';
-              break;
-          }
-          case 6: {
-              day = '周六';
-              break;
+      }
+      // 日期月份/天的显示，如果是1位数，则在前面加上'0'
+      function getFormatDate(arg) {
+          if (arg == undefined || arg == '') {
+              return '';
           }
 
-      }*/
+          var re = arg + '';
+          if (re.length < 2) {
+              re = '0' + re;
+          }
+
+          return re;
+      }
+
       var days = $('#days span:last-of-type'),
-          hours = $('#hours'),
-          li = $('<li><span>' + day + '</span><span>' + month+'-'+date + '</span></li>');
+          hours = $('#hours');
+//          li = $('<li><span>' + day + '</span><span>' + month+'-'+date + '</span></li>');
 
-      for( var i = 0; i<=15; i++) {
+      var myDate =  Date.now();
+      var x = [];
+      for (var i = 0; i < 15; i++){
+          myDate=addDate(myDate,1);
+          x[i] =myDate.split('-');
+
+          /*var week = "周"+"日一二三四五六".charAt(new   Date(myDate).getDay());// 显示星期几 不能和上面那句变换顺序
+          $('#days').append(
+              $('<li><span>' +  + '月' +  + '日 ' + week + ' </span></li>')
+
+          );*/
+
+
+//              var sj = year + '-' + month + '-' + (date+i);
+              var week = "周"+"日一二三四五六 ".charAt(new   Date(myDate).getDay());//不能和上面那句变换顺序
+
+              $('#days').append(
+                  $('<li><span>' + x[i][0] + '月' + x[i][1] + '日'  + '</span>&nbsp;<span>' + week + '</span>&nbsp;</li>')
+              )
+
+
+      }//时间end
+
+
+
+
+
+
+      /*for( var i = 0; i<=15; i++) {
           var sj = year + '-' + month + '-' + (date+i);
           var day = "周"+"日一二三四五六 ".charAt(new   Date(sj).getDay());//不能和上面那句变换顺序
 
           $('#days').append(
               $('<li><span>' + month + '月' + (date+i) + '日'  + '</span>&nbsp;<span>' + day + '</span>&nbsp;</li>')
           );
-      }
+      }*/
 
       //关闭窗口
       $('#shijian').click(function () {
@@ -196,14 +191,6 @@ $(function() {
           $('.modal').hide();
       });
 
-      //选择时间
-
-      $('.select .hours li').on('click',function () {
-          $(this).addClass('on').siblings().removeClass('on');
-          var timer = $('#modal .days li.on').text() + $('#modal .hours li.on').text();
-          $('#shijian span').text(timer);
-          $('#modal').hide();
-      });
 
       //选择人数和桌数
       $('#renshu').click(function () {
@@ -227,6 +214,35 @@ $(function() {
       });
 
 
+      //选择小时和分钟
+       var t = new Date(),
+          year = t.getFullYear(), //年
+          day = t.getDay(), //星期
+          date  = t.getDate(),  // 几号
+          month = t.getMonth()+1; //月份
+      var startH = t.getHours( t.setHours( 11) );//设置小时
+      var startM = t.getMinutes( t.setMinutes(00) );  // 设置分钟
+      console.log(
+//          startH
+      );
+
+      var time2 = startH + '-' + startM;
+      var y =[];
+      for( var j = 0; j < 15; j++){
+y[j] = time2.split('-');
+          console.log( y[j][0] + (y[j][1]+30) );
+              /*$('#hours').append(
+                  '<li class=""><span>' + startH +':'+ (startM + 30) +'</span></li>'
+              )*/
+      }
+
+      $('.select .hours li').on('click',function () {
+          $(this).addClass('on').siblings().removeClass('on');
+          var timer = $('#modal .days li.on').text() + $('#modal .hours li.on').text();
+          $('#shijian span').text(timer);
+          $('#modal').hide();
+      });
+
 
       //选中效果
       $('.select .days li:first-of-type').addClass('on');
@@ -246,10 +262,9 @@ $(function() {
 
 
 
-
+      //思路, 成功后返回订单ID,  再将订单ID传入下个页面
       yudingUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
-//      var x = ;
-      GetData(yudingUrl, {
+      var prams = {
           "UID": "string",
           "DAID": "string",
           "DaName": "string",
@@ -282,9 +297,10 @@ $(function() {
                   ]
               }
           ]
-      }, function (json) {
+      };
+      /*GetData(yudingUrl, prams, function (json) {
           alert('success');
-      });//GetData
+      });//GetData*/
   });
 
 
