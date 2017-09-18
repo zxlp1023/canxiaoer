@@ -21,7 +21,7 @@
       <a href="javascript:history.back()" class="back">
       </a>
       <p class="ml0">登录</p>
-      <a href="" class="regLogin">注册</a>
+      <a href="register.html" class="regLogin">注册</a>
     </div>
     <div class="weui-grids">
       <a href="" class="weui-grid js_grid">
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="mt10">
-          <a class="fz12 orange " href="">手机短信登录</a> <a class="fz12 hui94 fr" href="">忘记密码</a>
+          <a class="fz12 orange " href="smsLogin.html">手机短信登录</a> <a class="fz12 hui94 fr" href="forgetPassword.html">忘记密码?</a>
         </div>
         <div class="mt15">
           <a href="javascript:;" class="weui-btn weui-btn_pay" onclick="checkUser()">登录</a>
@@ -76,14 +76,14 @@ $(function() {
 <script>
 function checkUser() {
     var tel = $('input[name = "tel"]').val(),
-        psw = $('input[name = "psw"]').val,
-        regTel = /^\d{11}$/,
-        regPsw = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
-   /* if(!tel || !regTel.test(tel)){
+        psw = $('input[name = "psw"]').val(),
+        regTel = /^[1][3,4,5,7,8][0-9]{9}$/,
+        regPsw = /^.{6,20}$/;
+    if(!tel || !regTel.test(tel)){
         alert(1);
 
-    } */
-    if(!psw ){
+    }
+    if(!psw || !regPsw.test(psw)){
         alert(2);
     }
 }

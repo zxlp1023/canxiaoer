@@ -26,6 +26,7 @@
     <a id="renshu" href="#" class="dis-f">
       <p>人数&桌数</p>
       <span class="fz12 hui94">请选择</span>
+      <span></span>
     </a>
     <a id="shijian" href="#" class="dis-f">
       <p>时间</p>
@@ -85,12 +86,12 @@
     <div class="container">
       <div class="bg"></div>
       <div class="select">
-        <div class="hd">请选择人数和桌数 <i class="cls">x</i></div>
+        <div class="hd">请选择桌数和人数<i class="cls">x</i></div>
         <div class="bd">
-          <ul class="days " id="people">
+          <ul class="days " id="desk">
 
           </ul>
-          <ul class="hours" id="desk">
+          <ul class="hours" id="people">
 
           </ul>
         </div>
@@ -156,7 +157,7 @@ $(function() {
           );*/
 
 
-//              var sj = year + '-' + month + '-' + (date+i);
+//              var myDate = year + '-' + month + '-' + (date+i);
               var week = "周"+"日一二三四五六 ".charAt(new   Date(myDate).getDay());//不能和上面那句变换顺序
 
               $('#days').append(
@@ -196,44 +197,53 @@ $(function() {
       $('#renshu').click(function () {
           $('#modal2').show();
       });
-      for(var r=5;r<=30;r++){
-          $('#people').append(
-              '<li><span>'+r+'人'+'</span></li>'
-          )
-      }
-      for( var d=1; d<=10;d++){
+      for(var d=1;d<=10;d++){
           $('#desk').append(
               '<li><span>'+d+'桌'+'</span></li>'
+          )
+      }
+      for( var r=5; r<=30;r++){
+          $('#people').append(
+              '<li><span>'+r+'人'+'</span></li>'
           )
       }
       $('#modal2 .hours li').on('click',function () {
           $(this).addClass('on').siblings().removeClass('on');
           $('#renshu span:first-of-type').html(($('#people  li.on').text()));
-          $('#renshu').append($('#desk li.on').html());
+          $('#renshu span:last-of-type').html($('#desk li.on').html());
           $('#modal2').hide();
       });
 
 
       //选择小时和分钟
-       var t = new Date(),
-          year = t.getFullYear(), //年
-          day = t.getDay(), //星期
-          date  = t.getDate(),  // 几号
-          month = t.getMonth()+1; //月份
-      var startH = t.getHours( t.setHours( 11) );//设置小时
-      var startM = t.getMinutes( t.setMinutes(00) );  // 设置分钟
-      console.log(
-//          startH
-      );
+      Date.prototype.Format = function (fmt) { //author: meizz
+          var o = {
+              "M+": this.getMonth() + 1, //月份
+              "d+": this.getDate(), //日
+              "h+": this.getHours(), //小时
+              "m+": this.getMinutes(), //分
+              "s+": this.getSeconds(), //秒
+              "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+              "S": this.getMilliseconds() //毫秒
+          };
+          if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+          for (var k in o)
+              if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+          return fmt;
+      }
+      function judgFailTime(time, addMin) {
+          //alert(x.toString().replace("-", "/"));
+          //var time = new Date(x.toString().replace("-", "/"));
 
-      var time2 = startH + '-' + startM;
-      var y =[];
-      for( var j = 0; j < 15; j++){
-y[j] = time2.split('-');
-          console.log( y[j][0] + (y[j][1]+30) );
-              /*$('#hours').append(
-                  '<li class=""><span>' + startH +':'+ (startM + 30) +'</span></li>'
-              )*/
+          time.setMinutes(time.getMinutes() + addMin, time.getSeconds(), 0);
+          return time.Format("hh:mm");
+      }
+      for (var i = 0; i < (10);i++)
+      {
+//          console.log();
+          $('#hours').append(
+          '<li><span>'+ judgFailTime(new Date(new Date().Format("yyyy-MM-dd") + " 11:00"), 30*i) +'</span></li>'
+          )
       }
 
       $('.select .hours li').on('click',function () {
