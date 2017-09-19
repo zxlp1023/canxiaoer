@@ -264,7 +264,7 @@ a {
   display: inline-block;
   width: 18px;
   height: 18px;
-  background: url("../img/icon/icon-mark.png") 0 0/18px no-repeat;
+  background: url("../../img/icon/icon-mark.png") 0 0/18px no-repeat;
   margin: 0 10px 0 0; }
 
 .icon-mark-yuding {
@@ -284,7 +284,7 @@ a {
   width: 30px;
   height: 30px;
   vertical-align: middle;
-  background: url("../img/icon/iconShop.png") 0 0/60px auto no-repeat;
+  background: url("../../img/icon/iconShop.png") 0 0/60px auto no-repeat;
   margin: 0 10px 0 0; }
 
 .icon-shop-talk {
@@ -438,7 +438,7 @@ a {
   width: 30px;
   height: 30px;
   vertical-align: middle;
-  background: url("../img/icon/icon-member.png") 0 0/60px auto no-repeat; }
+  background: url("../../img/icon/icon-member.png") 0 0/60px auto no-repeat; }
 
 .icon-member-myOrder {
   background-position: 0 -29px; }
@@ -463,7 +463,7 @@ a {
   width: 25px; }
 
 .icon-member-addr-add {
-  background: url("../img/icon/icon-addr-add.png") 0 2px/14px auto no-repeat;
+  background: url("../../img/icon/icon-addr-add.png") 0 2px/14px auto no-repeat;
   padding-left: 20px; }
 
 .icon-member-edit {
@@ -485,7 +485,7 @@ a {
   overflow: auto;
   color: #fff;
   padding: 1.4rem 0 .85rem;
-  background: url("../img/icon/vip-bg.png") center 0/cover #ff9a0a; }
+  background: url("../../img/icon/vip-bg.png") center 0/cover #ff9a0a; }
   .my-account header .my-logo {
     width: 3.2rem;
     height: 3.2rem;
@@ -715,7 +715,7 @@ a {
 .weui-uploader__input-box {
   border-radius: 5px;
   border: 1px solid #e4e4e4;
-  background: url("../img/icon/camera.png") center center/45% no-repeat; }
+  background: url("../../img/icon/camera.png") center center/45% no-repeat; }
   .weui-uploader__input-box:before {
     width: 0;
     height: 0; }
@@ -756,7 +756,7 @@ a {
           -ms-flex: 1;
               flex: 1;
       height: 20px;
-      background: url("../img/icon/starList.png") right -178px/115px auto no-repeat; }
+      background: url("../../img/icon/starList.png") right -178px/115px auto no-repeat; }
 
 .comm-btn {
   width: 33%;
@@ -941,7 +941,7 @@ a {
     .coupan .item .hd {
       position: relative;
       height: 4px;
-      background: url("../img/icon/coupan-bg.png") repeat-x 0 0; }
+      background: url("../../img/icon/coupan-bg.png") repeat-x 0 0; }
   .coupan dl {
     position: relative;
     display: -webkit-box;
@@ -976,7 +976,7 @@ a {
     .coupan .overjue dl {
       border-bottom: 4px solid #c6c6c6; }
     .coupan .overjue dl dd {
-      background: url("../img/icon/overjue-bg.png") 0 bottom/58px auto no-repeat; }
+      background: url("../../img/icon/overjue-bg.png") 0 bottom/58px auto no-repeat; }
 
 .balance {
   font-size: 0.7rem;

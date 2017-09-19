@@ -82,7 +82,7 @@
   width: 86px;
   height: 12px;
   vertical-align: middle;
-  background: url('../img/icon/starList.png') no-repeat;
+  background: url('../../img/icon/starList.png') no-repeat;
   background-size: 86px auto
 }
 .star.star-0 {background-position: 0 -134px}
@@ -230,7 +230,7 @@
     li{padding: $fz6 0; border-bottom: 1px dashed $huie4;}
     li a{   padding:0 10px; font-size: $fz7; display: block; }
     li:first-of-type{
-      background-image: url("../img/icon/hot.png");
+      background-image: url("../../img/icon/hot.png");
       background-size: 12px auto;
       background-position: .5rem 45%;
       background-repeat: no-repeat;
@@ -294,7 +294,7 @@
 
   //购物车栏
   .con{ display: flex; align-items: center; position: fixed;  height: 2.5rem; bottom: 0; left: 0; right: 0; background: $fff;
-    .cart{ width: 2.5rem; height: 2.5rem; margin-left: $fz5; position: relative; top: -$fz5; background: url("../img/icon/cart.png") 0 0 /100% auto no-repeat;
+    .cart{ width: 2.5rem; height: 2.5rem; margin-left: $fz5; position: relative; top: -$fz5; background: url("../../img/icon/cart.png") 0 0 /100% auto no-repeat;
       .weui-badge{ position: absolute; right: -3px; top: 2px; }
     }
     .totalPrice{flex: 1; margin-left: $fz8;
