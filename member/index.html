@@ -19,7 +19,7 @@
     <header class="text-center">
       <div class="talk"><a href=""><i class="icon-shop icon-shop-talk"></i></a></div>
       <div class="my-logo"><img src="../img/icon/user-logo.png" alt=""></div>
-      <p class="name">陈淑华</p>
+      <p id="name" class="name">陈淑华</p>
       <p>餐币：20个</p>
     </header>
     <div class="weui-grids  text-center">
@@ -125,7 +125,12 @@ $(function() {
 });
 </script>
 <script src="../dist/js/jquery-weui.js"></script>
-
+<script>
+  $(function () {
+      $('#name').html(localStorage.name);
+      console.log();
+  })
+</script>
 </body>
 
 </html>

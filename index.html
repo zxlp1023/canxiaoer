@@ -206,7 +206,9 @@
 <script src="dist/js/jquery-weui.js"></script>
 <script src="dist/js/swiper.min.js"></script>
 <script src="src/js/canxiaoer.js"></script>
-<script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5297da43b6a06aa32416dee666dfd482"></script>
+
+  <script>
     $(".swiper-container").swiper({
         loop: true,
         autoplay: 3000
@@ -284,17 +286,55 @@
       // 首页
       var indexUrl = 'http://119.23.135.79:8001/api/ServiceForApp/GetBusinessInfoList?Key=CanXiao2App';
       GetData(indexUrl, {}, function (json) {
-
           if (json.IsResult)
           {
               $.each(json.Data, function (i,item)
               {
-
                   var shopName = item.Name,
                       pic = '',
                       score = item.Score,
                       renjun = item.PerPersonCost,
-                      id = item.ID;
+                      id = item.ID,
+                      lat2 = item.Latitude,
+                      lng2 = item.Longitude;
+//获取距离
+                  var geolocation = new BMap.Geolocation();
+                  geolocation.getCurrentPosition(function (pos) {
+                      var lng1 = pos.point.lng;//当前经度
+                       var lat1 = pos.point.lat;//当前纬度
+//                      console.log(lng2 + '<br>' + lat2);
+                  });
+
+
+
+                  function getFlatternDistance(lat1, lng1, lat2, lng2) {//lat1, lng1 当前坐标  lat2, lng2数据库坐标
+                      if (!bIsIphoneOs) {
+                          lat1 = lat1 * 1;//reslove android don't run
+                      }
+                      var f = getRad((lat1 * 1 + lat2) / 2);
+                      var g = getRad((lat1 - lat2) / 2);
+                      var l = getRad((lng1 - lng2) / 2);
+                      var sg = Math.sin(g);
+                      var sl = Math.sin(l);
+                      var sf = Math.sin(f);
+                      var s, c, w, r, d, h1, h2;
+                      var a = EARTH_RADIUS;
+                      var fl = 1 / 298.257;
+                      sg = sg * sg;
+                      sl = sl * sl;
+                      sf = sf * sf;
+                      s = sg * (1 - sl) + (1 - sf) * sl;
+                      c = (1 - sg) * (1 - sl) + sf * sl;
+                      w = Math.atan(Math.sqrt(s / c));
+                      r = Math.sqrt(s * c) / w;
+                      d = 2 * w * a;
+                      h1 = (3 * r - 1) / 2 / c;
+                      h2 = (3 * r + 1) / 2 / s;
+                      return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg));
+                  }
+                  console.log(getFlatternDistance());
+                  //距离结束
+//                  console.log( lng2 + '<br>' + lat2 );
                   var url = 'shopDetails.html?id='+id;
                   $('.weui-panel__bd').append(
                       '<a href='+url+' class="weui-media-box weui-media-box_appmsg">'+
@@ -338,6 +378,49 @@
 
 
   </script>
+  <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=XDPQcHSI21DpXbQ62SnAmTYTb9u4s1h2"></script>-->
+  <!--zxlp1023-->
+
+ <!-- <script>
+    $(function () {
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (pos) {
+            var lng1 = pos.point.lng;//当前经度
+            var lat1 = pos.point.lat;//当前纬度
+            console.log(lng1 + '<br>' + lat1);
+        });
+
+        function getFlatternDistance(lat1, lng1, lat2, lng2) {//lat1, lng1 当前坐标  lat2, lng2数据库坐标
+            if (!bIsIphoneOs) {
+                lat1 = lat1 * 1;//reslove android don't run
+            }
+            var f = getRad((lat1 * 1 + lat2) / 2);
+            var g = getRad((lat1 - lat2) / 2);
+            var l = getRad((lng1 - lng2) / 2);
+            var sg = Math.sin(g);
+            var sl = Math.sin(l);
+            var sf = Math.sin(f);
+            var s, c, w, r, d, h1, h2;
+            var a = EARTH_RADIUS;
+            var fl = 1 / 298.257;
+            sg = sg * sg;
+            sl = sl * sl;
+            sf = sf * sf;
+            s = sg * (1 - sl) + (1 - sf) * sl;
+            c = (1 - sg) * (1 - sl) + sf * sl;
+            w = Math.atan(Math.sqrt(s / c));
+            r = Math.sqrt(s * c) / w;
+            d = 2 * w * a;
+            h1 = (3 * r - 1) / 2 / c;
+            h2 = (3 * r + 1) / 2 / s;
+            return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg));
+        }
+//        geolocation.getCurrentPosition();
+
+
+
+    })
+  </script>-->
 </body>
 
 </html>

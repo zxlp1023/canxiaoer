@@ -17,4 +17,10 @@ function GetData(url, prams, success, error)//请求的url，请求传的参数�
     );
 }
 
+$(function () {
+   if(!localStorage.id){
+  /*     location.href = 'login.html';
+       return false;*/
+   }
+});
 

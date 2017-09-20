@@ -48,7 +48,8 @@
         <div class=" text-center hui94 fz12 mt10">使用手机登录</div>
         <div class="weui-cell weui-cell_vcode">
           <div class="weui-cell__bd">
-            <input id="tel" class="weui-input" type="number" pattern="[0-9]*"  placeholder="手机号">
+            <input id="tel" class="weui-input"  placeholder="手机号">
+            <!--<input id="tel" class="weui-input" type="number" pattern="[0-9]*"  placeholder="手机号">-->
           </div>
         </div>
         <div class="weui-cell">
@@ -82,15 +83,48 @@ $(function() {
           var tel = $('#tel').val(),
               psw = $('#psw').val();
           var loginUrl = 'http://119.23.135.79:8001/api/ServiceForApp/Login?Key=CanXiao2App&UAccount='+tel+'&Password='+psw;
-        GetData(loginUrl,{
+//          var loginUrl = 'http://119.23.135.79:8001/api/ServiceForApp/Login?Key=CanXiao2App&UAccount='+'niji'+'&Password='+ '123456'; //测试用
+          GetData(loginUrl,{
             Key:'CanXiao2App',
             UAccount:tel,
             Password:psw
-            },function (data) {
-            alert( data.UAccount);
-        }
-        );
+          },
+          function (json) {
+            if (json.IsResult){
 
+                /*var ls = localStorage,
+                    name = json.Data.NickName,
+                    tel = json.Data.MobilePhone,
+                    pic = json.Data.ImagePath,
+                    id = json.Data.ID,
+                    balance= json.Data.RemainMoney,
+                    mealMoney = json.Data.MealCoinNum;
+
+                localStorage = {
+                    name : name,
+                    tel: tel,
+                    pic: pic,
+                    id: id,
+                    balance: id,
+                    mealMoney: mealMoney
+                };*/
+
+//                console.log(ls);
+                localStorage.name = json.Data.NickName;
+                localStorage.tel = json.Data.MobilePhone;
+                localStorage.pic = json.Data.ImagePath;
+                localStorage.id = json.Data.ID;
+                localStorage.balance = json.Data.RemainMoney;
+                localStorage.mealMoney = json.Data.MealCoinNum;
+
+                location.href = 'index.html';
+            }
+          },function () {
+                if(json.Code == '0'){
+                    alert('用户名或密码不正确');
+                }
+              }
+          );
       });
   });
 
