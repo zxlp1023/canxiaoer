@@ -33,11 +33,11 @@ GetData(shopDetails, {}, function (json) {
                 )
             }
 
-
             $('#yuding').click(function () {
                 // if( !isLogin()){ re isLogin() }
                 $('#yuding').attr('href','reserve.html'+'?shopid='+shopId); /*预定链接的shopId*/
                 var backUrl = $('#yuding').attr('href');
+
                 if( isLogin() == false ){
                     gotoLogin(backUrl);
                     return false;
