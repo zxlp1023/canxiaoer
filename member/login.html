@@ -78,7 +78,7 @@ $(function() {
 <script>
 
   $(function () {
-
+      var reUrl = location.search.slice(7);
       $('#login').click(function () {
           var tel = $('#tel').val(),
               psw = $('#psw').val();
@@ -113,13 +113,16 @@ $(function() {
                 localStorage.name = json.Data.NickName;
                 localStorage.tel = json.Data.MobilePhone;
                 localStorage.pic = json.Data.ImagePath;
-                localStorage.id = json.Data.ID;
+                localStorage.uid = json.Data.ID;
                 localStorage.balance = json.Data.RemainMoney;
                 localStorage.mealMoney = json.Data.MealCoinNum;
 
                 // localStorage.userData = json.Data
 
-                location.href = 'index.html';
+//                location.href = 'index.html';
+//                gotoUrl('index.html')
+                var reUrl = '../' + location.search.slice(1);
+                backUrl(reUrl);
             }
           },function () {
                 if(json.Code == '0'){

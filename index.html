@@ -294,7 +294,7 @@
                       pic = '',
                       score = item.Score,
                       renjun = item.PerPersonCost,
-                      id = item.ID,
+                      shopid = item.ID,
                       lat2 = item.Latitude,
                       lng2 = item.Longitude;
 //获取距离
@@ -302,12 +302,12 @@
                   geolocation.getCurrentPosition(function (pos) {
                       var lng1 = pos.point.lng;//当前经度
                        var lat1 = pos.point.lat;//当前纬度
-//                      console.log(lng2 + '<br>' + lat2);
+                      console.log(lng2 + '<br>' + lat2);
                   });
 
 
 
-                  function getFlatternDistance(lat1, lng1, lat2, lng2) {//lat1, lng1 当前坐标  lat2, lng2数据库坐标
+                  /*function getFlatternDistance(lat1, lng1, lat2, lng2) {//lat1, lng1 当前坐标  lat2, lng2数据库坐标
                       if (!bIsIphoneOs) {
                           lat1 = lat1 * 1;//reslove android don't run
                       }
@@ -333,9 +333,9 @@
                       return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg));
                   }
                   console.log(getFlatternDistance());
-                  //距离结束
+                  //距离结束*/
 //                  console.log( lng2 + '<br>' + lat2 );
-                  var url = 'shopDetails.html?id='+id;
+                  var url = 'shopDetails.html?shopid='+shopid;
                   $('.weui-panel__bd').append(
                       '<a href='+url+' class="weui-media-box weui-media-box_appmsg">'+
                       '<div class="weui-media-box__hd">'+
