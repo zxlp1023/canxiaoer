@@ -1,7 +1,8 @@
 // 店铺详情
-var shopId = location.search.slice(4); //获取商户ID
-var shopDetails = 'http://119.23.135.79:8001/api/ServiceForApp/GetBusinessInfoList?Key=CanXiao2App';  //商家列表
-var shopSetMeal = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesSetByBIID?Key=CanXiao2App&BIID='+shopId;  //商家套餐
+var shopId = location.search.slice(8); //获取商户ID
+var shopDetails = 'http://119.23.135.79:8001/api/ServiceForApp/GetBusinessInfoList?Key=CanXiao2App';  //获取商家列表
+var shopSetMeal = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesSetByBIID?Key=CanXiao2App&BIID='+shopId;  //获取商家套餐
+
 
 GetData(shopDetails, {}, function (json) {
     if (json.IsResult)
@@ -31,10 +32,27 @@ GetData(shopDetails, {}, function (json) {
                     '</a>'
                 )
             }
-            $('#yuding').attr('href','reserve.html'+'?shopid='+shopId);  //预定链接的shopId
+
+
+            $('#yuding').click(function () {
+                // if( !isLogin()){ re isLogin() }
+                $('#yuding').attr('href','reserve.html'+'?shopid='+shopId); /*预定链接的shopId*/
+                var backUrl = $('#yuding').attr('href');
+                if( isLogin() == false ){
+                    gotoLogin(backUrl);
+                    return false;
+                }else{
+                    $('#yuding').attr('href','reserve.html'+'?shopid='+shopId); /*预定链接的shopId*/
+                }
+            });
+
         });
     }
 });
+
+/*function isLogin() {
+    
+}*/
 
 //套餐信息
 GetData(shopSetMeal, {}, function (json) {

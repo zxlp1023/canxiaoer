@@ -17,10 +17,22 @@ function GetData(url, prams, success, error)//请求的url，请求传的参数�
     );
 }
 
-$(function () {
-   if(!localStorage.id){
-  /*     location.href = 'login.html';
-       return false;*/
-   }
-});
+// var reUrl = location.href;
+function isLogin() {
+    if(!localStorage.id){
+        // console.log( reUrl );
+        // alert(reUrl);
+        // location.href = 'member/login.html'
+        return false;
+    }
+}
+
+
+function gotoLogin( backUrl ) {
+    location.href = 'member/login.html?'+backUrl;
+}
+
+function backUrl(url) {
+    location.href = url;
+}
 
