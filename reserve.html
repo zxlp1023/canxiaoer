@@ -300,23 +300,8 @@ $(function() {
       onlyReUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
       //订座并点餐
       $('#reAndOrder').click( function () {
-          getReverseData();
-          if( $('#renshu span:first-of-type').text() == '请选择'){
-              $.toptip('请选择桌数和人数','error');
-              return false;
-          }else if( $('#shijian span:first-of-type').text() == '请选择' ){
-              $.toptip('请选择桌数和人数','error');
-              return false;
-          }else if( name == '' ){
-              $.toptip('请填写用餐人姓名','error');
-              return false;
-          }
-          else if( tel == '' ){
-              $.toptip('请填写手机号码','error');
-              return false;
-          }
-
-          GetData(reAndOrderUrl, {
+          getReverseData(); //获取变量
+          var prams = {
               "UID": localStorage.uid,
               "DAID": room,
               "DaName": "string",
@@ -349,16 +334,83 @@ $(function() {
                       ]
                   }
               ]
-          }, function (json) {
+          }; //DATA数据
+          if( $('#renshu span:first-of-type').text() == '请选择'){
+              $.toptip('请选择桌数和人数','error');
+              return false;
+          }else if( $('#shijian span:first-of-type').text() == '请选择' ){
+              $.toptip('请选择桌数和人数','error');
+              return false;
+          }else if( name == '' ){
+              $.toptip('请填写用餐人姓名','error');
+              return false;
+          }
+          else if( tel == '' ){
+              $.toptip('请填写手机号码','error');
+              return false;
+          }
+
+          GetData(reAndOrderUrl, prams, function (json) {
               alert('订座并点餐成功');
           });//GetData
       });
 
 //      只订座
-      $('#onlyRe').click( function () {
+      $('#onlyRe').click(function () {
+          getReverseData(); //获取变量
+          var prams = {
+              "UID": localStorage.uid,
+              "DAID": room,
+              "DaName": "string",
+              "BIID": shopId,
+              "PersonNum": personNum,
+              "DtNum": deskNum,
+              "Remarks": liuyan,
+              "ReserveTime": reserveTime(),
+              "PaySource": "string",
+              "LinkMan": name,
+              "LinkManSex": 0,
+              "LinkPhone": tel,
+              "MealCoin": 0,
+              "Dishes": [
+                  {
+                      "DishesID": "string",
+                      "Name": "string",
+                      "Num": 0,
+                      "SinglePrice": 0,
+                      "Discount": 0,
+                      "Remarks": "string",
+                      "IsDishesSet": 0,
+                      "DishesSet": [
+                          {
+                              "DishesID": "string",
+                              "Name": "string",
+                              "Num": 0,
+                              "Remarks": "string"
+                          }
+                      ]
+                  }
+              ]
+          }; //DATA数据
+          if( $('#renshu span:first-of-type').text() == '请选择'){
+              $.toptip('请选择桌数和人数','error');
+              return false;
+          }else if( $('#shijian span:first-of-type').text() == '请选择' ){
+              $.toptip('请选择桌数和人数','error');
+              return false;
+          }else if( name == '' ){
+              $.toptip('请填写用餐人姓名','error');
+              return false;
+          }
+          else if( tel == '' ){
+              $.toptip('请填写手机号码','error');
+              return false;
+          }
 
           GetData(onlyReUrl, prams, function (json) {
-              alert('订座成功');
+//              $.toptip('预定成功','succes');
+//              orderId = json.data.orderID
+              alert('预定成功');
           });//GetData
       });
       /*GetData(yudingUrl, prams, function (json) {
