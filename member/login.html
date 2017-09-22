@@ -77,7 +77,7 @@ $(function() {
 <script src="../src/js/canxiaoer.js"></script>
 <script>
   $(function () {
-      var reUrl = location.search.slice(7);
+//      var reUrl = location.search.slice(7);
       $('#login').click(function () {
           var tel = $('#tel').val(),
               psw = $('#psw').val();
@@ -127,8 +127,11 @@ $(function() {
 //                gotoUrl('index.html')
                 var reUrl = GetCustomUrl('back');
 //                var reUrl = '../' + location.search.slice(1);
-//                alert(reUrl);
-                backUrl('../' + reUrl);
+//                alert( reUrl);
+                if( !reUrl || reUrl == null){
+                    location.href = 'index.html';
+                }else{
+                backUrl('../' + reUrl);}
             }
           }
           );
