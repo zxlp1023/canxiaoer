@@ -250,9 +250,15 @@ $(function() {
       });
 //      var peopel = parseInt( $('#people .on').text() );
 //      var desk = parseInt( $('#desk .on').text() );
+<<<<<<< HEAD
 
 //      提交数据
 
+=======
+
+//      提交数据
+
+>>>>>>> 67322116b02931a6bb768c8f303587f641b1b966
       var shopId = location.search.slice(8);  //根据url获取商户id
       var personNum , deskNum,  room,name,tel,liuyan ;
       reserveTime = function getNowFormatDate() {
@@ -359,6 +365,7 @@ $(function() {
       $('#onlyRe').click(function () {
           getReverseData(); //获取变量
           var prams = {
+<<<<<<< HEAD
           "UID": localStorage.uid,
           "DAID": room,
           "DaName": "string",
@@ -391,6 +398,40 @@ $(function() {
                   ]
               }
           ]
+=======
+              "UID": localStorage.uid,
+              "DAID": room,
+              "DaName": "string",
+              "BIID": shopId,
+              "PersonNum": personNum,
+              "DtNum": deskNum,
+              "Remarks": liuyan,
+              "ReserveTime": reserveTime(),
+              "PaySource": "string",
+              "LinkMan": name,
+              "LinkManSex": 0,
+              "LinkPhone": tel,
+              "MealCoin": 0,
+              "Dishes": [
+                  {
+                      "DishesID": "string",
+                      "Name": "string",
+                      "Num": 0,
+                      "SinglePrice": 0,
+                      "Discount": 0,
+                      "Remarks": "string",
+                      "IsDishesSet": 0,
+                      "DishesSet": [
+                          {
+                              "DishesID": "string",
+                              "Name": "string",
+                              "Num": 0,
+                              "Remarks": "string"
+                          }
+                      ]
+                  }
+              ]
+>>>>>>> 67322116b02931a6bb768c8f303587f641b1b966
           }; //DATA数据
           if( $('#renshu span:first-of-type').text() == '请选择'){
               $.toptip('请选择桌数和人数','error');
@@ -406,6 +447,10 @@ $(function() {
               $.toptip('请填写手机号码','error');
               return false;
           }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 67322116b02931a6bb768c8f303587f641b1b966
           GetData(onlyReUrl, prams, function (json) {
 //              $.toptip('预定成功','succes');
 //              orderId = json.data.orderID

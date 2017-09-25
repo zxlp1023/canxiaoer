@@ -16,127 +16,127 @@
 
 <body ontouchstart id="bgfff">
 <!--登录-->
-<div class="login">
-  <div class="backBar">
-    <a href="javascript:history.back()" class="back">
-    </a>
-    <p class="ml0">登录</p>
-    <a href="register.html" class="regLogin">注册</a>
-  </div>
-  <div class="weui-grids">
-    <a href="" class="weui-grid js_grid">
-      <div class="weui-grid__icon">
-        <img src="../img/icon/icon-qq.png" alt="">
-      </div>
-      <p class="weui-grid__label">QQ</p>
-    </a>
-    <a href="" class="weui-grid js_grid">
-      <div class="weui-grid__icon">
-        <img src="../img/icon/icon-wechat.png" alt="">
-      </div>
-      <p class="weui-grid__label">微信</p>
-    </a>
-    <a href="" class="weui-grid js_grid">
-      <div class="weui-grid__icon">
-        <img src="../img/icon/icon-sina.png" alt="">
-      </div>
-      <p class="weui-grid__label">新浪微博</p>
-    </a>
-  </div>
-  <form action="">
-    <div class="weui-cells weui-cells_form">
-      <div class=" text-center hui94 fz12 mt10">使用手机登录</div>
-      <div class="weui-cell weui-cell_vcode">
-        <div class="weui-cell__bd">
-          <input id="tel" class="weui-input"  placeholder="手机号">
-          <!--<input id="tel" class="weui-input" type="number" pattern="[0-9]*"  placeholder="手机号">-->
-        </div>
-      </div>
-      <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <input id="psw" class="weui-input" type="password" placeholder="登录密码">
-        </div>
-      </div>
-      <div class="mt10">
-        <a class="fz12 orange " href="smsLogin.html">手机短信登录</a> <a class="fz12 hui94 fr" href="forgetPassword.html">忘记密码?</a>
-      </div>
-      <div class="mt15">
-        <a id="login" href="javascript:;" class="weui-btn weui-btn_pay">登录</a>
-      </div>
+  <div class="login">
+    <div class="backBar">
+      <a href="javascript:history.back()" class="back">
+      </a>
+      <p class="ml0">登录</p>
+      <a href="register.html" class="regLogin">注册</a>
     </div>
-  </form>
-</div>  <!--/login-->
+    <div class="weui-grids">
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="../img/icon/icon-qq.png" alt="">
+        </div>
+        <p class="weui-grid__label">QQ</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="../img/icon/icon-wechat.png" alt="">
+        </div>
+        <p class="weui-grid__label">微信</p>
+      </a>
+      <a href="" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="../img/icon/icon-sina.png" alt="">
+        </div>
+        <p class="weui-grid__label">新浪微博</p>
+      </a>
+    </div>
+    <form action="">
+      <div class="weui-cells weui-cells_form">
+        <div class=" text-center hui94 fz12 mt10">使用手机登录</div>
+        <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell__bd">
+            <input id="tel" class="weui-input"  placeholder="手机号">
+            <!--<input id="tel" class="weui-input" type="number" pattern="[0-9]*"  placeholder="手机号">-->
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input id="psw" class="weui-input" type="password" placeholder="登录密码">
+          </div>
+        </div>
+        <div class="mt10">
+          <a class="fz12 orange " href="smsLogin.html">手机短信登录</a> <a class="fz12 hui94 fr" href="forgetPassword.html">忘记密码?</a>
+        </div>
+        <div class="mt15">
+          <a id="login" href="javascript:;" class="weui-btn weui-btn_pay">登录</a>
+        </div>
+      </div>
+      </form>
+  </div>  <!--/login-->
 <script src="../dist/js/jquery-2.1.4.js"></script>
 <script src="../dist/js/fastclick.js"></script>
 <script>
-    $(function() {
-        FastClick.attach(document.body);
-    });
+$(function() {
+  FastClick.attach(document.body);
+});
 </script>
 <script src="../dist/js/jquery-weui.js"></script>
 <script src="../src/js/canxiaoer.js"></script>
 <script>
-    $(function () {
+  $(function () {
 //      var reUrl = location.search.slice(7);
-        $('#login').click(function () {
-            var tel = $('#tel').val(),
-                psw = $('#psw').val();
-            var loginUrl = 'http://119.23.135.79:8001/api/ServiceForApp/Login?Key=CanXiao2App&UAccount='+tel+'&Password='+psw;
+      $('#login').click(function () {
+          var tel = $('#tel').val(),
+              psw = $('#psw').val();
+          var loginUrl = 'http://119.23.135.79:8001/api/ServiceForApp/Login?Key=CanXiao2App&UAccount='+tel+'&Password='+psw;
 //          var loginUrl = 'http://119.23.135.79:8001/api/ServiceForApp/Login?Key=CanXiao2App&UAccount='+'niji'+'&Password='+ '123456'; //测试用
-            GetData(loginUrl,{
-                    Key:'CanXiao2App',
-                    UAccount:tel,
-                    Password:psw
-                },
-                function (json) {
-                    //账号密码错误
-                    if(json.Data == null){
-                        $.toptip('用户名或密码不正确','error');
-                        return false
-                    }
-                    if (json.IsResult){
+          GetData(loginUrl,{
+            Key:'CanXiao2App',
+            UAccount:tel,
+            Password:psw
+          },
+          function (json) {
+              //账号密码错误
+              if(json.Data == null){
+                  $.toptip('用户名或密码不正确','error');
+                  return false
+              }
+            if (json.IsResult){
 
-                        /*var ls = localStorage,
-                            name = json.Data.NickName,
-                            tel = json.Data.MobilePhone,
-                            pic = json.Data.ImagePath,
-                            id = json.Data.ID,
-                            balance= json.Data.RemainMoney,
-                            mealMoney = json.Data.MealCoinNum;
+                /*var ls = localStorage,
+                    name = json.Data.NickName,
+                    tel = json.Data.MobilePhone,
+                    pic = json.Data.ImagePath,
+                    id = json.Data.ID,
+                    balance= json.Data.RemainMoney,
+                    mealMoney = json.Data.MealCoinNum;
 
-                        localStorage = {
-                            name : name,
-                            tel: tel,
-                            pic: pic,
-                            id: id,
-                            balance: id,
-                            mealMoney: mealMoney
-                        };*/
+                localStorage = {
+                    name : name,
+                    tel: tel,
+                    pic: pic,
+                    id: id,
+                    balance: id,
+                    mealMoney: mealMoney
+                };*/
 
 //                console.log(ls);
-                        localStorage.name = json.Data.NickName;
-                        localStorage.tel = json.Data.MobilePhone;
-                        localStorage.pic = json.Data.ImagePath;
-                        localStorage.uid = json.Data.ID;
-                        localStorage.balance = json.Data.RemainMoney;
-                        localStorage.mealMoney = json.Data.MealCoinNum;
+                localStorage.name = json.Data.NickName;
+                localStorage.tel = json.Data.MobilePhone;
+                localStorage.pic = json.Data.ImagePath;
+                localStorage.uid = json.Data.ID;
+                localStorage.balance = json.Data.RemainMoney;
+                localStorage.mealMoney = json.Data.MealCoinNum;
 
-                        // localStorage.userData = json.Data
+                // localStorage.userData = json.Data
 
 //                location.href = 'index.html';
 //                gotoUrl('index.html')
-                        var reUrl = GetCustomUrl('back');
+                var reUrl = GetCustomUrl('back');
 //                var reUrl = '../' + location.search.slice(1);
 //                alert( reUrl);
-                        if( !reUrl || reUrl == null){
-                            location.href = 'index.html';
-                        }else{
-                            backUrl('../' + reUrl);}
-                    }
-                }
-            );
-        });
-    });
+                if( !reUrl || reUrl == null){
+                    location.href = 'index.html';
+                }else{
+                backUrl('../' + reUrl);}
+            }
+          }
+          );
+      });
+  });
 </script>
 
 </body>
