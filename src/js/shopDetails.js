@@ -1,9 +1,5 @@
 // 店铺详情
-<<<<<<< HEAD
 var shopId = GetCustomUrl('shopid'); //获取商户ID
-=======
-var shopId = location.search.slice(8); //获取商户ID
->>>>>>> 67322116b02931a6bb768c8f303587f641b1b966
 var shopDetails = 'http://119.23.135.79:8001/api/ServiceForApp/GetBusinessInfoList?Key=CanXiao2App';  //获取商家列表
 var shopSetMeal = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesSetByBIID?Key=CanXiao2App&BIID='+shopId;  //获取商家套餐
 
