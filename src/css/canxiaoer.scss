@@ -101,7 +101,7 @@
 
 
 .shopDetails{
-  .head-img{ overflow: hidden; position: relative; /*line-height: initial;*/ height: 10rem; display: flex; align-items: center;
+  .head-img{ overflow: hidden; position: relative; /*line-height: initial;*/ max-height: 10rem; display: flex; align-items: center;
     .backBar{ position: absolute;top:0.5rem; background: none; justify-content:space-between; }
     img{ width: 100%; }
     dl{ position: absolute; left: 1rem; bottom: 1rem; color: #fff;
@@ -173,9 +173,11 @@
 //店铺详情 - 套餐
 .col-buy{ display: flex; line-height: initial; align-items: center;
   .price{ display: inline-block; flex: 1;
-    .yellow{ font-size: 44px; color: $orange; font-weight:bold;}
+    .yellow{ font-size: 44px; color: $orange; /*font-weight:bold;*/}
     .yellow:before{ content: '¥'; font-size:$fz7; font-weight: normal}
     span:last-child i{ font-style: normal; font-size:$fz7;}
+    span:last-child i:before{ content: '¥';}
+
   }
   .weui-btn_orange{ background: $orange; display: inline-block; height: 1.8rem; line-height: 1.8rem;}
 }

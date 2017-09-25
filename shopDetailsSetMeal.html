@@ -12,103 +12,172 @@
   <link rel="stylesheet" href="dist/css/jquery-weui.css">
   <link rel="stylesheet" href="dist/css/fonts/iconfont.css">
   <link rel="stylesheet" href="dist/css/canxiaoer.css">
-
 </head>
 
 <body ontouchstart>
-  <div class="shopDetails">
-    <div class="backBar">
-      <a href="javascript:history.back()" class="back">
-        <i class="text-icon icon-shop-back"></i>
-      </a>
-      <p class="title">森林雨火锅</p>
-    </div>
+<div class="shopDetails">
+  <div class="backBar">
+    <a href="javascript:history.back()" class="back">
+      <i class="text-icon icon-shop-back"></i>
+    </a>
+    <p class="title">森林雨火锅</p>
+  </div>
 
-    <div class="head-img">
-      <img src="img/upload/n_banner1.jpg" alt="">
-      <dl>
-        <dt>森林雨火锅(复城国际店)</dt>
-        <dd>欢聚一堂四人套餐</dd>
-      </dl>
-    </div>
-    <div class="info">
-      <div class="col-buy">
-        <div class="price">
-          <span class="yellow">199</span>
-          <span class="hui94 fz12">门市价:<i>¥399</i></span>
-        </div>
-        <a href="javascript:;" class="weui-btn weui-btn_orange">立即购买</a>
+  <div class="head-img">
+    <img src="img/upload/n_banner1.jpg" alt="">
+    <dl>
+      <dt>森林雨火锅(复城国际店)</dt>
+      <dd>欢聚一堂四人套餐</dd>
+    </dl>
+  </div>
+  <div class="info">
+    <div class="col-buy">
+      <div class="price">
+        <span class="yellow"></span>
+        <span class="hui94 fz12">门市价:<i></i></span>
       </div>
-      <div class="addr">
-        <h6>
-          <a href="#">
-            <i class="icon-shop icon-shop-addr"></i>
-            <div class="address">锦江区锦华路三段181号（琉璃立交南）</div>
-          </a>
-        </h6>
-        <p>
-          <a href="tel:18628056907">
-            <i class="icon-shop icon-shop-tel"></i>
-          </a>
-        </p>
-      </div>
-    </div>  <!--/shopInfo-->
-    <div class="border-t10 taocan">
-      <p class="title-taocan">套餐</p>
-      <dl>
-        <dt>荤菜</dt>
-        <dd>
-          <span>美好火腿肠</span><span>1</span><span>10</span>
-        </dd>
-        <dd>
-          <span>美好火腿肠</span><span>1</span><span>10</span>
-        </dd>
-        <dd>
-          <span>美好火腿肠</span><span>1</span><span>10</span>
-        </dd>
-        <dd>
-          <span>美好火腿肠</span><span>1</span><span>10</span>
-        </dd>
-        <dd>
-          <span>美好火腿肠</span><span>1</span><span>10</span>
-        </dd>
-        <dd>
-          <span>美好火腿肠</span><span>1</span><span>10</span>
-        </dd>
-      </dl>
+      <a id="buy" href="javascript:;" class="weui-btn weui-btn_orange">立即购买</a>
     </div>
-  </div> <!--/shopDetails-->
+    <div class="addr">
+      <h6>
+        <a href="#">
+          <i class="icon-shop icon-shop-addr"></i>
+          <div class="address"></div>
+        </a>
+      </h6>
+      <p>
+        <a href="">
+          <i class="icon-shop icon-shop-tel"></i>
+        </a>
+      </p>
+    </div>
+  </div>  <!--/shopInfo-->
+  <div class="border-t10 taocan">
+    <p class="title-taocan">套餐</p>
+    <dl>
+      <dt>荤菜</dt>
+      <dd>
+        <span>美好火腿肠</span><span>1</span><span>10</span>
+      </dd>
+      <dd>
+        <span>美好火腿肠</span><span>1</span><span>10</span>
+      </dd>
+      <dd>
+        <span>美好火腿肠</span><span>1</span><span>10</span>
+      </dd>
+      <dd>
+        <span>美好火腿肠</span><span>1</span><span>10</span>
+      </dd>
+      <dd>
+        <span>美好火腿肠</span><span>1</span><span>10</span>
+      </dd>
+      <dd>
+        <span>美好火腿肠</span><span>1</span><span>10</span>
+      </dd>
+    </dl>
+  </div>
+</div> <!--/shopDetails-->
 
 
 <script src="dist/js/jquery-2.1.4.js"></script>
 <script src="dist/js/fastclick.js"></script>
 <script>
-$(function() {
-  FastClick.attach(document.body);
-});
+    $(function() {
+        FastClick.attach(document.body);
+    });
 </script>
 <script src="dist/js/jquery-weui.js"></script>
 <script src="src/js/canxiaoer.js"></script>
-<script src="src/js/shopDetails.js"></script>
+<!--<script src="src/js/shopDetails.js"></script>-->
 <script>
-      // 店铺详情
-      var id = location.search.slice(4); //获取套餐ID
+    // 套餐详情  根据套餐ID查询店铺id, 再根据店铺id查询具体店铺信息和具体套餐信息
+    var setMealId = GetCustomUrl('setMealId'); //获取套餐ID
+
+    var SetMealUrl = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesSetDishesByDishesSetID?Key=CanXiao2App&SetDishesID='+setMealId;  //套餐内菜品列表
+
+    GetData(SetMealUrl, {}, function (json) {
+        if (json.IsResult)
+        {
+            $.each(json.Data, function (i,item)
+            {
+
+                var shopId = '500af44f-75e8-4d19-940a-d1af30b5ef4a';  //店铺ID
+                $('#buy').attr('href','orderFood.html?shopId='+shopId);
 
 
-      var SetMealUrl = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesSetDishesByDishesSetID?Key=CanXiao2App&SetDishesID='+id;  //套餐内菜品列表
+                var shopDetails = 'http://119.23.135.79:8001/api/ServiceForApp/GetBusinessInfoByBIID?Key=CanXiao2App&BIID='+shopId; //查询店铺详情
+//                  alert(shopDetails)
 
-      GetData(SetMealUrl, {}, function (json) {
-          if (json.IsResult)
-          {
-              $.each(json.Data, function (i,item)
-              {
+                //获取商家基本信息
+                GetData(shopDetails, {}, function (json){
+                    if(json.IsResult){
+                        /*$.each(json.Data, function (n,m) {
+
+                        })*/
+                        /*console.log( json.Data.Name);*/
+//                          if( shopId == json.Data.BIID ){
+//                                店铺id相等, 输出相关信息
+//                          }
+
+//                          $('.head-img img').attr(src,pic); //图片
+                        var pic = json.Data.ImagePath,
+                            shopName = json.Data.Name,
+                            addr = json.Data.Address,
+                            phone = json.Data.MobilePhone;
+                        var shopPhone = 'tel:'+phone;
+                        console.log( shopName+ '-' + addr + '-' + shopPhone);
+
+                        ( pic == null ) ? $('.head-img img').attr('src', 'img/upload/n_banner1.jpg') : $('.head-img img').attr('src', pic);  //没图片就使用默认图片
+
+                        $('.backBar .title').text( shopName );
+                        $('.head-img dl dt').text( shopName );
+                        $('.address').text( addr );
+                        $('.addr p a').attr( 'href',shopPhone );
+//                          $('.address p a').text('123');
+                    }
+                });
+
+
+                var shopSetMeal = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesSetByBIID?Key=CanXiao2App&BIID='+shopId;
+                //获取套餐价格
+                GetData(shopSetMeal, {}, function (json) {
+                    if (json.IsResult)
+                    {
+                        $.each(json.Data, function (i,item)
+                        {
+                            /*var title = item.Name,
+                                oldPrice = item.OriginalPrice,
+                                price = item.Price,
+                                setMealId = item.ID;
+
+                            var setMealUrl = 'shopDetailsSetMeal.html?setMealId='+setMealId;*/
+//                              console.log(item)
+
+                            if(setMealId == item.ID ){
+                                var oldPrice = item.OriginalPrice,
+                                    price = item.Price,
+                                    setMealName = item.Name;
+
+                                $('.head-img dl dd').text( setMealName );
+                                $('.price .yellow').text( price );
+                                $('.price .hui94 i').text( oldPrice );
+
+                            }
+
+                        });
+                    }
+                });
 
                 //获取套餐内菜品列表
+                /*console.log(
+                    shopId
+                );*/
+            });
+        }
+    });
 
 
-              });
-          }
-      });
+
 
 
 </script>

@@ -61,8 +61,8 @@
       </div>
     </div>
     <div class="reserve-btn p075 fz16">
-      <a href="orderFood.html" class="weui-btn weui-btn_orange">订座并点餐</a>
-      <a href="reserveAffirm.html" class="weui-btn weui-btn_plain-orange">只订座</a>
+      <a id="reAndOrder" href="javascript:;" class="weui-btn weui-btn_orange">订座并点餐</a>
+      <a id="onlyRe" href="javascript:;" class="weui-btn weui-btn_plain-orange">只订座</a>
     </div>
   </div>
 
@@ -155,21 +155,13 @@ $(function() {
               $('<li><span>' +  + '月' +  + '日 ' + week + ' </span></li>')
 
           );*/
-
-
 //              var myDate = year + '-' + month + '-' + (date+i);
               var week = "周"+"日一二三四五六 ".charAt(new   Date(myDate).getDay());//不能和上面那句变换顺序
 
               $('#days').append(
                   $('<li><span>' + x[i][0] + '月' + x[i][1] + '日'  + '</span>&nbsp;<span>' + week + '</span>&nbsp;</li>')
               )
-
-
       }//时间end
-
-
-
-
 
 
       /*for( var i = 0; i<=15; i++) {
@@ -210,7 +202,7 @@ $(function() {
       $('#modal2 .hours li').on('click',function () {
           $(this).addClass('on').siblings().removeClass('on');
           $('#renshu span:first-of-type').html(($('#people  li.on').text()));
-          $('#renshu span:last-of-type').html($('#desk li.on').html());
+          $('#renshu span:last-of-type').html($('#desk li.on').text());
           $('#modal2').hide();
       });
 
@@ -230,29 +222,25 @@ $(function() {
           for (var k in o)
               if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
           return fmt;
-      }
+      };
       function judgFailTime(time, addMin) {
           //alert(x.toString().replace("-", "/"));
           //var time = new Date(x.toString().replace("-", "/"));
-
           time.setMinutes(time.getMinutes() + addMin, time.getSeconds(), 0);
           return time.Format("hh:mm");
       }
-      for (var i = 0; i < (10);i++)
-      {
+      for (var y = 0; y < (10);y++){
 //          console.log();
           $('#hours').append(
-          '<li><span>'+ judgFailTime(new Date(new Date().Format("yyyy-MM-dd") + " 11:00"), 30*i) +'</span></li>'
+          '<li><span>'+ judgFailTime(new Date(new Date().Format("yyyy-MM-dd") + " 11:00"), 30*y) +'</span></li>'
           )
       }
-
-      $('.select .hours li').on('click',function () {
+      $('#modal li').on('click',function () {
           $(this).addClass('on').siblings().removeClass('on');
           var timer = $('#modal .days li.on').text() + $('#modal .hours li.on').text();
           $('#shijian span').text(timer);
           $('#modal').hide();
       });
-
 
       //选中效果
       $('.select .days li:first-of-type').addClass('on');
@@ -260,33 +248,129 @@ $(function() {
       $('.select .days li').on('click',function () {
           $(this).addClass('on').siblings().removeClass('on');
       });
+//      var peopel = parseInt( $('#people .on').text() );
+//      var desk = parseInt( $('#desk .on').text() );
 
-      var peopel = parseInt( $('#people .on').text() );
-      var desk = parseInt( $('#desk .on').text() );
+//      提交数据
 
-      $('#room').is(':checked')? room=1:room=0;
+      var shopId = location.search.slice(8);  //根据url获取商户id
+      var personNum , deskNum,  room,name,tel,liuyan ;
+      reserveTime = function getNowFormatDate() {
+          var date = new Date();
+          var seperator1 = "-";
+          var seperator2 = ":";
+          var month = date.getMonth() + 1;
+          var strDate = date.getDate();
+          var hours = date.getHours();
+          var minutes = date.getMinutes();
+          var seconds = date.getSeconds();
+        /*if (month >= 1 && month <= 9) {
+         month = "0" + month;
+         }
+         if (strDate >= 0 && strDate <= 9) {
+         strDate = "0" + strDate;
+         }
+         if (minutes >= 0 && minutes <= 9) {
+         minutes = "0" + minutes;
+         }*/
+        /*var currentdate = date.getFullYear() + seperator1 + getFormatDate(month) + seperator1 + getFormatDate(strDate)
+         + " " + getFormatDate(hours) + seperator2 + getFormatDate(minutes)
+         + seperator2 + getFormatDate(seconds);*/
 
-      var name = $('input[name="name"]').val();
-      var tel = $('input[name="tel"]').val();
-      var liuyan = $('textarea[name="liuyan"]').val();
+          var currentdate = date.getFullYear() + seperator1 + getFormatDate(month) + seperator1 + getFormatDate(strDate)
+              + " " + getFormatDate(hours) + seperator2 + getFormatDate(minutes)
+              + seperator2 + getFormatDate(seconds);
+          return currentdate;
+      };
+
+      function getReverseData(){
+           personNum = parseInt( $('#renshu span:first-of-type').text() );
+           deskNum = parseInt( $('#renshu span:last-of-type').text() );
+           room = $('#room').is(':checked')? room=1:room=0;
+           name = $('input[name="name"]').val();
+           tel = $('input[name="tel"]').val();
+           liuyan = $('textarea[name="liuyan"]').val();
+      }
+
+      //是否符合提交条件
 
 
+      // 成功后返回订单ID,  再将订单ID传入下个页面
+      reAndOrderUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDAndOrderDishesPay?Key=CanXiao2App';
+      onlyReUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
+      //订座并点餐
+      $('#reAndOrder').click( function () {
+          getReverseData(); //获取变量
+          var prams = {
+              "UID": localStorage.uid,
+              "DAID": room,
+              "DaName": "string",
+              "BIID": shopId,
+              "PersonNum": personNum,
+              "DtNum": deskNum,
+              "Remarks": liuyan,
+              "ReserveTime": reserveTime(),
+              "PaySource": "string",
+              "LinkMan": name,
+              "LinkManSex": 0,
+              "LinkPhone": tel,
+              "MealCoin": 0,
+              "Dishes": [
+                  {
+                      "DishesID": "string",
+                      "Name": "string",
+                      "Num": 0,
+                      "SinglePrice": 0,
+                      "Discount": 0,
+                      "Remarks": "string",
+                      "IsDishesSet": 0,
+                      "DishesSet": [
+                          {
+                              "DishesID": "string",
+                              "Name": "string",
+                              "Num": 0,
+                              "Remarks": "string"
+                          }
+                      ]
+                  }
+              ]
+          }; //DATA数据
+          if( $('#renshu span:first-of-type').text() == '请选择'){
+              $.toptip('请选择桌数和人数','error');
+              return false;
+          }else if( $('#shijian span:first-of-type').text() == '请选择' ){
+              $.toptip('请选择桌数和人数','error');
+              return false;
+          }else if( name == '' ){
+              $.toptip('请填写用餐人姓名','error');
+              return false;
+          }
+          else if( tel == '' ){
+              $.toptip('请填写手机号码','error');
+              return false;
+          }
 
-      //思路, 成功后返回订单ID,  再将订单ID传入下个页面
-      yudingUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
-      var prams = {
-          "UID": "string",
-          "DAID": "string",
+          GetData(reAndOrderUrl, prams, function (json) {
+              alert('订座并点餐成功');
+          });//GetData
+      });
+
+//      只订座
+      $('#onlyRe').click(function () {
+          getReverseData(); //获取变量
+          var prams = {
+          "UID": localStorage.uid,
+          "DAID": room,
           "DaName": "string",
-          "BIID": "string",
-          "PersonNum": 0,
-          "DtNum": 0,
-          "Remarks": "string",
-          "ReserveTime": "2017-09-11T02:06:47.239Z",
+          "BIID": shopId,
+          "PersonNum": personNum,
+          "DtNum": deskNum,
+          "Remarks": liuyan,
+          "ReserveTime": reserveTime(),
           "PaySource": "string",
-          "LinkMan": 'name',
+          "LinkMan": name,
           "LinkManSex": 0,
-          "LinkPhone": "string",
+          "LinkPhone": tel,
           "MealCoin": 0,
           "Dishes": [
               {
@@ -307,7 +391,27 @@ $(function() {
                   ]
               }
           ]
-      };
+          }; //DATA数据
+          if( $('#renshu span:first-of-type').text() == '请选择'){
+              $.toptip('请选择桌数和人数','error');
+              return false;
+          }else if( $('#shijian span:first-of-type').text() == '请选择' ){
+              $.toptip('请选择桌数和人数','error');
+              return false;
+          }else if( name == '' ){
+              $.toptip('请填写用餐人姓名','error');
+              return false;
+          }
+          else if( tel == '' ){
+              $.toptip('请填写手机号码','error');
+              return false;
+          }
+          GetData(onlyReUrl, prams, function (json) {
+//              $.toptip('预定成功','succes');
+//              orderId = json.data.orderID
+              alert('预定成功');
+          });//GetData
+      });
       /*GetData(yudingUrl, prams, function (json) {
           alert('success');
       });//GetData*/
