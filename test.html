@@ -1,0 +1,29 @@
+<div class="orderFood">
+  <nav>
+    <li><a href="#cate-0">热销</a></li>
+    <li><a href="#cate-1">火锅套餐</a></li>
+    <li><a href="#cate-2">小吃饮料</a></li>
+    <li><a href="#cate-3">肉类拼盘</a></li>
+  </nav>
+
+
+  //右侧菜品
+  $('.orderFood .con').append(
+  '<div id="cate-'+i+'">'+
+  '<dl>'+
+    '<dt><img src="img/upload/n-a1.jpg" alt=""></dt>'+
+    '<dd>'+
+      '<div class="title">'+ 欢聚一趟套餐1 +'</div>'+
+      '<div class="sales">月销 <span>'+ 40 +'</span></div>'+
+      '<div class="price">'+
+        '<span>' + 10 + '</span>'+
+        '</div>'+
+      '<div class="btnGroup">'+
+        '<i class="icon-shop icon-shop-jian"></i>'+
+        '<span>'+ 0 +'</span>'+
+        '<i class="icon-shop icon-shop-jia"></i>'+
+        '</div>'+
+      '</dd>'+
+    '</dl>'+
+  '</div>'
+  );
