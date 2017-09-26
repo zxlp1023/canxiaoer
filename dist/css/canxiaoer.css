@@ -940,7 +940,13 @@ a {
   overflow-x: hidden; }
   .orderFood nav {
     width: 25vw;
-    background: #f7f7f7; }
+    background: #f7f7f7;
+    /*li:first-of-type{
+      background-image: url("../../img/icon/hot.png");
+      background-size: 12px auto;
+      background-position: .5rem 45%;
+      background-repeat: no-repeat;
+      text-indent: $fz9;}*/ }
     .orderFood nav li {
       padding: 0.6rem 0;
       border-bottom: 1px dashed #e4e4e4; }
@@ -948,13 +954,7 @@ a {
       padding: 0 10px;
       font-size: 0.7rem;
       display: block; }
-    .orderFood nav li:first-of-type {
-      background-image: url("../../img/icon/hot.png");
-      background-size: 12px auto;
-      background-position: .5rem 45%;
-      background-repeat: no-repeat;
-      text-indent: 0.9rem; }
-    .orderFood nav .on {
+    .orderFood nav li.on {
       background: #fff; }
   .orderFood .con {
     overflow-y: auto;

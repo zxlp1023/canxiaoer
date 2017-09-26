@@ -231,13 +231,13 @@
   nav{ width: 25vw; background: $huif7;
     li{padding: $fz6 0; border-bottom: 1px dashed $huie4;}
     li a{   padding:0 10px; font-size: $fz7; display: block; }
-    li:first-of-type{
+    /*li:first-of-type{
       background-image: url("../../img/icon/hot.png");
       background-size: 12px auto;
       background-position: .5rem 45%;
       background-repeat: no-repeat;
-      text-indent: $fz9;}
-    .on{ background: $fff;}
+      text-indent: $fz9;}*/
+    li.on{ background: $fff;}
   }
   .con{overflow-y: auto; padding-bottom: 2.5rem;
     flex: 1;
