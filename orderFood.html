@@ -1,391 +1,315 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>点餐</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-  <meta name="description" content=" ">
-
-  <link rel="stylesheet" href="src/css/weui.min.css">
-  <link rel="stylesheet" href="dist/css/jquery-weui.css">
-  <link rel="stylesheet" href="dist/css/fonts/iconfont.css">
-  <link rel="stylesheet" href="dist/css/canxiaoer.css">
-
+    <title>点餐</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content=" ">
+    <link rel="stylesheet" href="src/css/weui.min.css">
+    <link rel="stylesheet" href="dist/css/jquery-weui.css">
+    <link rel="stylesheet" href="dist/css/fonts/iconfont.css">
+    <link rel="stylesheet" href="dist/css/canxiaoer.css">
 </head>
 
 <body ontouchstart>
-  <div class="backBar">
-    <a href="javascript:history.back()" class="back">
+    <div class="backBar">
+        <a href="javascript:history.back()" class="back">
       <i class="text-icon icon-shop-back"></i>
     </a>
-    <p class="title">点餐</p>
-  </div>
-  <div class="orderFood">
-    <nav>
-    </nav>
-
-    <div class="con">
-
+        <p class="title">点餐</p>
     </div>
-  </div>
-  <div class="cartGrop">
-    <div class="menuList">
-      <div class="menuPanel">
-        <div class="bg"></div>
-        <div class="menuCont">
-          <div class="menuHd">购物车 <span class="fr"><i class="icon-shop icon-shop-delete"></i>清空购物车</span></div>
-          <dl>
-            <dt><div class="title">欢聚一趟套餐</div></dt>
-            <dd>
-              <div class="price">
-                <span>299</span>
-              </div>
-
-              <div class="btnGroup">
-                <i class="icon-shop icon-shop-jian"></i>
-                <span>0</span>
-                <i class="icon-shop icon-shop-jia"></i>
-              </div>
-            </dd>
-          </dl>
-          <dl>
-            <dt><div class="title">欢聚一趟套餐</div></dt>
-            <dd>
-              <div class="price">
-                <span>299</span>
-              </div>
-
-              <div class="btnGroup">
-                <i class="icon-shop icon-shop-jian"></i>
-                <span>0</span>
-                <i class="icon-shop icon-shop-jia"></i>
-              </div>
-            </dd>
-          </dl>
-          <dl>
-            <dt><div class="title">欢聚一趟套餐</div></dt>
-            <dd>
-              <div class="price">
-                <span>299</span>
-              </div>
-
-              <div class="btnGroup">
-                <i class="icon-shop icon-shop-jian"></i>
-                <span>0</span>
-                <i class="icon-shop icon-shop-jia"></i>
-              </div>
-            </dd>
-          </dl>
+    <div class="orderFood">
+        <nav>
+        </nav>
+        <div class="con">
         </div>
-      </div>
     </div>
-    <div class="con">
-      <div class="cart"> <div class="weui-badge">0</div> </div>
-      <div class="totalPrice"><span>0</span></div>
-      <div class="gotoPay"><a href="reserveAffirm.html">去结算</a></div>
-
+    <div class="cartGrop">
+        <div class="menuList">
+            <div class="menuPanel">
+                <div class="bg"></div>
+                <div class="menuCont">
+                    <div class="menuHd">购物车 <span class="fr"><i class="icon-shop icon-shop-delete"></i>清空购物车</span></div>
+                    <!-- <dl>
+                        <dt>
+                            <div class="title">欢聚一趟套餐</div>
+                        </dt>
+                        <dd>
+                            <div class="price">
+                                <span>299</span>
+                            </div>
+                            <div class="btnGroup">
+                                <i class="icon-shop icon-shop-jian"></i>
+                                <span>0</span>
+                                <i class="icon-shop icon-shop-jia"></i>
+                            </div>
+                        </dd>
+                    </dl> -->
+                    
+                </div>
+            </div>
+        </div>
+        <div class="con">
+            <div class="cart">
+                <div class="weui-badge">0</div>
+            </div>
+            <div class="totalPrice"><span>0</span></div>
+            <div class="gotoPay"><a href="reserveAffirm.html">去结算</a></div>
+        </div>
     </div>
-  </div>
+    <script src="dist/js/jquery-2.1.4.js"></script>
+    <script src="dist/js/fastclick.js"></script>
+    <script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    </script>
+    <script src="dist/js/jquery-weui.js"></script>
+    <script src="src/js/canxiaoer.js"></script>
+    <script>
+    $(function() {
 
-<script src="dist/js/jquery-2.1.4.js"></script>
-<script src="dist/js/fastclick.js"></script>
-<script>
-$(function() {
-  FastClick.attach(document.body);
-});
-</script>
-<script src="dist/js/jquery-weui.js"></script>
-<script src="src/js/canxiaoer.js"></script>
-<script>
-  $(function () {
+        // 获取所有菜品类型
+        var dishesCate = 'http://119.23.135.79:8001/api/ServiceForApp/GetAllDTID?Key=CanXiao2App';
 
+        // 循环输出菜品类型
+        GetData(dishesCate, {}, function(json) {
+            if (json.IsResult) {
+                $.each(json.Data, function(i, item) {
+                    var x = json.Data.length;
+                    // console.log(x);
+                    var dishesCateName = item.Name;
+                    //左侧菜品分类
+                    $('.orderFood nav').append(
+                        '<li><a href="#cate-' + (i+1) + '">' + dishesCateName + '</a></li>'
+                    );
+                    //设置菜单选中状态
+                    var cateOn = $('.orderFood nav li');
+                    cateOn.first().addClass('on');
+                    cateOn.click(function() {
+                        $(this).addClass('on').siblings().removeClass('on');
+                    });
 
-      var jia = $('.icon-shop-jia'),
-          jian = $('.icon-shop-jian'),
-          totalPrice = parseFloat( $('.totalPrice span').text() );
-//      console.log(totalPrice);
+                    // 右侧菜品列表
+                    $('.orderFood .con').append(
+                        '<div id="cate-' + (i+1) + '">' +
+                        '</div>'
+                    );
 
-//      jia click
-      jia.click(function () {
-          var num = $(this).prev().text(); //单个菜品份数
-          var all = parseInt(num) + 1;
-          $(this).prev().text(all);  //单个菜品总数
+                    //获取所有菜品通过菜品类型值
+                    var getDishes = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesByValue?Key=CanXiao2App&Value=' + (i + 1);
 
-          var price = parseFloat( $(this).parent().siblings('.price').children().text() ); //单价
-          $('.totalPrice span').text(  totalPrice += price ); // 总价
+                    /*测试接口是否调用成功
+                    var y = [];
+                    y.push(getDishes);
+                    console.log(y);*/
 
-          var count = parseInt( $('.weui-badge').text() );  //计数
-          $('.weui-badge').text( count += 1 );
+                    // 根据菜品类型值 循环输出菜品
+                    GetData(getDishes, {}, function(json) {
+                        if (json.IsResult) {
+                            $.each(json.Data, function(n, m) {
+                                var pic = m.ImagePath;
+                                var adminPic = 'http://119.23.135.79:8002' + pic;
+                                var dishesName = m.Name;
+                                var price = m.Price;
+                                var id = m.ID;
+                                
+                                // console.log(id);
+                                $('#cate-' + (i+1)).append(
+                                    '<dl id="'+ id +'">'+
+                                    '<dt><img src="' + adminPic + '" alt=""></dt>' +
+                                    '<dd>' +
+                                    '<div class="title">' + dishesName + '</div>' +
+                                    //                              '<div class="sales">月销 <span>'+ 40 +'</span></div>'+
+                                    '<div class="price">' +
+                                    '<span>' + price + '</span>' +
+                                    '</div>' +
+                                    '<div class="btnGroup">' +
+                                    '<i class="icon-shop icon-shop-jian"></i>' +
+                                    '<span>' + 0 + '</span>' +
+                                    '<i class="icon-shop icon-shop-jia"></i>' +
+                                    '</div>' +
+                                    '</dd>' +
+                                    '</dl>' 
+                                );
+                                
 
-          //console.log(price);
+                                //点菜
+                                var jia = $('.icon-shop-jia'),
+                                    jian = $('.icon-shop-jian'),
+                                    totalPrice = parseFloat($('.totalPrice span').text());
+                                //      console.log(totalPrice);
 
-          //添加本地存储
-          var title = $(this).parent().siblings('.title').text();//菜品名称
-          var singlePrice = num * price;//单个菜品总价
+                                //      jia click
+                                jia.unbind('click').click(function() {
 
-          var ls = localStorage;
-          ls = {
-              title : title,
-                  singlePrice:singlePrice,
-                  num : num,
-                  cont:count
-          };
-          console.log(ls.title   +ls.singlePrice +'<br>' + ls.num + '<br>'+ ls.count)
-      });
+                                    var num = $(this).prev().text(); //单个菜品份数
+                                    // alert(num)
+                                    var all = parseInt(num) + 1;
+                                    $(this).prev().text(all); //单个菜品总数
 
-//      jian
-      jian.click(function () {
-          var num = $(this).next().text();
-          var all = parseInt(num) - 1;
-          if( num <= 0 ){
-              return false
-          }
-          $(this).next().text(all);  //菜品份数相加
+                                    var price = parseFloat($(this).parent().siblings('.price').children().text()); //单价
+                                    $('.totalPrice span').text(totalPrice += price); // 总价
 
-          var price = parseFloat( $(this).parent().siblings('.price').children().text() ); //单价
-          $('.totalPrice span').text(  totalPrice -= price ); // 总价
+                                    var count = parseInt($('.weui-badge').text()); //计数
+                                    $('.weui-badge').text(count += 1);
 
-          var count = parseInt( $('.weui-badge').text() );  //计数
-          $('.weui-badge').text( count -= 1 );
+                                    //console.log(price);
 
-//          console.log(price);
-      });
-  });
-
-
-
-//  获取所有菜品类型
-  var dishesCate = 'http://119.23.135.79:8001/api/ServiceForApp/GetAllDTID?Key=CanXiao2App';
-
-  GetData(dishesCate, {}, function (json) {
-      if( json.IsResult){
-          $.each(json.Data, function (i,item) {
-              var dishesCateName = item.Name;
-              //左侧菜品分类
-              $('.orderFood nav').append(
-                  '<li><a href="#cate-'+ i +'">' + dishesCateName + '</a></li>'
-              );
-               $('.orderFood .con').append(
-                  '<div id="cate-'+i+'">'+
-                  '</div>'
-                );
-               
-          });
-
-          var x = json.Data.length;
-//          var getDishes = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesByValue?Key=CanXiao2App&Value=' + x
-         // console.log(x);
-
-
-          var getDishes = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesByValue?Key=CanXiao2App&Value=';
-       
-
-          $.each(json.Data, function (i,item) { 
-              var getDishes = 'http://119.23.135.79:8001/api/ServiceForApp/GetDishesByValue?Key=CanXiao2App&Value=' + (i+1);
-                var y = [];
-                y.push(getDishes);
-                console.log(y);
-
-              /*console.log(
-                  getDishes  //接口根据菜品分类值查询
-              )*/
-              
-                   GetData(getDishes, {}, function (json) {
-                      if(json.IsResult){
-                        $.each(json.Data, function(i,item){
-                           var pic = item.ImagePath;
-                          var adminPic = 'http://119.23.135.79:8002' + pic;
-                            // ( adminPic == null ) ?  $('.orderFood .con dl dt img').attr('src', adminPic) :  $('.orderFood .con dl dt img').attr('src', 'img/upload/n-a1.jpg');  //没图片就使用默认图片
-                            var dishesName = item.Name;
-                          var price = item.Price;
-                          
-                             '<dl>'+
-                            '<dt><img src="'+ pic +'" alt=""></dt>'+
-                            '<dd>'+
-                            '<div class="title">'+ dishesName +'</div>'+
-                            //                              '<div class="sales">月销 <span>'+ 40 +'</span></div>'+
-                            '<div class="price">'+
-                            '<span>' + price + '</span>'+
-                            '</div>'+
-                            '<div class="btnGroup">'+
-                            '<i class="icon-shop icon-shop-jian"></i>'+
-                            '<span>'+ 0 +'</span>'+
-                            '<i class="icon-shop icon-shop-jia"></i>'+
-                            '</div>'+
-                            '</dd>'+
-                            '</dl>'
-                        })
-                      }
-                   })
-
-                
+                                    // 添加到购物车
+                                    var addName = $(this).parent().siblings('.title').text();  //菜品名称
+                                    // var addPrice = $(this).parent().siblings('.title').text(); //单个菜品总数
+                                    // var add = $(this).parent().siblings('.title').text();
+                                    
+                                    $('.menuCont').append( 
+                                      '<dl id="'+ id +'">'+
+                                          '<dt>'+
+                                              '<div class="title">'+ addName +'</div>'+
+                                          '</dt>'+
+                                          '<dd>'+
+                                              '<div class="price">'+
+                                                  '<span>'+ price +'</span>'+
+                                              '</div>'+
+                                              '<div class="btnGroup">'+
+                                                  '<i class="icon-shop icon-shop-jian"></i>'+
+                                                  '<span>'+ all +'</span>'+
+                                                  '<i class="icon-shop icon-shop-jia"></i>'+
+                                              '</div>'+
+                                          '</dd>'+
+                                      '</dl>'
+                                    )
 
 
+                                    var myid =  $(this).parents('dl').attr('id') ;
+                                    var deshesIdArr = $('.menuCont dl').map( function(){
+                                      return this.id;
+                                    }).get().join(',');
+                                    // var nnn = deshesIdArr.sort(); 
+                                    // console.log(deshesIdArr)
 
-
-              /*GetData(getDishes, {}, function (json) {
-                  if( json.IsResult ){
-                      $.each(json.Data,function (i,item) {
-                          var pic = item.ImagePath;
-                          var adminPic = 'http://119.23.135.79:8002' + pic;
-                         
-                         
-                            // ( adminPic == null ) ?  $('.orderFood .con dl dt img').attr('src', adminPic) :  $('.orderFood .con dl dt img').attr('src', 'img/upload/n-a1.jpg');  //没图片就使用默认图片
-                           
-                          var dishesName = item.Name;
-                          var price = item.Price;
-//                        console.log(dishesName);
- 
-                          $('.orderFood .con').append(
-                              '<div id="cate-'+i+'">'+
-                              '<dl>'+
-                              '<dt><img src="'+ adminPic +'" alt=""></dt>'+
-                              '<dd>'+
-                              '<div class="title">'+ dishesName +'</div>'+
-                              //                              '<div class="sales">月销 <span>'+ 40 +'</span></div>'+
-                              '<div class="price">'+
-                              '<span>' + price + '</span>'+
-                              '</div>'+
-                              '<div class="btnGroup">'+
-                              '<i class="icon-shop icon-shop-jian"></i>'+
-                              '<span>'+ 0 +'</span>'+
-                              '<i class="icon-shop icon-shop-jia"></i>'+
-                              '</div>'+
-                              '</dd>'+
-                              '</dl>'+
-                              '</div>'
-                          );
-                        
-//                          ( pic == null ) ? alert(1) : alert(2);  //没图片就使用默认图片
-
-                      })
+                                    console.log(
+                                      $('.menuCont dl').length
+                                      )
+                                    var cartNum =  $('.menuCont dl').length;
+                                    if( cartNum > 0 ){
+                                      for( var n = 0 ; n < deshesIdArr.length; n++){
+                                        console.log( deshesIdArr );
+                                      }
+                                    }
 
 
 
-                  }
+                                    
 
-              });
-*/
+                                    /*if( ){
 
+                                    }else{}*/
 
-//              console.log(i+1 );// 123456
+                                    // var ary = new Array("111","22","33","111");
 
-//              var dishesCateName = item.Name;
-//              //左侧菜品分类
-//              $('.orderFood .con').append(
-//                  '<div id="cate-'+x+'">'+
-//                  '<dl>'+
-//                  '<dt><img src="img/upload/n-a1.jpg" alt=""></dt>'+
-//                  '<dd>'+
-//                  '<div class="title">'+ 欢聚一趟套餐1 +'</div>'+
-//                  '<div class="sales">月销 <span>'+ 40 +'</span></div>'+
-//                  '<div class="price">'+
-//                  '<span>' + 10 + '</span>'+
-//                  '</div>'+
-//                  '<div class="btnGroup">'+
-//                  '<i class="icon-shop icon-shop-jian"></i>'+
-//                  '<span>'+ 0 +'</span>'+
-//                  '<i class="icon-shop icon-shop-jia"></i>'+
-//                  '</div>'+
-//                  '</dd>'+
-//                  '</dl>'+
-//                  '</div>'
-//              );
-          });
+                                    // var newDeshesIdArr = deshesIdArr.sort();
 
-      }
+                                    /*for(var i=0;i<deshesIdArr.length;i++){
 
-      //设置菜单选中状态
-      var cateOn = $('.orderFood nav li');
-      cateOn.first().addClass('on');
-      cateOn.click(function () {
-          $(this).addClass('on').siblings().removeClass('on');
-      });
+                                    if (newDeshesIdArr[i]==newDeshesIdArr[i+1]){
+
+                                      alert("数组重复内容："+newDeshesIdArr[i]);
+
+                                      }
+
+                                    }*/
+                                    // console.log(deshesIdArr.sort());
 
 
-//      var x = json.Data.length;
-//      $('.orderFood .con').append('1')
-      /*for( var x = 0 ; x < json.Data.length; x++){
-          console.log(x)
 
-          //右侧菜品
-          $('.orderFood .con').append(
+                                    //添加本地存储
+                                    var title = $(this).parent().siblings('.title').text(); //菜品名称
+                                    var singlePrice = num * price; //单个菜品总价
 
-              '<div id="cate-'+x+'">'+
-              '<dl>'+
-              '<dt><img src="img/upload/n-a1.jpg" alt=""></dt>'+
-              '<dd>'+
-              '<div class="title">'+ 欢聚一趟套餐1 +'</div>'+
-              '<div class="sales">月销 <span>'+ 40 +'</span></div>'+
-              '<div class="price">'+
-              '<span>' + 10 + '</span>'+
-              '</div>'+
-              '<div class="btnGroup">'+
-              '<i class="icon-shop icon-shop-jian"></i>'+
-              '<span>'+ 0 +'</span>'+
-              '<i class="icon-shop icon-shop-jia"></i>'+
-              '</div>'+
-              '</dd>'+
-              '</dl>'+
-              '</div>'
-          );
-//                console.log(json.Data.length)
+                                    var ls = localStorage;
+                                    ls = {
+                                        title: title,
+                                        singlePrice: singlePrice,
+                                        num: num,
+                                        cont: count
+                                    };
+                                    console.log('名称:  '+ls.title + '  总价  ' +ls.singlePrice + '  份数  ' + ls.num + '  所有菜品份数  ' + ls.count)
+                                });
 
-      }*/
+                                //      jian
+                                jian.unbind('click').click(function() {
+                                    var num = $(this).next().text();
+                                    var all = parseInt(num) - 1;
+                                    if (num <= 0) {
+                                        return false
+                                    }
+                                    $(this).next().text(all); //菜品份数相加
+
+                                    var price = parseFloat($(this).parent().siblings('.price').children().text()); //单价
+                                    $('.totalPrice span').text(totalPrice -= price); // 总价
+
+                                    var count = parseInt($('.weui-badge').text()); //计数
+                                    $('.weui-badge').text(count -= 1);
+
+                                    //          console.log(price);
+                                  });
+
+                                // 购物车
+                                var cart = $('.cart');
+                                cart.click(function(){
+                                  $('.menuList').toggle();
+                                });
+                                //点菜结束
+                            });
+                        }
+                    
+                    });
+
+                });
+            }            
+        });
+
+    });
 
 
 
 
 
-//      console.log(json.Data.length);
 
-      //  菜品分类选中效果
-
-  });
-
-
-
-  var apiUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
-  var prams = {
-      "UID": "string",
-      "DAID": "string",
-      "DaName": "string",
-      "BIID": "string",
-      "PersonNum": 0,
-      "DtNum": 0,
-      "Remarks": "string",
-      "ReserveTime": "2017-09-13T08:51:35.464Z",
-      "PaySource": "string",
-      "LinkMan": "string",
-      "LinkManSex": 0,
-      "LinkPhone": "string",
-      "MealCoin": 0,
-      "Dishes": [
-          {
-              "DishesID": "string",
-              "Name": "string",
-              "Num": 0,
-              "SinglePrice": 0,
-              "Discount": 0,
-              "Remarks": "string",
-              "IsDishesSet": 0,
-              "DishesSet": [
-                  {
-                      "DishesID": "string",
-                      "Name": "string",
-                      "Num": 0,
-                      "Remarks": "string"
-                  }
-              ]
-          }
-      ]
-  };
-/*  GetData(apiUrl, prams, function () {
-      
-  });*/
-</script>
+    var apiUrl = 'http://119.23.135.79:8001/api/ServiceForApp/YDOrderDishes?Key=CanXiao2App';
+    var prams = {
+        "UID": "string",
+        "DAID": "string",
+        "DaName": "string",
+        "BIID": "string",
+        "PersonNum": 0,
+        "DtNum": 0,
+        "Remarks": "string",
+        "ReserveTime": "2017-09-13T08:51:35.464Z",
+        "PaySource": "string",
+        "LinkMan": "string",
+        "LinkManSex": 0,
+        "LinkPhone": "string",
+        "MealCoin": 0,
+        "Dishes": [{
+            "DishesID": "string",
+            "Name": "string",
+            "Num": 0,
+            "SinglePrice": 0,
+            "Discount": 0,
+            "Remarks": "string",
+            "IsDishesSet": 0,
+            "DishesSet": [{
+                "DishesID": "string",
+                "Name": "string",
+                "Num": 0,
+                "Remarks": "string"
+            }]
+        }]
+    };
+    </script>
 </body>
 
 </html>
