@@ -435,9 +435,10 @@
 //筛选
 .nav{ font-size: $fz7; position: relative;
   .nav-container{};
-  .nav-container.active{ position: fixed; width: 100%; z-index: 2; top: 2.2rem;}
+  .nav-container.active{ position: fixed; width: 100%; z-index: 2; top: 2.2rem; }
   .nav-bg{
-    display: none; height: 100%;width: 100%; position: fixed; left: 0; top: 2.2rem; z-index: -1;
+    display: none;
+     height: 100%;width: 100%; position: fixed; left: 0; top: 2.2rem; z-index: -1;
     background: rgba(0,0,0,.7);
   }
 
@@ -455,7 +456,7 @@
     }
   }
   .bd{
-    display: none;
+    display: none; 
     section{ display: none; background: #fff; min-height: 15rem; max-height: 70vh;  overflow-y: scroll; }
     //section:first-of-type{ }
     //section:last-of-type{ }

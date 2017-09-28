@@ -246,14 +246,32 @@
       $tab_hd_a = $('.nav .tab .tab-hd a');
       $tab_bd_ul = $('.nav .tab .tab-bd ul');
       //  头部菜单
-      $hd_a.on('click', function() {
-          $('.nav .nav-container').addClass('active');
+
+       $hd_a.click( function() {
+          /*$('.nav .nav-container').addClass('active');
+          $(this).toggleClass('on').siblings().removeClass('on');
           $('.nav .nav-bg').show();
-          $(this).addClass('on').siblings().removeClass('on');
+          $('.nav .bd').show();*/
+           $('.nav .nav-container').addClass('active');
+          $(this).toggleClass('on').siblings().removeClass('on');
+          $('.nav .nav-bg').show();
           $('.nav .bd').show();
+
+
           var index = $hd_a.index(this);
           $bd_s.eq(index).show().siblings().hide();
+
       });
+
+
+// 点击灰色背景关闭
+      $('.nav .nav-bg').click(function(){
+          $('.nav-container.active').removeClass('active');
+          $('.nav-container .bd').hide();
+          $('.navbar a.on').removeClass('on');
+          $(this).hide();
+      })
+
 
       $tab_hd_a.first().addClass('on');
       $tab_bd_ul.first().show();
@@ -266,7 +284,10 @@
       $('.dropList li:first-of-type').addClass('on');
       $('.dropList li').on('click', function() {
           $(this).addClass('on').siblings().removeClass('on');
+          $('.navbar a.on').removeClass('on'); //取消头部选中效果
       });
+
+
 
       $('.scroller .dropList li').on('click',function () {
           $(this).parent().addClass('active').siblings().addClass('active');
@@ -327,12 +348,12 @@
                       
 
 //获取距离
-                  var geolocation = new BMap.Geolocation();
+                 /* var geolocation = new BMap.Geolocation();
                   geolocation.getCurrentPosition(function (pos) {
                       var lng1 = pos.point.lng;//当前经度
                        var lat1 = pos.point.lat;//当前纬度
                       console.log(lng2 + '<br>' + lat2);
-                  });
+                  });*/
 
 
 
@@ -405,51 +426,8 @@
           }
       });
 
-
   </script>
-  <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=XDPQcHSI21DpXbQ62SnAmTYTb9u4s1h2"></script>-->
-  <!--zxlp1023-->
-
- <!-- <script>
-    $(function () {
-        var geolocation = new BMap.Geolocation();
-        geolocation.getCurrentPosition(function (pos) {
-            var lng1 = pos.point.lng;//当前经度
-            var lat1 = pos.point.lat;//当前纬度
-            console.log(lng1 + '<br>' + lat1);
-        });
-
-        function getFlatternDistance(lat1, lng1, lat2, lng2) {//lat1, lng1 当前坐标  lat2, lng2数据库坐标
-            if (!bIsIphoneOs) {
-                lat1 = lat1 * 1;//reslove android don't run
-            }
-            var f = getRad((lat1 * 1 + lat2) / 2);
-            var g = getRad((lat1 - lat2) / 2);
-            var l = getRad((lng1 - lng2) / 2);
-            var sg = Math.sin(g);
-            var sl = Math.sin(l);
-            var sf = Math.sin(f);
-            var s, c, w, r, d, h1, h2;
-            var a = EARTH_RADIUS;
-            var fl = 1 / 298.257;
-            sg = sg * sg;
-            sl = sl * sl;
-            sf = sf * sf;
-            s = sg * (1 - sl) + (1 - sf) * sl;
-            c = (1 - sg) * (1 - sl) + sf * sl;
-            w = Math.atan(Math.sqrt(s / c));
-            r = Math.sqrt(s * c) / w;
-            d = 2 * w * a;
-            h1 = (3 * r - 1) / 2 / c;
-            h2 = (3 * r + 1) / 2 / s;
-            return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg));
-        }
-//        geolocation.getCurrentPosition();
-
-
-
-    })
-  </script>-->
+  
 </body>
 
 </html>
