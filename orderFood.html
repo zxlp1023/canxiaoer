@@ -89,7 +89,7 @@
                     var cateOn = $('.orderFood nav li');
                     cateOn.first().addClass('on');
                     cateOn.click(function() {
-                        $(this).addClass('on').siblings().removeClass('on');
+                        $(this).addClass('on').siblings().removeClass('on'); 
                     });
 
                     // 右侧菜品列表
@@ -184,19 +184,26 @@
 
                                     var myid =  $(this).parents('dl').attr('id') ;
                                     var deshesIdArr = $('.menuCont dl').map( function(){
-                                      return this.id;
+                                      return this.id
+
                                     }).get().join(',');
                                     // var nnn = deshesIdArr.sort(); 
-                                    // console.log(deshesIdArr)
+
+                                    // var deshesIdArr = [];
+                                    // var nn = deshesIdArr.push(myid);
 
                                     console.log(
-                                      $('.menuCont dl').length
+                                      // $('.menuCont dl').length
+                                      // deshesIdArr
+                                      deshesIdArr
                                       )
                                     var cartNum =  $('.menuCont dl').length;
-                                    if( cartNum > 0 ){
-                                      for( var n = 0 ; n < deshesIdArr.length; n++){
-                                        console.log( deshesIdArr );
-                                      }
+                                    var xx = ['aa','bb','cc'];
+                                    if( cartNum > 1 ){
+                                      // for( var i = 0 ; i < deshesIdArr.length; i++){
+                                      //   console.log( deshesIdArr[i] );
+                                      // }
+                                     
                                     }
 
 
