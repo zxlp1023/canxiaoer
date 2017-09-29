@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>意见反馈</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="description" content=" ">
+
+  <link rel="stylesheet" href="../src/css/weui.min.css">
+  <link rel="stylesheet" href="../dist/css/jquery-weui.css">
+  <link rel="stylesheet" href="../dist/css/fonts/iconfont.css">
+  <link rel="stylesheet" href="../dist/css/member.css">
+</head>
+
+<body ontouchstart >
+  <div class="backBar">
+    <a href="javascript:history.back()" class="back">
+      <i class="text-icon icon-shop-back"></i>
+    </a>
+    <p class="title">意见反馈</p>
+  </div>
+  <div class="opinion p075">
+    <textarea class="weui-textarea" placeholder="请留下您的宝贵意见，我们会认真阅读并更好的优 化产品。 " rows="5"></textarea>
+    <a href="" class="weui-btn weui-btn_pay">提交</a>
+  </div>
+
+<script src="../dist/js/jquery-2.1.4.js"></script>
+<script src="../dist/js/fastclick.js"></script>
+<script>
+$(function() {
+  FastClick.attach(document.body);
+});
+
+
+$('.question dl dd').first().show();
+$('.question dt').on('click',function () {
+    $(this).addClass('on').siblings().slideDown().parent().siblings().children('dd').slideUp().siblings('dt').removeClass('on');
+    $('.question dt:after').animate({left:'200px'});
+//    $('.question dt:after').css({'transform':'rotate(-45deg)'});
+
+})
+</script>
+<script src="../dist/js/jquery-weui.js"></script>
+
+</body>
+
+</html>
