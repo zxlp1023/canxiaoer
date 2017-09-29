@@ -27,6 +27,7 @@ function GetData(url, prams, success, error)//请求的url，请求传的参数�
     }
 })();
 // var reUrl = location.href;
+/*
 function isLogin() {
     if(!localStorage.id){
         // console.log( reUrl );
@@ -35,6 +36,7 @@ function isLogin() {
         return false;
     }
 }
+*/
 
 function GetCustomUrl(name)
 {

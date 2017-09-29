@@ -26,8 +26,8 @@
     <br>
     我的余额
     <p>1820.5</p>
-    <div class="weui-btn weui-btn_pay">提现</div>
-    <div class="weui-btn weui-btn_pay">银行卡</div>
+    <div class="weui-btn weui-btn_pay" id="tixian">提现</div>
+    <div class="weui-btn weui-btn_pay" id="bankCard">银行卡</div>
   </div>
 
 
@@ -39,7 +39,18 @@ $(function() {
 });
 </script>
 <script src="../dist/js/jquery-weui.js"></script>
-
+<script>
+  $('#tixian').click(
+    function(){
+      location.href = 'withdraw.html'
+    }
+    );
+  $('#bankCard').click(
+    function(){
+      location.href = 'card-manage.html'
+    }
+    );
+</script>
 </body>
 
 </html>

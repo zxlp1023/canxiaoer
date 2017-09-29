@@ -20,7 +20,7 @@
       <i class="text-icon icon-shop-back"></i>
     </a>
     <div class="title">我的银行卡</div>
-    <div class="talk"><i class="icon-member icon-member-add"></i></div>
+    <div class="talk"><i id="addBankCard" class="icon-member icon-member-add"></i></div>
   </div>
   <div class=" p075">
     <div class="cards">
@@ -64,7 +64,13 @@ $(function() {
 });
 </script>
 <script src="../dist/js/jquery-weui.js"></script>
-
+<script>
+$('#addBankCard').click(
+    function(){
+      location.href = 'card-add.html'
+    }
+    )
+</script>
 </body>
 
 </html>

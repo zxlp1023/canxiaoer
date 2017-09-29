@@ -23,11 +23,11 @@
       <p>餐币：20个</p>
     </header>
     <div class="weui-grids  text-center">
-      <a href="" class="weui-grid js_grid">
+      <a href="balance.html" class="weui-grid js_grid">
         <p>0<span>元</span></p>
         <p class="weui-grid__label">余额</p>
       </a>
-      <a href="" class="weui-grid js_grid">
+      <a href="coupon.html" class="weui-grid js_grid">
         <p>0<span>张</span></p>
         <p class="weui-grid__label">优惠券</p>
       </a>
@@ -39,7 +39,7 @@
   </div>
   <div class="my-order">
     <div class="border-t10">
-      <a href="#" class="dis-f">
+      <a href="order.html" class="dis-f">
         <i class="icon-member icon-member-myOrder"></i>
         <p>我的订单</p>
         <span class="fz12 hui94">查看全部订单</span>
@@ -64,24 +64,24 @@
       </a>
     </div>
     <div class="border-t10">
-      <a href="#" class="dis-f">
+      <a href="address-manage.html" class="dis-f">
         <i class="icon-member icon-member-myAddr"></i>
         <p>我的地址</p>
         <span class="fz12 hui94"></span>
       </a>
-      <a href="#" class="dis-f">
+      <a href="share.html" class="dis-f">
         <i class="icon-member icon-member-friend"></i>
         <p>推荐好友</p>
         <span class="fz12 hui94">推荐好友送餐币</span>
       </a>
     </div>
     <div class="border-t10">
-      <a href="#" class="dis-f">
+      <a href="service.html" class="dis-f">
         <i class="icon-member icon-member-service"></i>
         <p>客服中心</p>
         <span class="fz12 hui94"></span>
       </a>
-      <a href="#" class="dis-f">
+      <a href="suggest.html" class="dis-f">
         <i class="icon-member icon-member-idea"></i>
         <p>意见反馈</p>
         <span class="fz12 hui94"></span>
@@ -96,19 +96,19 @@
 
   <div class="footNav">
     <div class="weui-grids">
-      <a href="" class="weui-grid js_grid">
+      <a href="../index.html" class="weui-grid js_grid">
         <i class="iconfont icon-all"></i>
         <p class="weui-grid__label">首页</p>
       </a>
-      <a href="" class="weui-grid js_grid">
+      <a href="../recommendShop.html" class="weui-grid js_grid">
         <i class="iconfont icon-dianpu"></i>
         <p class="weui-grid__label">荐店</p>
       </a>
-      <a href="" class="weui-grid js_grid">
+      <a href="../discountShop.html" class="weui-grid js_grid">
         <i class="iconfont icon-zhekou"></i>
         <p class="weui-grid__label">折扣</p>
       </a>
-      <a href="" class="weui-grid js_grid  on">
+      <a href="index.html" class="weui-grid js_grid  on">
         <i class="iconfont icon-wode"></i>
         <p class="weui-grid__label">我的</p>
       </a>
@@ -130,6 +130,12 @@ $(function() {
       $('#name').html(localStorage.name);
       console.log();
   })
+</script>
+<script>
+  
+  $('#viewOrder').click(
+    function(){location.href = 'order.html'}
+    );
 </script>
 </body>
 

@@ -31,7 +31,7 @@
             <div class="menuPanel">
                 <div class="bg"></div>
                 <div class="menuCont">
-                    <div class="menuHd">购物车 <span class="fr"><i class="icon-shop icon-shop-delete"></i>清空购物车</span></div>
+                    <div class="menuHd">购物车 <span id="clearCart" class="fr"><i class="icon-shop icon-shop-delete"></i>清空购物车</span></div>
                     <!-- <dl>
                         <dt>
                             <div class="title">欢聚一趟套餐</div>
@@ -163,7 +163,7 @@
                                     // var addPrice = $(this).parent().siblings('.title').text(); //单个菜品总数
                                     // var add = $(this).parent().siblings('.title').text();
                                     
-                                    $('.menuCont').append( 
+                                    $('.menuCont').append(
                                       '<dl id="'+ id +'">'+
                                           '<dt>'+
                                               '<div class="title">'+ addName +'</div>'+
@@ -179,50 +179,27 @@
                                               '</div>'+
                                           '</dd>'+
                                       '</dl>'
-                                    )
+                                    );
 
 
                                     var myid =  $(this).parents('dl').attr('id') ;
                                     var deshesIdArr = $('.menuCont dl').map( function(){
-                                      return this.id
-                                    }).get().join(',');
+                                        /*console.log(myid);
+                                        console.log(this.id);
+                                        if(myid == this.id){
+                                            return this.id
+                                        }*/
+                                        return this.id
+                                    }).get().join(',').split(',');
+                                    console.log(deshesIdArr);
+                                   /*$.each(deshesIdArr,function (i,item) {
 
-                                    
-                                    // var nnn = deshesIdArr.sort(); 
-
-                                    // var deshesIdArr = [];
-                                    // var nn = deshesIdArr.push(myid);
-
-                                  /*  console.log(
-                                      // $('.menuCont dl').length
-                                      // deshesIdArr
-                                      deshesIdArr
-                                      )
-                                    var cartNum =  $('.menuCont dl').length;*/
-
-
-
-
-                                    
-
-                                    /*if( ){
-
-                                    }else{}*/
-
-                                    // var ary = new Array("111","22","33","111");
-
-                                    // var newDeshesIdArr = deshesIdArr.sort();
-
-                                    /*for(var i=0;i<deshesIdArr.length;i++){
-
-                                    if (newDeshesIdArr[i]==newDeshesIdArr[i+1]){
-
-                                      alert("数组重复内容："+newDeshesIdArr[i]);
-
-                                      }
+                                   });
+                                    if( $.inArray(myid,deshesIdArr) == -1 ){
 
                                     }*/
-                                    // console.log(deshesIdArr.sort());
+
+//                                    var proid = $('.menuCont dl').attr('id');
 
 
 
@@ -263,8 +240,23 @@
                                 var cart = $('.cart');
                                 cart.click(function(){
                                   $('.menuList').toggle();
+                                  $('.bg').click(function () {
+                                      $('.menuList').hide();
+                                  });
+
+                                    $('#clearCart').click(function () {  //清空购物车
+                                        $('.menuCont dl').remove();
+                                        $('.menuList').hide();
+                                        $('.weui-badge').text('0');
+                                        $('.btnGroup span').text('0');
+                                        $('.totalPrice span').text('0');
+//                                    alert(1)
+                                    })
+
                                 });
                                 //点菜结束
+
+
                             });
                         }
                     

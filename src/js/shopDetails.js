@@ -41,12 +41,14 @@ GetData(shopDetails, {}, function (json) {
                 $('#yuding').attr('href','reserve.html'+'?shopid='+shopId); /*预定链接的shopId*/
                 var backUrl = $('#yuding').attr('href');
 
-                if( isLogin() == false ){
+                /*if( login() == false ){
                     gotoLogin(backUrl);
                     return false;
                 }else{
-                    $('#yuding').attr('href','reserve.html'+'?shopid='+shopId); /*预定链接的shopId*/
-                }
+                    $('#yuding').attr('href','reserve.html'+'?shopid='+shopId); /!*预定链接的shopId*!/
+                }*/
+                $('#yuding').attr('href','reserve.html'+'?shopid='+shopId); /!*预定链接的shopId*!/
+
             });
 
         });

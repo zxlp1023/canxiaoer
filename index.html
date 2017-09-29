@@ -106,11 +106,11 @@
         <div class="bd">
           <section>
             <ul class="dropList">
-              <li><a href="javascript:;"><span>全部</span><span>22222</span></a></li>
+              <!-- <li><a href="javascript:;"><span>全部</span><span>22222</span></a></li>
               <li><a href="javascript:;"><span>全部1</span><span>22222</span></a></li>
               <li><a href="javascript:;"><span>全部2</span><span>22222</span></a></li>
               <li><a href="javascript:;"><span>全部3</span><span>22222</span></a></li>
-              <li><a href="javascript:;"><span>全部4</span><span>22222</span></a></li>
+              <li><a href="javascript:;"><span>全部4</span><span>22222</span></a></li> -->
             </ul>
           </section>
           <section>
@@ -123,26 +123,25 @@
                 <ul>
                   <div class="scroller">
                     <div class="dropList">
-                      <li><a href="javascript:;"><span>全部1</span><span>aaa</span></a></li>
-                      <li><a href="javascript:;"><span>全部2</span><span>bbb</span></a></li>
+                      <li><a href="javascript:;"><span>武侯区</span><span>111</span></a></li>
+                      <li><a href="javascript:;"><span>青羊区</span><span>222</span></a></li>
 
                     </div>
                     <div class="subRegion">
-                      <li><a href="javascript:;"><span>全部3</span><span>ccc</span></a></li>
-                      <li><a href="javascript:;"><span>全部4</span><span>ddd</span></a></li>
-
+                      <li><a href="javascript:;"><span>科华北路</span><span>11</span></a></li>
+                      <li><a href="javascript:;"><span>桐梓林</span><span>22</span></a></li>
                     </div>
                   </div>
                 </ul>
                 <ul>
                   <div class="scroller ">
                     <div class="dropList ">
-                      <li><a href="javascript:;"><span>全部5</span><span>eee</span></a></li>
-                      <li><a href="javascript:;"><span>全部6</span><span>ff</span></a></li>
+                      <li><a href="javascript:;"><span>1号线</span><span>eee</span></a></li>
+                      <li><a href="javascript:;"><span>2号线</span><span>ff</span></a></li>
                     </div>
                     <div class="subRegion">
-                      <li><a href="javascript:;"><span>全部7</span><span>ggg</span></a></li>
-                      <li><a href="javascript:;"><span>全部8</span><span>xxx</span></a></li>
+                      <li><a href="javascript:;"><span>测试a</span><span>ggg</span></a></li>
+                      <li><a href="javascript:;"><span>测试b</span><span>xxx</span></a></li>
                     </div>
                   </div>
                 </ul>
@@ -170,19 +169,19 @@
 
   <div class="footNav">
     <div class="weui-grids">
-      <a href="" class="weui-grid js_grid on">
+      <a href="index.html" class="weui-grid js_grid on">
         <i class="iconfont icon-all"></i>
         <p class="weui-grid__label">首页</p>
       </a>
-      <a href="" class="weui-grid js_grid">
+      <a href="recommendShop.html" class="weui-grid js_grid">
         <i class="iconfont icon-dianpu"></i>
         <p class="weui-grid__label">荐店</p>
       </a>
-      <a href="" class="weui-grid js_grid">
+      <a href="discountShop.html" class="weui-grid js_grid">
         <i class="iconfont icon-zhekou"></i>
         <p class="weui-grid__label">折扣</p>
       </a>
-      <a href="" class="weui-grid js_grid">
+      <a href="member/index.html" class="weui-grid js_grid">
         <i class="iconfont icon-wode"></i>
         <p class="weui-grid__label">我的</p>
       </a>
@@ -200,7 +199,7 @@
 <script src="dist/js/jquery-weui.js"></script>
 <script src="dist/js/swiper.min.js"></script>
 <script src="src/js/canxiaoer.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5297da43b6a06aa32416dee666dfd482"></script>
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5297da43b6a06aa32416dee666dfd482"></script> -->
 
   <script>
     $(".swiper-container").swiper({
@@ -231,8 +230,10 @@
             '</a>'
           )
 
-
-
+         //添加餐厅类型到筛选菜单
+         $('.nav .bd section:first-of-type .dropList').append(
+              '<li><a href="javascript:;" id="'+ value +'"><span>'+ name +'</span><span></span></a></li>'
+          )
       });
     }
   })
@@ -253,7 +254,7 @@
           $('.nav .nav-bg').show();
           $('.nav .bd').show();*/
            $('.nav .nav-container').addClass('active');
-          $(this).toggleClass('on').siblings().removeClass('on');
+          $(this).addClass('on').siblings().removeClass('on');
           $('.nav .nav-bg').show();
           $('.nav .bd').show();
 
@@ -294,15 +295,7 @@
           //alert(1)
       });
       //获取选中得值
-      //        全部
-      $('.nav .bd section:first a ').on('click',function () {
-          var $a1 =      $(this).children().first().text();
-          $('.nav .navbar  a:first').html($a1);
-          //关闭内容区域
-          $('.nav .nav-container').removeClass('active');
-          $('.nav .nav-bg').hide();
-          $('.nav .bd').hide();
-      });
+      
       //        附近
       $('.nav .subRegion a ').on('click',function () {
           var $a2 =      $(this).children().first().text();
@@ -341,11 +334,9 @@
                       pic = '',
                       score = item.Score,
                       renjun = item.PerPersonCost,
-                      shopid = item.ID,
-                      lat2 = item.Latitude,
-                      lng2 = item.Longitude;
-
-                      
+                      shopid = item.ID;
+                     /* lat2 = item.Latitude,
+                      lng2 = item.Longitude;*/
 
 //获取距离
                  /* var geolocation = new BMap.Geolocation();
@@ -356,35 +347,6 @@
                   });*/
 
 
-
-                  /*function getFlatternDistance(lat1, lng1, lat2, lng2) {//lat1, lng1 当前坐标  lat2, lng2数据库坐标
-                      if (!bIsIphoneOs) {
-                          lat1 = lat1 * 1;//reslove android don't run
-                      }
-                      var f = getRad((lat1 * 1 + lat2) / 2);
-                      var g = getRad((lat1 - lat2) / 2);
-                      var l = getRad((lng1 - lng2) / 2);
-                      var sg = Math.sin(g);
-                      var sl = Math.sin(l);
-                      var sf = Math.sin(f);
-                      var s, c, w, r, d, h1, h2;
-                      var a = EARTH_RADIUS;
-                      var fl = 1 / 298.257;
-                      sg = sg * sg;
-                      sl = sl * sl;
-                      sf = sf * sf;
-                      s = sg * (1 - sl) + (1 - sf) * sl;
-                      c = (1 - sg) * (1 - sl) + sf * sl;
-                      w = Math.atan(Math.sqrt(s / c));
-                      r = Math.sqrt(s * c) / w;
-                      d = 2 * w * a;
-                      h1 = (3 * r - 1) / 2 / c;
-                      h2 = (3 * r + 1) / 2 / s;
-                      return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg));
-                  }
-                  console.log(getFlatternDistance());
-                  //距离结束*/
-//                  console.log( lng2 + '<br>' + lat2 );
                   var url = 'shopDetails.html?shopid='+shopid;
                   $('.weui-panel__bd').append(
                       '<a href='+url+' class="weui-media-box weui-media-box_appmsg">'+
@@ -411,20 +373,98 @@
                       '</div>'+
                       '</a>'
                   );
-                  
-
                   //预点外套  
                   if(item.IsPreOrder !== 1){ $('.icon-mark-yuding').hide(); }
                   if(item.IsOrdered !== 1){ $('.icon-mark-diancan').hide(); }
 //                  if(item.IsTakeOut == 1){ $('.icon-mark-waimai').hide(); }
                   if(item.IsMealSet !== 1){ $('.icon-mark-taocan').hide(); }
-
                   //评分
                   var star = $('.star');
                   star.addClass('star-' + score);
-              });
+
+                  // 选择餐厅类型
+                  var diningRoomType = $('.nav .bd section:first a');
+                  diningRoomType.unbind('click').click(function() {
+                    $('.weui-panel__bd a').remove();//点击过后删除之前的商家列表
+                    var id = $(this).attr('id');
+                  // alert(id)
+                    var dtidShopList = 'http://119.23.135.79:8001/api/ServiceForApp/GetBusinessInfoListByDTID?Key=CanXiao2App&DTID=' + id;
+
+                        GetData(dtidShopList, {}, function (json) {
+                          if (json.IsResult)
+                          {
+                              $.each(json.Data, function (i,item)
+                              {
+                                  var shopName = item.Name,
+                                      pic = '',
+                                      score = item.Score,
+                                      renjun = item.PerPersonCost,
+                                      shopid = item.ID;
+                                  
+                                  $('.weui-panel__bd').append(
+                                      '<a href='+url+' class="weui-media-box weui-media-box_appmsg">'+
+                                      '<div class="weui-media-box__hd">'+
+                                      '<img class="weui-media-box__thumb" src="img/upload/a1.jpg">' +
+                                      '</div>'+
+                                      '<div class="weui-media-box__bd">'+
+                                      '<div class="dis-f">'+
+                                      '<h4 class="weui-media-box__title">'+
+                                      shopName +
+                                      '<span class="icon-mark icon-mark-yuding"></span>'+
+                                      '<span class="icon-mark icon-mark-diancan"></span>'+
+                //                      '<span class="icon-mark icon-mark-waimai"></span>'+
+                                      '<span class="icon-mark icon-mark-taocan"></span>'+
+                                      '</h4>'+
+                                      '</div>'+
+                                      '<div class="comment">'+
+                                      '<span class="star"></span>'+
+                                      '<span>人均:￥'+renjun+'</span>'+
+                                      '</div>'+
+                                      '<div class="intro">'+
+                                      '<span>'+'火锅'+'</span><span class="fr">'+'复城国际广场 1.5km'+'</span>'+
+                                      '</div>'+
+                                      '</div>'+
+                                      '</a>'
+                                  );
+                                  if(item.IsPreOrder !== 1){ $('.icon-mark-yuding').hide(); }
+                                  if(item.IsOrdered !== 1){ $('.icon-mark-diancan').hide(); }
+                //                  if(item.IsTakeOut == 1){ $('.icon-mark-waimai').hide(); }
+                                  if(item.IsMealSet !== 1){ $('.icon-mark-taocan').hide(); }
+                                  var star = $('.star');
+                                  star.addClass('star-' + score);
+
+                              })
+                          }
+                        }) //dtidShopList
+
+                        $(this).parent().addClass('on').siblings().removeClass('on');
+                        var $a1 =      $(this).children().first().text();
+                        $('.nav .navbar  a:first').html($a1);
+                        //关闭内容区域
+                        $('.nav .nav-container').removeClass('active');
+                        $('.nav .nav-bg').hide();
+                        $('.nav .bd').hide();
+                        $('.nav .navbar a').removeClass('on');
+                        // alert(id)
+
+                  })
+
+
+                  //        全部
+                  /*$('.nav .bd section:first a ').on('click',function () {
+                      var $a1 =      $(this).children().first().text();
+                      $(this).parent().addClass('on').siblings().removeClass('on');
+                      $('.nav .navbar  a:first').html($a1);
+                      //关闭内容区域
+                      // $('.nav .navbar a').removeClass('on');
+                      $('.nav .nav-container').removeClass('active');
+                      $('.nav .nav-bg').hide();
+                      $('.nav .bd').hide();
+                  });*/
+                  
+              });// end 选择餐厅类型
           }
-      });
+      });// end 获取商家列表
 
   </script>
   
