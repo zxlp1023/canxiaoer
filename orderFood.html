@@ -47,7 +47,6 @@
                             </div>
                         </dd>
                     </dl> -->
-                    
                 </div>
             </div>
         </div>
@@ -83,18 +82,18 @@
                     var dishesCateName = item.Name;
                     //左侧菜品分类
                     $('.orderFood nav').append(
-                        '<li><a href="#cate-' + (i+1) + '">' + dishesCateName + '</a></li>'
+                        '<li><a href="#cate-' + (i + 1) + '">' + dishesCateName + '</a></li>'
                     );
                     //设置菜单选中状态
                     var cateOn = $('.orderFood nav li');
                     cateOn.first().addClass('on');
                     cateOn.click(function() {
-                        $(this).addClass('on').siblings().removeClass('on'); 
+                        $(this).addClass('on').siblings().removeClass('on');
                     });
 
                     // 右侧菜品列表
                     $('.orderFood .con').append(
-                        '<div id="cate-' + (i+1) + '">' +
+                        '<div id="cate-' + (i + 1) + '">' +
                         '</div>'
                     );
 
@@ -115,10 +114,10 @@
                                 var dishesName = m.Name;
                                 var price = m.Price;
                                 var id = m.ID;
-                                
+
                                 // console.log(id);
-                                $('#cate-' + (i+1)).append(
-                                    '<dl id="'+ id +'">'+
+                                $('#cate-' + (i + 1)).append(
+                                    '<dl id="' + id + '">' +
                                     '<dt><img src="' + adminPic + '" alt=""></dt>' +
                                     '<dd>' +
                                     '<div class="title">' + dishesName + '</div>' +
@@ -132,15 +131,19 @@
                                     '<i class="icon-shop icon-shop-jia"></i>' +
                                     '</div>' +
                                     '</dd>' +
-                                    '</dl>' 
+                                    '</dl>'
                                 );
-                                
+
 
                                 //点菜
                                 var jia = $('.icon-shop-jia'),
                                     jian = $('.icon-shop-jian'),
                                     totalPrice = parseFloat($('.totalPrice span').text());
                                 //      console.log(totalPrice);
+
+
+                                var cart = {};
+                                cart.pro = []; //要放外卖, 放点击里面, 点击后每次会重新声明变量
 
                                 //      jia click
                                 jia.unbind('click').click(function() {
@@ -159,64 +162,47 @@
                                     //console.log(price);
 
                                     // 添加到购物车
-                                    var addName = $(this).parent().siblings('.title').text();  //菜品名称
+                                    var addName = $(this).parent().siblings('.title').text(); //菜品名称
                                     // var addPrice = $(this).parent().siblings('.title').text(); //单个菜品总数
                                     // var add = $(this).parent().siblings('.title').text();
-                                    
+
                                     $('.menuCont').append(
-                                      '<dl id="'+ id +'">'+
-                                          '<dt>'+
-                                              '<div class="title">'+ addName +'</div>'+
-                                          '</dt>'+
-                                          '<dd>'+
-                                              '<div class="price">'+
-                                                  '<span>'+ price +'</span>'+
-                                              '</div>'+
-                                              '<div class="btnGroup">'+
-                                                  '<i class="icon-shop icon-shop-jian"></i>'+
-                                                  '<span>'+ all +'</span>'+
-                                                  '<i class="icon-shop icon-shop-jia"></i>'+
-                                              '</div>'+
-                                          '</dd>'+
-                                      '</dl>'
+                                        '<dl id="' + id + '">' +
+                                        '<dt>' +
+                                        '<div class="title">' + addName + '</div>' +
+                                        '</dt>' +
+                                        '<dd>' +
+                                        '<div class="price">' +
+                                        '<span>' + price + '</span>' +
+                                        '</div>' +
+                                        '<div class="btnGroup">' +
+                                        '<i class="icon-shop icon-shop-jian"></i>' +
+                                        '<span>' + all + '</span>' +
+                                        '<i class="icon-shop icon-shop-jia"></i>' +
+                                        '</div>' +
+                                        '</dd>' +
+                                        '</dl>'
                                     );
+                                    var myid = $(this).parents('dl').attr('id');
 
+                                    var pro = { id: myid, name: addName, price: price, num: num };
 
-                                    var myid =  $(this).parents('dl').attr('id') ;
-                                    var deshesIdArr = $('.menuCont dl').map( function(){
-                                        /*console.log(myid);
-                                        console.log(this.id);
-                                        if(myid == this.id){
-                                            return this.id
-                                        }*/
-                                        return this.id
-                                    }).get().join(',').split(',');
-                                    console.log(deshesIdArr);
-                                   /*$.each(deshesIdArr,function (i,item) {
+                                    cart.pro.push(pro);
 
-                                   });
-                                    if( $.inArray(myid,deshesIdArr) == -1 ){
+                                    $.each(cart.pro, function(x, y) {
+                                      console.log()
+                                      console.log(y)
+                                    });
 
-                                    }*/
+                                    console.log(cart)
 
-//                                    var proid = $('.menuCont dl').attr('id');
+                                    //添加到缓存
 
+                                    // cart = JSON.stringify(cart);  第二次点击push无效  因为被转换成json了   需要再购物车点击的时候转换
+                                    // localStorage.setItem('cart', cart);
 
-
-                                    //添加本地存储
-                                    var title = $(this).parent().siblings('.title').text(); //菜品名称
-                                    var singlePrice = num * price; //单个菜品总价
-
-                                    var ls = localStorage;
-                                    ls = {
-                                        title: title,
-                                        singlePrice: singlePrice,
-                                        num: num,
-                                        cont: count
-                                    };
-                                    console.log('名称:  '+ls.title + '  总价  ' +ls.singlePrice + '  份数  ' + ls.num + '  所有菜品份数  ' + ls.count)
                                     
-                                });
+                                }); // jia end
 
                                 //      jian
                                 jian.unbind('click').click(function() {
@@ -234,36 +220,34 @@
                                     $('.weui-badge').text(count -= 1);
 
                                     //          console.log(price);
-                                  });
+                                });
 
                                 // 购物车
-                                var cart = $('.cart');
-                                cart.click(function(){
-                                  $('.menuList').toggle();
-                                  $('.bg').click(function () {
-                                      $('.menuList').hide();
-                                  });
+                                $('.cart').click(function() {
+                                    $('.menuList').toggle();
+                                    $('.bg').click(function() {
+                                        $('.menuList').hide();
+                                    });
 
-                                    $('#clearCart').click(function () {  //清空购物车
+                                    $('#clearCart').click(function() { //清空购物车
                                         $('.menuCont dl').remove();
                                         $('.menuList').hide();
                                         $('.weui-badge').text('0');
                                         $('.btnGroup span').text('0');
                                         $('.totalPrice span').text('0');
-//                                    alert(1)
+                                        //                                    alert(1)
                                     })
 
                                 });
                                 //点菜结束
 
-
                             });
                         }
-                    
+
                     });
 
                 });
-            }            
+            }
         });
 
     });
